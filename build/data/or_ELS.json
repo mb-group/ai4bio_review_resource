@@ -1,0 +1,69 @@
+{
+ "data": {
+  "n": "Data",
+  "def": "Determines what information goes into the model and in which form, including the training corpus and tokenization strategy.",
+  "ex": "ESM2 is trained on UniRef protein sequences tokenized as individual amino acids.",
+  "exr": [
+   6
+  ],
+  "says": "Data sets what can be known.",
+  "layer": "Knowledge missing because observations were never or rarely collected.",
+  "g": "Corpus"
+ },
+ "arch": {
+  "n": "Model architecture",
+  "def": "Determines how information is processed to extract and store learned properties, such as protein grammar.",
+  "ex": "The leading architecture, used by ESM2, is the Transformer, whose self-attention relates every token to every other token.",
+  "exr": [
+   6,
+   34
+  ],
+  "says": "Architecture sets which relationships can be captured efficiently.",
+  "layer": "Knowledge hard to learn because the architecture cannot span it.",
+  "g": "Transformer"
+ },
+ "train": {
+  "n": "Training scheme",
+  "def": "Determines what the model is rewarded to learn.",
+  "ex": "In masked language modeling, used by ESM2, randomly hidden amino acids are predicted from the surrounding sequence.",
+  "exr": [
+   38,
+   6
+  ],
+  "says": "The training scheme sets what is rewarded and therefore what a model is good at.",
+  "layer": "Knowledge hard to learn because the objective does not reward it, as with cause and effect.",
+  "g": "Masked language modeling"
+ },
+ "evalu": {
+  "n": "Evaluation scheme",
+  "def": "Determines how the model is judged, at two levels: intrinsic and downstream.",
+  "ex": "Intrinsic: whether ESM2 recovers residue contacts. Downstream: shared benchmarks such as ProteinGym.",
+  "exr": [
+   6,
+   44
+  ],
+  "says": "Evaluation sets what becomes visible.",
+  "layer": "Capability hidden or exaggerated by evaluation.",
+  "g": "Intrinsic and downstream evaluation"
+ },
+ "post": {
+  "n": "Post-analysis",
+  "def": "Determines how a trained model is used: probing, fine-tuning, use as is, and interpretability analysis.",
+  "ex": "ESM2 likelihoods score mutations with no further training; embeddings can be probed or fine-tuned.",
+  "exr": [
+   25
+  ],
+  "says": "Post-analysis sets what becomes accessible.",
+  "layer": "Knowledge present in the model but inaccessible to current analysis.",
+  "g": "Probing"
+ },
+ "agent": {
+  "n": "Agentic systems",
+  "def": "",
+  "ex": "",
+  "exr": [],
+  "says": "",
+  "layer": "An agent that calls a foundation model inherits that model’s boundary, and adds an orchestration boundary of its own, since agents with the same tools can differ in how well they select and combine them.",
+  "g": "Orchestration boundary"
+ }
+}

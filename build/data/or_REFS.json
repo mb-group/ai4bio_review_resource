@@ -1,0 +1,806 @@
+{
+ "1": {
+  "s": "Kendrew et al.",
+  "y": "1960",
+  "t": "Kendrew JC, Dickerson RE, Strandberg BE, Hart RG, Davies DR, et al. 1960. Structure of myoglobin: a three-dimensional Fourier synthesis at 2 Å resolution. Nature 185:422–27",
+  "u": null
+ },
+ "2": {
+  "s": "Berman et al.",
+  "y": "2000",
+  "t": "Berman HM, Westbrook J, Feng Z, Gilliland G, Bhat TN, et al. 2000. The Protein Data Bank. Nucleic Acids Res. 28:235–42",
+  "u": null
+ },
+ "3": {
+  "s": "wwPDB",
+  "y": "2026",
+  "t": "wwPDB (Worldw. Protein Data Bank). 2026. PDB reaches a new milestone. EMBL-EBI News, Mar. 6.",
+  "u": "https://www.ebi.ac.uk/emdb/news/PDB-250k"
+ },
+ "4": {
+  "s": "Jumper et al.",
+  "y": "2021",
+  "t": "Jumper J, Evans R, Pritzel A, Green T, Figurnov M, et al. 2021. Highly accurate protein structure prediction with AlphaFold. Nature 596:583–89",
+  "u": null
+ },
+ "5": {
+  "s": "Abramson et al.",
+  "y": "2024",
+  "t": "Abramson J, Adler J, Dunger J, Evans R, Green T, et al. 2024. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature 630:493–500",
+  "u": null
+ },
+ "6": {
+  "s": "Lin et al.",
+  "y": "2023",
+  "t": "Lin Z, Akin H, Rao R, Hie B, Zhu Z, et al. 2023. Evolutionary-scale prediction of atomic-level protein structure with a language model. Science 379:1123–30",
+  "u": null
+ },
+ "7": {
+  "s": "Dalla-Torre et al.",
+  "y": "2025",
+  "t": "Dalla-Torre H, Gonzalez L, Mendoza-Revilla J, Lopez Carranza N, Grzywaczewski AH, et al. 2025. Nucleotide Transformer: building and evaluating robust foundation models for human genomics. Nat. Methods 22:287–97",
+  "u": null
+ },
+ "8": {
+  "s": "Brixi et al.",
+  "y": "2026",
+  "t": "Brixi G, Durrant MG, Ku J, Naghipourfar M, Poli M, et al. 2026. Genome modelling and design across all domains of life with Evo 2. Nature 652:1349–61",
+  "u": null
+ },
+ "9": {
+  "s": "Theodoris et al.",
+  "y": "2023",
+  "t": "Theodoris CV, Xiao L, Chopra A, Chaffin MD, Al Sayed ZR, et al. 2023. Transfer learning enables predictions in network biology. Nature 618:616–24",
+  "u": null
+ },
+ "10": {
+  "s": "Cui et al.",
+  "y": "2024",
+  "t": "Cui H, Wang C, Maan H, Pang K, Luo F, et al. 2024. scGPT: toward building a foundation model for single-cell multi-omics using generative AI. Nat. Methods 21:1470–80",
+  "u": null
+ },
+ "11": {
+  "s": "Rosen et al.",
+  "y": "2023",
+  "t": "Rosen Y, Roohani Y, Agrawal A, Samotorcan L, Tabula Sapiens Consortium, et al. 2023. Universal Cell Embeddings: a foundation model for cell biology. bioRxiv 2023.11.28.568918.",
+  "u": "https://doi.org/10.1101/2023.11.28.568918"
+ },
+ "12": {
+  "s": "Wang et al.",
+  "y": "2025",
+  "t": "Wang Z, Jin Q, Wei C-H, Tian S, Lai P-T, et al. 2025. GeneAgent: self-verification language agent for gene-set analysis using domain databases. Nat. Methods 22:1677–85",
+  "u": null
+ },
+ "13": {
+  "s": "Alber et al.",
+  "y": "2026",
+  "t": "Alber S, Chen B, Sun E, Isakova A, Wilk AJ, Zou J. 2026. CellVoyager: AI CompBio agent generates new insights by autonomously analyzing biological data. Nat. Methods 23:749–59",
+  "u": null
+ },
+ "14": {
+  "s": "Gao et al.",
+  "y": "2025",
+  "t": "Gao S, Zhu R, Kong Z, Noori A, Su X, et al. 2025. TxAgent: an AI agent for therapeutic reasoning across a universe of tools. arXiv:2503.10970 [cs.AI]",
+  "u": null
+ },
+ "15": {
+  "s": "Mitchener et al.",
+  "y": "2025",
+  "t": "Mitchener L, Laurent JM, Tenmann B, Narayanan S, Wellawatte GP, et al. 2025. BixBench: a comprehensive benchmark for LLM-based agents in computational biology. arXiv:2503.00096 [q-bio.QM]",
+  "u": null
+ },
+ "16": {
+  "s": "Panigrahi et al.",
+  "y": "2026",
+  "t": "Panigrahi SS, Videnović J, Brbić M. 2026. HeurekaBench: a benchmarking framework for AI co-scientist. arXiv:2601.01678 [cs.AI]",
+  "u": null
+ },
+ "17": {
+  "s": "Huang et al.",
+  "y": "2026",
+  "t": "Huang K, Zhang S, Wang H, Qu Y, Lu Y, et al. 2026. Autonomous biomedical research with an artificial intelligence agent. Science.",
+  "u": "https://doi.org/10.1126/science.adz4351"
+ },
+ "18": {
+  "s": "Zhang et al.",
+  "y": "2026",
+  "t": "Zhang HG, Eckmann P, Miao J, Mahon AB, Zou J. 2026. The Virtual Biotech: a multi-agent AI framework for therapeutic discovery and development. bioRxiv 2026.02.23.707551.",
+  "u": "https://doi.org/10.64898/2026.02.23.707551"
+ },
+ "19": {
+  "s": "de Almeida et al.",
+  "y": "2025",
+  "t": "de Almeida BP, Richard G, Dalla-Torre H, Blum C, Hexemer L, et al. 2025. A multimodal conversational agent for DNA, RNA and protein tasks. Nat. Mach. Intell. 7(6).",
+  "u": "https://doi.org/10.1038/s42256-025-01047-1"
+ },
+ "20": {
+  "s": "Schaefer et al.",
+  "y": "2025",
+  "t": "Schaefer M, Peneder P, Malzl D, Lombardo SD, Peycheva M, et al. 2025. Multimodal learning enables chat-based exploration of single-cell data. Nat. Biotechnol.",
+  "u": "https://doi.org/10.1038/s41587-025-02857-9"
+ },
+ "21": {
+  "s": "Fallahpour et al.",
+  "y": "2025",
+  "t": "Fallahpour A, Magnuson A, Gupta P, Ma S, Naimer J, et al. 2025. BioReason: incentivizing multimodal biological reasoning within a DNA-LLM model. In Advances in Neural Information Processing Systems 38 (NeurIPS 2025). arXiv:2505.23579",
+  "u": null
+ },
+ "22": {
+  "s": "Bommasani et al.",
+  "y": "2021",
+  "t": "Bommasani R, Hudson DA, Adeli E, Altman R, Arora S, et al. 2021. On the opportunities and risks of foundation models. arXiv:2108.07258 [cs.LG]",
+  "u": null
+ },
+ "23": {
+  "s": "Avsec et al.",
+  "y": "2026",
+  "t": "Avsec Ž, Latysheva N, Cheng J, Novati G, Taylor KR, et al. 2026. Advancing regulatory variant effect prediction with AlphaGenome. Nature 649:1206–18",
+  "u": null
+ },
+ "24": {
+  "s": "Adduri et al.",
+  "y": "2025",
+  "t": "Adduri AK, Gautam D, Bevilacqua B, Imran A, Shah R, et al. 2025. Predicting cellular responses to perturbation across diverse contexts with State. bioRxiv 2025.06.26.661135.",
+  "u": "https://doi.org/10.1101/2025.06.26.661135"
+ },
+ "25": {
+  "s": "Meier et al.",
+  "y": "2021",
+  "t": "Meier J, Rao R, Verkuil R, Liu J, Sercu T, Rives A. 2021. Language models enable zero-shot prediction of the effects of mutations on protein function. In Advances in Neural Information Processing Systems 34 (NeurIPS 2021), pp. 29287–303. Red Hook, NY: Curran",
+  "u": null
+ },
+ "26": {
+  "s": "Zhou et al.",
+  "y": "2024",
+  "t": "Zhou Z, Ji Y, Li W, Dutta P, Davuluri R, Liu H. 2024. DNABERT-2: efficient foundation model and benchmark for multi-species genome. Paper presented at the 12th International Conference on Learning Representations (ICLR 2024), Vienna",
+  "u": null
+ },
+ "27": {
+  "s": "Sanabria et al.",
+  "y": "2024",
+  "t": "Sanabria M, Hirsch J, Joubert PM, Poetsch AR. 2024. DNA language model GROVER learns sequence context in the human genome. Nat. Mach. Intell. 6:911–23",
+  "u": null
+ },
+ "28": {
+  "s": "UniProt Consortium",
+  "y": "2025",
+  "t": "UniProt Consortium. 2025. UniProt: the Universal Protein Knowledgebase in 2025. Nucleic Acids Res. 53:D609–17",
+  "u": null
+ },
+ "29": {
+  "s": "CZI Cell Science Program et al.",
+  "y": "2025",
+  "t": "CZI Cell Science Program, Abdulla S, Aevermann B, Assis P, Badajoz S, et al. 2025. CZ CELLxGENE Discover: a single-cell data platform for scalable exploration, analysis and modeling of aggregated data. Nucleic Acids Res. 53:D886–900",
+  "u": null
+ },
+ "30": {
+  "s": "Hayes et al.",
+  "y": "2025",
+  "t": "Hayes T, Rao R, Akin H, Sofroniew NJ, Oktay D, et al. 2025. Simulating 500 million years of evolution with a language model. Science 387:850–58",
+  "u": null
+ },
+ "31": {
+  "s": "Grattafiori et al.",
+  "y": "2024",
+  "t": "Grattafiori A, Dubey A, Jauhri A, Pandey A, Kadian A, et al. 2024. The Llama 3 herd of models. arXiv:2407.21783 [cs.AI]",
+  "u": null
+ },
+ "32": {
+  "s": "Ding & Steinhardt",
+  "y": "2024",
+  "t": "Ding F, Steinhardt J. 2024. Protein language models are biased by unequal sequence sampling across the tree of life. bioRxiv 2024.03.07.584001.",
+  "u": "https://doi.org/10.1101/2024.03.07.584001"
+ },
+ "33": {
+  "s": "Quiroga et al.",
+  "y": "2005",
+  "t": "Quiroga RQ, Reddy L, Kreiman G, Koch C, Fried I. 2005. Invariant visual representation by single neurons in the human brain. Nature 435:1102–7",
+  "u": null
+ },
+ "34": {
+  "s": "Vaswani et al.",
+  "y": "2017",
+  "t": "Vaswani A, Shazeer N, Parmar N, Uszkoreit J, Jones L, et al. 2017. Attention is all you need. In Advances in Neural Information Processing Systems 30 (NIPS 2017), pp. 5998–6008. Red Hook, NY: Curran",
+  "u": null
+ },
+ "35": {
+  "s": "Nguyen et al.",
+  "y": "2023",
+  "t": "Nguyen E, Poli M, Faizi M, Thomas A, Wornow M, et al. 2023. HyenaDNA: long-range genomic sequence modeling at single nucleotide resolution. In Advances in Neural Information Processing Systems 36 (NeurIPS 2023). Red Hook, NY: Curran",
+  "u": null
+ },
+ "36": {
+  "s": "Schiff et al.",
+  "y": "2024",
+  "t": "Schiff Y, Kao C-H, Gokaslan A, Dao T, Gu A, Kuleshov V. 2024. Caduceus: bi-directional equivariant long-range DNA sequence modeling. Proc. Mach. Learn. Res. 235:43632–48",
+  "u": null
+ },
+ "37": {
+  "s": "Li et al.",
+  "y": "2024",
+  "t": "Li MM, Huang Y, Sumathipala M, Liang MQ, Valdeolivas A, et al. 2024. Contextual AI models for single-cell protein biology. Nat. Methods 21:1546–57",
+  "u": null
+ },
+ "38": {
+  "s": "Devlin et al.",
+  "y": "2019",
+  "t": "Devlin J, Chang M-W, Lee K, Toutanova K. 2019. BERT: pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 4171–86. Stroudsburg, PA: Assoc. Comput. Linguist",
+  "u": null
+ },
+ "39": {
+  "s": "Radford et al.",
+  "y": "2018",
+  "t": "Radford A, Narasimhan K, Salimans T, Sutskever I. 2018. Improving language understanding by generative pre-training. Tech. Rep., OpenAI, San Francisco",
+  "u": null
+ },
+ "40": {
+  "s": "Nijkamp et al.",
+  "y": "2023",
+  "t": "Nijkamp E, Ruffolo JA, Weinstein EN, Naik N, Madani A. 2023. ProGen2: exploring the boundaries of protein language models. Cell Syst. 14:968–78.e3",
+  "u": null
+ },
+ "41": {
+  "s": "Nguyen et al.",
+  "y": "2024",
+  "t": "Nguyen E, Poli M, Durrant MG, Kang B, Katrekar D, et al. 2024. Sequence modeling and design from molecular to genome scale with Evo. Science 386:eado9336",
+  "u": null
+ },
+ "42": {
+  "s": "Fradkin et al.",
+  "y": "2024",
+  "t": "Fradkin P, Shi R, Isaev K, Frey BJ, Morris Q, et al. 2024. Orthrus: towards evolutionary and functional RNA foundation models. bioRxiv 2024.10.10.617658.",
+  "u": "https://doi.org/10.1101/2024.10.10.617658"
+ },
+ "43": {
+  "s": "Heimberg et al.",
+  "y": "2025",
+  "t": "Heimberg G, Kuo T, DePianto DJ, Salem O, Heigl T, et al. 2025. A cell atlas foundation model for scalable search of similar human cells. Nature 638:1085–94",
+  "u": null
+ },
+ "44": {
+  "s": "Notin et al.",
+  "y": "2023",
+  "t": "Notin P, Kollasch AW, Ritter D, van Niekerk L, Paul S, et al. 2023. ProteinGym: large-scale benchmarks for protein fitness prediction and design. In Advances in Neural Information Processing Systems 36 (NeurIPS 2023), Datasets and Benchmarks Track. Red Hook, NY: Curran",
+  "u": null
+ },
+ "45": {
+  "s": "Pampari et al.",
+  "y": "2024",
+  "t": "Pampari A, Shcherbina A, Kvon EZ, Kosicki M, Nair S, et al. 2024. ChromBPNet: bias factorized, base-resolution deep learning models of chromatin accessibility reveal cis-regulatory sequence syntax, transcription factor footprints and regulatory variants. bioRxiv 2024.12.25.630221.",
+  "u": "https://doi.org/10.1101/2024.12.25.630221"
+ },
+ "46": {
+  "s": "Chen et al.",
+  "y": "2022",
+  "t": "Chen J, Hu Z, Sun S, Tan Q, Wang Y, et al. 2022. Interpretable RNA foundation model from unannotated data for highly accurate RNA structure and function predictions. arXiv:2204.00300 [q-bio.QM]",
+  "u": null
+ },
+ "47": {
+  "s": "Penić et al.",
+  "y": "2025",
+  "t": "Penić RJ, Vlašić T, Huber RG, Wan Y, Šikić M. 2025. RiNALMo: general-purpose RNA language models can generalize well on structure prediction tasks. Nat. Commun. 16:5671",
+  "u": null
+ },
+ "48": {
+  "s": "Kang et al.",
+  "y": "2025",
+  "t": "Kang B, Fan R, Yi M, Cui C, Cui Q. 2025. A large-scale foundation model for bulk transcriptomes. bioRxiv 2025.06.11.659222.",
+  "u": "https://doi.org/10.1101/2025.06.11.659222"
+ },
+ "49": {
+  "s": "Tejada-Lapuerta et al.",
+  "y": "2025",
+  "t": "Tejada-Lapuerta A, Schaar AC, Gutgesell R, Palla G, Halle L, et al. 2025. Nicheformer: a foundation model for single-cell and spatial omics. Nat. Methods.",
+  "u": "https://doi.org/10.1038/s41592-025-02814-z"
+ },
+ "50": {
+  "s": "Wenckstern et al.",
+  "y": "2025",
+  "t": "Wenckstern J, Jain E, Vasilev K, Pariset M, Wicki A, et al. 2025. AI-powered virtual tissues from spatial proteomics for clinical diagnostics and biomedical discovery. arXiv:2501.06039 [q-bio.QM]",
+  "u": null
+ },
+ "51": {
+  "s": "Elnaggar et al.",
+  "y": "2022",
+  "t": "Elnaggar A, Heinzinger M, Dallago C, Rehawi G, Wang Y, et al. 2022. ProtTrans: toward understanding the language of life through self-supervised learning. IEEE Trans. Pattern Anal. Mach. Intell. 44:7112–27",
+  "u": null
+ },
+ "52": {
+  "s": "Su et al.",
+  "y": "2024",
+  "t": "Su J, Han C, Zhou Y, Shan J, Zhou X, Yuan F. 2024. SaProt: protein language modeling with structure-aware vocabulary. Paper presented at the 12th International Conference on Learning Representations (ICLR 2024), Vienna",
+  "u": null
+ },
+ "53": {
+  "s": "Elnaggar et al.",
+  "y": "2023",
+  "t": "Elnaggar A, Essam H, Salah-Eldin W, Moustafa W, Elkerdawy M, et al. 2023. Ankh: optimized protein language model unlocks general-purpose modelling. arXiv:2301.06568 [cs.LG]",
+  "u": null
+ },
+ "54": {
+  "s": "Yang et al.",
+  "y": "2024",
+  "t": "Yang X, Liu G, Feng G, Bu D, Wang P, et al. 2024. GeneCompass: deciphering universal gene regulatory mechanisms with a knowledge-informed cross-species foundation model. Cell Res. 34:830–45",
+  "u": null
+ },
+ "55": {
+  "s": "Song et al.",
+  "y": "2024",
+  "t": "Song L, Segal E, Xing E. 2024. Toward AI-driven digital organism: multiscale foundation models for predicting, simulating and programming biology at all levels. arXiv:2412.06993 [q-bio.QM]",
+  "u": null
+ },
+ "56": {
+  "s": "Avsec et al.",
+  "y": "2021",
+  "t": "Avsec Ž, Agarwal V, Visentin D, Ledsam JR, Grabska-Barwinska A, et al. 2021. Effective gene expression prediction from sequence by integrating long-range interactions. Nat. Methods 18:1196–203",
+  "u": null
+ },
+ "57": {
+  "s": "Linder et al.",
+  "y": "2025",
+  "t": "Linder J, Srivastava D, Yuan H, Agarwal V, Kelley DR. 2025. Predicting RNA-seq coverage from DNA sequence as a unifying model of gene regulation. Nat. Genet. 57:949–61",
+  "u": null
+ },
+ "58": {
+  "s": "Hingerl et al.",
+  "y": "2025",
+  "t": "Hingerl JC, Martens LD, Karollus A, Manz T, Buenrostro JD, et al. 2025. scooby: modeling multimodal genomic profiles from DNA sequence at single-cell resolution. Nat. Methods 22.",
+  "u": "https://doi.org/10.1038/s41592-025-02854-5"
+ },
+ "59": {
+  "s": "Frazer et al.",
+  "y": "2021",
+  "t": "Frazer J, Notin P, Dias M, Gomez A, Min JK, et al. 2021. Disease variant prediction with deep generative models of evolutionary data. Nature 599:91–95",
+  "u": null
+ },
+ "60": {
+  "s": "Cheng et al.",
+  "y": "2023",
+  "t": "Cheng J, Novati G, Pan J, Bycroft C, Žemgulytė A, et al. 2023. Accurate proteome-wide missense variant effect prediction with AlphaMissense. Science 381:eadg7492",
+  "u": null
+ },
+ "61": {
+  "s": "Orenbuch et al.",
+  "y": "2025",
+  "t": "Orenbuch R, Shearer CA, Kollasch AW, Spinner AD, Hopf T, et al. 2025. Proteome-wide model for human disease genetics. Nat. Genet.",
+  "u": "https://doi.org/10.1038/s41588-025-02400-1"
+ },
+ "62": {
+  "s": "Madani et al.",
+  "y": "2023",
+  "t": "Madani A, Krause B, Greene ER, Subramanian S, Mohr BP, et al. 2023. Large language models generate functional protein sequences across diverse families. Nat. Biotechnol. 41:1099–106",
+  "u": null
+ },
+ "63": {
+  "s": "Lal et al.",
+  "y": "2024",
+  "t": "Lal A, Garfield D, Biancalani T, Eraslan G. 2024. Designing realistic regulatory DNA with autoregressive language models. Genome Res. 34:1411–20",
+  "u": null
+ },
+ "64": {
+  "s": "Fallahpour et al.",
+  "y": "2025",
+  "t": "Fallahpour A, Gureghian V, Filion GJ, Lindner AB, Pandi A. 2025. CodonTransformer: a multispecies codon optimizer using context-aware neural networks. Nat. Commun. 16:3205",
+  "u": null
+ },
+ "65": {
+  "s": "Joshi et al.",
+  "y": "2025",
+  "t": "Joshi CK, Jamasb AR, Viñas R, Harris C, Mathis SV, et al. 2025. gRNAde: geometric deep learning for 3D RNA inverse design. Paper presented at the 13th International Conference on Learning Representations (ICLR 2025), Singapore",
+  "u": null
+ },
+ "66": {
+  "s": "Bunne et al.",
+  "y": "2023",
+  "t": "Bunne C, Stark SG, Gut G, del Castillo JS, Levesque M, et al. 2023. Learning single-cell perturbation responses using neural optimal transport. Nat. Methods 20:1759–68",
+  "u": null
+ },
+ "67": {
+  "s": "Roohani et al.",
+  "y": "2024",
+  "t": "Roohani Y, Huang K, Leskovec J. 2024. Predicting transcriptional outcomes of novel multigene perturbations with GEARS. Nat. Biotechnol. 42:927–35",
+  "u": null
+ },
+ "68": {
+  "s": "Ouyang et al.",
+  "y": "2022",
+  "t": "Ouyang L, Wu J, Jiang X, Almeida D, Wainwright CL, et al. 2022. Training language models to follow instructions with human feedback. In Advances in Neural Information Processing Systems 35 (NeurIPS 2022), pp. 27730–44. Red Hook, NY: Curran",
+  "u": null
+ },
+ "69": {
+  "s": "Lewis et al.",
+  "y": "2020",
+  "t": "Lewis P, Perez E, Piktus A, Petroni F, Karpukhin V, et al. 2020. Retrieval-augmented generation for knowledge-intensive NLP tasks. In Advances in Neural Information Processing Systems 33 (NeurIPS 2020), pp. 9459–74. Red Hook, NY: Curran",
+  "u": null
+ },
+ "70": {
+  "s": "Schick et al.",
+  "y": "2023",
+  "t": "Schick T, Dwivedi-Yu J, Dessì R, Raileanu R, Lomeli M, et al. 2023. Toolformer: language models can teach themselves to use tools. In Advances in Neural Information Processing Systems 36 (NeurIPS 2023). Red Hook, NY: Curran",
+  "u": null
+ },
+ "71": {
+  "s": "Yao et al.",
+  "y": "2023",
+  "t": "Yao S, Zhao J, Yu D, Du N, Shafran I, et al. 2023. ReAct: synergizing reasoning and acting in language models. Paper presented at the 11th International Conference on Learning Representations (ICLR 2023), Kigali, Rwanda",
+  "u": null
+ },
+ "72": {
+  "s": "Guo et al.",
+  "y": "2025",
+  "t": "Guo D, Yang D, Zhang H, Song J, Wang P, et al. 2025. DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning. Nature 645:633–38",
+  "u": null
+ },
+ "73": {
+  "s": "Yue et al.",
+  "y": "2025",
+  "t": "Yue Y, Chen Z, Lu R, Zhao A, Wang Z, et al. 2025. Does reinforcement learning really incentivize reasoning capacity in LLMs beyond the base model? arXiv:2504.13837 [cs.AI]",
+  "u": null
+ },
+ "74": {
+  "s": "Anthropic",
+  "y": "2024",
+  "t": "Anthropic. 2024. Introducing the Model Context Protocol. Anthropic News, Nov. 25.",
+  "u": "https://www.anthropic.com/news/model-context-protocol"
+ },
+ "75": {
+  "s": "Anthropic",
+  "y": "2025",
+  "t": "Anthropic. 2025. Equipping agents for the real world with Agent Skills. Anthropic Engineering Blog, Oct. 16.",
+  "u": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+ },
+ "76": {
+  "s": "Young",
+  "y": "2025",
+  "t": "Young J. 2025. Effective harnesses for long-running agents. Anthropic Engineering Blog, Nov. 26.",
+  "u": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+ },
+ "77": {
+  "s": "Miao et al.",
+  "y": "2025",
+  "t": "Miao J, Davis JR, Zhang Y, Pritchard JK, Zou J. 2025. Paper2Agent: reimagining research papers as interactive and reliable AI agents. arXiv:2509.06917 [cs.AI]",
+  "u": null
+ },
+ "78": {
+  "s": "Bran et al.",
+  "y": "2024",
+  "t": "Bran AM, Cox S, Schilter O, Baldassari C, White AD, Schwaller P. 2024. Augmenting large language models with chemistry tools. Nat. Mach. Intell. 6:525–35",
+  "u": null
+ },
+ "79": {
+  "s": "Qu et al.",
+  "y": "2026",
+  "t": "Qu Y, Huang K, Yin M, Zhan K, Liu D, et al. 2026. CRISPR-GPT for agentic automation of gene-editing experiments. Nat. Biomed. Eng. 10:245–58",
+  "u": null
+ },
+ "80": {
+  "s": "Swanson et al.",
+  "y": "2025",
+  "t": "Swanson K, Wu W, Bulaong NL, Pak JE, Zou J. 2025. The Virtual Lab of AI agents designs new SARS-CoV-2 nanobodies. Nature 646:716–23",
+  "u": null
+ },
+ "81": {
+  "s": "Gottweis et al.",
+  "y": "2026",
+  "t": "Gottweis J, Weng W-H, Daryin A, Tu T, Sirkovic P, et al. 2026. Accelerating scientific discovery with Co-Scientist. Nature 655:487–96",
+  "u": null
+ },
+ "82": {
+  "s": "Ghareeb et al.",
+  "y": "2026",
+  "t": "Ghareeb AE, Chang B, Mitchener L, Yiu A, Szostkiewicz CJ, et al. 2026. A multi-agent system for automating scientific discovery. Nature 655:497–505",
+  "u": null
+ },
+ "83": {
+  "s": "Biomni Team",
+  "y": "2025",
+  "t": "Biomni Team. 2025. Biomni-R0: agentic LLMs trained end-to-end with multi-turn reinforcement learning for expert-level biomedical reasoning. Technical report, Stanford Univ.",
+  "u": "https://huggingface.co/biomni/Biomni-R0-32B-Preview"
+ },
+ "84": {
+  "s": "Rizvi et al.",
+  "y": "2025",
+  "t": "Rizvi SA, Levine D, Patel A, Zhang S, Wang E, et al. 2025. Scaling large language models for next-generation single-cell analysis. bioRxiv 2025.04.14.648850.",
+  "u": "https://doi.org/10.1101/2025.04.14.648850"
+ },
+ "85": {
+  "s": "Istrate et al.",
+  "y": "2025",
+  "t": "Istrate A-M, Milletari F, Castrotorres F, Tomczak JM, Torkar M, et al. 2025. rbio1 – training scientific reasoning LLMs with biological world models as soft verifiers. bioRxiv 2025.08.18.670981.",
+  "u": "https://doi.org/10.1101/2025.08.18.670981"
+ },
+ "86": {
+  "s": "Turpin et al.",
+  "y": "2023",
+  "t": "Turpin M, Michael J, Perez E, Bowman SR. 2023. Language models don't always say what they think: unfaithful explanations in chain-of-thought prompting. In Advances in Neural Information Processing Systems 36 (NeurIPS 2023). Red Hook, NY: Curran",
+  "u": null
+ },
+ "87": {
+  "s": "Chen et al.",
+  "y": "2025",
+  "t": "Chen Y, Benton J, Radhakrishnan A, Uesato J, Denison C, et al. 2025. Reasoning models don't always say what they think. arXiv:2505.05410 [cs.CL]",
+  "u": null
+ },
+ "88": {
+  "s": "OpenAI",
+  "y": "2026",
+  "t": "OpenAI. 2026. Ten advances in mathematics and theoretical computer science. OpenAI, Aug. 1.",
+  "u": "https://openai.com/index/ten-advances-in-mathematics/"
+ },
+ "89": {
+  "s": "Rives et al.",
+  "y": "2021",
+  "t": "Rives A, Meier J, Sercu T, Goyal S, Lin Z, et al. 2021. Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences. PNAS 118:e2016239118",
+  "u": null
+ },
+ "90": {
+  "s": "Rao et al.",
+  "y": "2021",
+  "t": "Rao R, Meier J, Sercu T, Ovchinnikov S, Rives A. 2021. Transformer protein language models are unsupervised structure learners. Paper presented at the 9th International Conference on Learning Representations (ICLR 2021), virtual",
+  "u": null
+ },
+ "91": {
+  "s": "Kryshtafovych et al.",
+  "y": "2021",
+  "t": "Kryshtafovych A, Schwede T, Topf M, Fidelis K, Moult J. 2021. Critical assessment of methods of protein structure prediction (CASP)—Round XIV. Proteins 89:1607–17",
+  "u": null
+ },
+ "92": {
+  "s": "Benegas et al.",
+  "y": "2025",
+  "t": "Benegas G, Albors C, Aw AJ, Ye C, Song YS. 2025. A DNA language model based on multispecies alignment predicts the effects of genome-wide variants. Nat. Biotechnol.",
+  "u": "https://doi.org/10.1038/s41587-024-02511-w"
+ },
+ "93": {
+  "s": "Simon & Zou",
+  "y": "2025",
+  "t": "Simon E, Zou J. 2025. InterPLM: discovering interpretable features in protein language models via sparse autoencoders. Nat. Methods 22:2107–17",
+  "u": null
+ },
+ "94": {
+  "s": "Adams et al.",
+  "y": "2025",
+  "t": "Adams E, Bai L, Lee M, Yu Y, AlQuraishi M. 2025. From mechanistic interpretability to mechanistic biology: training, evaluating, and interpreting sparse autoencoders on protein language models. Proc. Mach. Learn. Res. 267 (ICML 2025)",
+  "u": null
+ },
+ "95": {
+  "s": "Gujral et al.",
+  "y": "2025",
+  "t": "Gujral O, Bafna M, Alm E, Berger B. 2025. Sparse autoencoders uncover biologically interpretable features in protein language model representations. PNAS 122.",
+  "u": "https://doi.org/10.1073/pnas.2506316122"
+ },
+ "96": {
+  "s": "Hie et al.",
+  "y": "2024",
+  "t": "Hie BL, Shanker VR, Xu D, Bruun TUJ, Weidenbacher PA, et al. 2024. Efficient evolution of human antibodies from general protein language models. Nat. Biotechnol. 42:275–83",
+  "u": null
+ },
+ "97": {
+  "s": "Huang et al.",
+  "y": "2026",
+  "t": "Huang X, Long Q, Xiao M, Chen J, Zhu H, et al. 2026. SciHorizon-Gene: benchmarking LLM for life sciences inference from gene knowledge to functional understanding. arXiv:2601.12805 [cs.CL]",
+  "u": null
+ },
+ "98": {
+  "s": "Buel & Walters",
+  "y": "2022",
+  "t": "Buel GR, Walters KJ. 2022. Can AlphaFold2 predict the impact of missense mutations on structure? Nat. Struct. Mol. Biol. 29:1–2",
+  "u": null
+ },
+ "99": {
+  "s": "Li et al.",
+  "y": "2024",
+  "t": "Li F-Z, Amini AP, Yue Y, Yang KK, Lu AX. 2024. Feature reuse and scaling: understanding transfer learning with protein language models. Proc. Mach. Learn. Res. 235:27351–75",
+  "u": null
+ },
+ "100": {
+  "s": "Huang et al.",
+  "y": "2023",
+  "t": "Huang C, Shuai RW, Baokar P, Chung R, Rastogi R, et al. 2023. Personal transcriptome variation is poorly explained by current genomic deep learning models. Nat. Genet. 55:2056–59",
+  "u": null
+ },
+ "101": {
+  "s": "Sasse et al.",
+  "y": "2023",
+  "t": "Sasse A, Ng B, Spiro AE, Tasaki S, Bennett DA, et al. 2023. Benchmarking of deep neural networks for predicting personal gene expression from DNA sequence highlights shortcomings. Nat. Genet. 55:2060–64",
+  "u": null
+ },
+ "102": {
+  "s": "Tu et al.",
+  "y": "2026",
+  "t": "Tu X, Spiro A, Chikina M, Mostafavi S. 2026. A modality gap in personal-genome prediction by sequence-to-function models. bioRxiv 2026.02.01.702969.",
+  "u": "https://doi.org/10.64898/2026.02.01.702969"
+ },
+ "103": {
+  "s": "Ahlmann-Eltze et al.",
+  "y": "2025",
+  "t": "Ahlmann-Eltze C, Huber W, Anders S. 2025. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. Nat. Methods 22:1657–61",
+  "u": null
+ },
+ "104": {
+  "s": "Csendes et al.",
+  "y": "2025",
+  "t": "Csendes G, Sanz G, Szalay KZ, Szalai B. 2025. Benchmarking foundation cell models for post-perturbation RNA-seq prediction. BMC Genomics 26.",
+  "u": "https://doi.org/10.1186/s12864-025-11600-2"
+ },
+ "105": {
+  "s": "Bendidi et al.",
+  "y": "2024",
+  "t": "Bendidi I, Whitfield S, Kenyon-Dean K, Ben Yedder H, El Mesbahi Y, et al. 2024. Benchmarking transcriptomics foundation models for perturbation analysis: one PCA still rules them all. Paper presented at the NeurIPS 2024 Workshop on AI for New Drug Modalities (AIDrugX), Vancouver. arXiv:2410.13956",
+  "u": null
+ },
+ "106": {
+  "s": "Kedzierska et al.",
+  "y": "2025",
+  "t": "Kedzierska KZ, Crawford L, Amini AP, Lu AX. 2025. Zero-shot evaluation reveals limitations of single-cell foundation models. Genome Biol. 26:101",
+  "u": null
+ },
+ "107": {
+  "s": "Boiarsky et al.",
+  "y": "2024",
+  "t": "Boiarsky R, Singh NM, Buendia A, Amini AP, Getz G, Sontag D. 2024. Deeper evaluation of a single-cell foundation model. Nat. Mach. Intell. 6:1443–46",
+  "u": null
+ },
+ "108": {
+  "s": "Souza & Mehta",
+  "y": "2026",
+  "t": "Souza H, Mehta P. 2026. Parameter-free representations outperform single-cell foundation models on downstream benchmarks. arXiv:2602.16696 [q-bio.GN]",
+  "u": null
+ },
+ "109": {
+  "s": "Chen & Zou",
+  "y": "2025",
+  "t": "Chen Y, Zou J. 2025. Simple and effective embedding model for single-cell biology built from ChatGPT. Nat. Biomed. Eng. 9:483–93",
+  "u": null
+ },
+ "110": {
+  "s": "Talpir & Fleishman",
+  "y": "2026",
+  "t": "Talpir I, Fleishman SJ. 2026. Simple baselines rival protein language models in mutation-dense design of function tasks. bioRxiv 2026.05.01.722313.",
+  "u": "https://doi.org/10.64898/2026.05.01.722313"
+ },
+ "111": {
+  "s": "Wang et al.",
+  "y": "2026",
+  "t": "Wang Y, Fan Y, Wang X, Yu T, Zong Y, et al. 2026. SCMBench: benchmarking domain-specific and foundation models for single-cell multi-omics data integration. Nat. Commun. 17:5967",
+  "u": null
+ },
+ "112": {
+  "s": "Marin et al.",
+  "y": "2024",
+  "t": "Marin FI, Teufel F, Horlacher M, Madsen D, Pultz D, et al. 2024. BEND: benchmarking DNA language models on biologically meaningful tasks. Paper presented at the 12th International Conference on Learning Representations (ICLR 2024), Vienna",
+  "u": null
+ },
+ "113": {
+  "s": "Patel et al.",
+  "y": "2024",
+  "t": "Patel A, Singhal A, Wang A, Pampari A, Kasowski M, Kundaje A. 2024. DART-Eval: a comprehensive DNA language model evaluation benchmark on regulatory DNA. In Advances in Neural Information Processing Systems 37 (NeurIPS 2024), Datasets and Benchmarks Track. Red Hook, NY: Curran",
+  "u": null
+ },
+ "114": {
+  "s": "Viñas Torné et al.",
+  "y": "2025",
+  "t": "Viñas Torné R, Wiatrak M, Piran Z, Fan S, Jiang L, et al. 2025. Systema: a framework for evaluating genetic perturbation response prediction beyond systematic variation. Nat. Biotechnol.",
+  "u": "https://doi.org/10.1038/s41587-025-02749-0"
+ },
+ "115": {
+  "s": "Miller et al.",
+  "y": "2026",
+  "t": "Miller HE, Mejia GM, Leblanc FJA, Swain B, Wang B, et al. 2026. Deep learning perturbation models can outperform baselines on calibrated metrics. Nat. Biotechnol.",
+  "u": "https://doi.org/10.1038/s41587-026-03307-w"
+ },
+ "116": {
+  "s": "Kurtovic-Kozaric et al.",
+  "y": "2024",
+  "t": "Kurtovic-Kozaric A, Delalic L, Mutapcic B, Comor L, Siciliano E, Kiel MJ. 2024. Comprehensive evaluation of AlphaMissense predictions by evidence quantification for variants of uncertain significance. Front. Genet. 15:1487608",
+  "u": null
+ },
+ "117": {
+  "s": "Garcia et al.",
+  "y": "2026",
+  "t": "Garcia M, Dixit SM, Rocklin GJ. 2026. Evaluating zero-shot prediction of monomeric protein design success by AlphaFold, ESMFold, and ProteinMPNN. Protein Sci. 35:e70453",
+  "u": null
+ },
+ "118": {
+  "s": "Zablocki et al.",
+  "y": "2025",
+  "t": "Zablocki LI, Bugnon LA, Gerard M, Di Persia L, Stegmayer G, Milone DH. 2025. Comprehensive benchmarking of large language models for RNA secondary structure prediction. Brief. Bioinform. 26(2)",
+  "u": null
+ },
+ "119": {
+  "s": "Roohani et al.",
+  "y": "2025",
+  "t": "Roohani YH, Hua TJ, Tung P-Y, Bounds LR, Yu FB, et al. 2025. Virtual Cell Challenge: toward a Turing test for the virtual cell. Cell 188:3370–74",
+  "u": null
+ },
+ "120": {
+  "s": "Fallahpour et al.",
+  "y": "2026",
+  "t": "Fallahpour A, Seyed-Ahmadi A, Idehpour P, Ibrahim O, Gupta P, et al. 2026. BioReason-Pro: advancing protein function prediction with multimodal biological reasoning. bioRxiv 2026.03.19.712954.",
+  "u": "https://doi.org/10.64898/2026.03.19.712954"
+ },
+ "121": {
+  "s": "Fang et al.",
+  "y": "2026",
+  "t": "Fang A, Fesser L, Kakade S, Thoduguli N, Zhang H, Zitnik M. 2026. When do biological reasoning models use their biological inputs? arXiv:2610.00898 [cs.LG]",
+  "u": null
+ },
+ "122": {
+  "s": "Van Noorden & Perkel",
+  "y": "2023",
+  "t": "Van Noorden R, Perkel JM. 2023. AI and science: what 1,600 researchers think. Nature 621:672–75",
+  "u": null
+ },
+ "123": {
+  "s": "Pistoia Alliance",
+  "y": "2025",
+  "t": "Pistoia Alliance. 2025. The evolution of labs: Lab of the Future 2025 survey. Rep., Pistoia Alliance, Sept. 25.",
+  "u": "https://www.pistoiaalliance.org"
+ },
+ "124": {
+  "s": "Kaplan et al.",
+  "y": "2020",
+  "t": "Kaplan J, McCandlish S, Henighan T, Brown TB, Chess B, et al. 2020. Scaling laws for neural language models. arXiv:2001.08361 [cs.LG]",
+  "u": null
+ },
+ "125": {
+  "s": "Nature",
+  "y": "2026",
+  "t": "Nature. 2026. Why AI cannot do good science without humans. Nature 653:650",
+  "u": null
+ },
+ "126": {
+  "s": "Mitchell et al.",
+  "y": "2019",
+  "t": "Mitchell M, Wu S, Zaldivar A, Barnes P, Vasserman L, et al. 2019. Model cards for model reporting. In Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT '19), pp. 220–29. New York: Assoc. Comput. Mach",
+  "u": null
+ },
+ "127": {
+  "s": "Gebru et al.",
+  "y": "2021",
+  "t": "Gebru T, Morgenstern J, Vecchione B, Vaughan JW, Wallach H, et al. 2021. Datasheets for datasets. Commun. ACM 64(12):86–92",
+  "u": null
+ },
+ "128": {
+  "s": "King et al.",
+  "y": "2009",
+  "t": "King RD, Rowland J, Oliver SG, Young M, Aubrey W, et al. 2009. The automation of science. Science 324:85–89",
+  "u": null
+ },
+ "129": {
+  "s": "Rapp et al.",
+  "y": "2024",
+  "t": "Rapp JT, Bremer BJ, Romero PA. 2024. Self-driving laboratories to autonomously navigate the protein fitness landscape. Nat. Chem. Eng. 1:97–107",
+  "u": null
+ },
+ "130": {
+  "s": "Wolf et al.",
+  "y": "2020",
+  "t": "Wolf T, Debut L, Sanh V, Chaumond J, Delangue C, et al. 2020. Transformers: state-of-the-art natural language processing. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pp. 38–45. Stroudsburg, PA: Assoc. Comput. Linguist",
+  "u": null
+ },
+ "131": {
+  "s": "Critical Assessment of Genome Interpretation Consortium",
+  "y": "2024",
+  "t": "Critical Assessment of Genome Interpretation Consortium. 2024. CAGI, the Critical Assessment of Genome Interpretation, establishes progress and prospects for computational genetic variant interpretation methods. Genome Biol. 25:53",
+  "u": null
+ },
+ "132": {
+  "s": "Sharan et al.",
+  "y": "2024",
+  "t": "Sharan M, Karoune E, Hellon V, Gould Van Praag C, Kayumbi G, et al. 2024. Professionalising community management roles in interdisciplinary research projects. arXiv:2409.00108 [cs.CY]",
+  "u": null
+ },
+ "133": {
+  "s": "Avsec et al.",
+  "y": "2019",
+  "t": "Avsec Ž, Kreuzhuber R, Israeli J, Xu N, Cheng J, et al. 2019. The Kipoi repository accelerates community exchange and reuse of predictive models for genomics. Nat. Biotechnol. 37:592–600",
+  "u": null
+ },
+ "134": {
+  "s": "Marx",
+  "y": "2026",
+  "t": "Marx V. 2026. Call your AI agent. Nat. Methods 23:873–79",
+  "u": null
+ }
+}

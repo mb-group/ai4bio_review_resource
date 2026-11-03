@@ -1,0 +1,846 @@
+[
+ {
+  "id": "nt",
+  "n": "Nucleotide Transformer",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   7
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "DNA language model trained on genomes spanning diverse species, using fixed six-nucleotide k-mer tokens.",
+  "el": {
+   "data": "Genomes spanning diverse species; fixed six-nucleotide k-mers"
+  },
+  "stop": [
+   [
+    "Multinucleotide tokens can split regulatory motifs across tokens and hide the effect of a single-nucleotide variant",
+    [
+     7,
+     26,
+     27
+    ],
+    "data"
+   ]
+  ],
+  "s": "Transformer DNA models pretrained on human and multispecies genomes",
+  "about": "A family of transformer DNA language models (50 million to 2.5 billion parameters) pretrained on 3,202 human genomes and 850 genomes from diverse species. Their representations alone match or beat specialized methods on 11 of 18 prediction tasks, and attention learns to focus on elements such as enhancers.",
+  "chk": 1
+ },
+ {
+  "id": "dnabert2",
+  "n": "DNABERT-2",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   26
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Learns variable-length tokens from genomic sequences.",
+  "el": {
+   "data": "Variable-length tokens learned from multi-species genomic sequence"
+  },
+  "stop": [
+   [
+    "Multinucleotide tokens can split regulatory motifs across tokens and hide the effect of a single-nucleotide variant",
+    [
+     26,
+     27
+    ],
+    "data"
+   ]
+  ],
+  "s": "Multi-species genome model with byte-pair tokens",
+  "about": "A genome foundation model that replaces k-mer tokenization with byte-pair encoding and is released together with a multi-species benchmark, the Genome Understanding Evaluation.",
+  "chk": 0
+ },
+ {
+  "id": "grover",
+  "n": "GROVER",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   27
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Learns variable-length tokens from genomic sequences of the human genome.",
+  "el": {
+   "data": "Variable-length tokens learned from the human genome"
+  },
+  "stop": [
+   [
+    "Multinucleotide tokens can split regulatory motifs across tokens and hide the effect of a single-nucleotide variant",
+    [
+     26,
+     27
+    ],
+    "data"
+   ]
+  ],
+  "s": "Human-genome model with a byte-pair vocabulary",
+  "about": "Trained on the human genome with a byte-pair-encoding vocabulary chosen by a next-k-mer prediction task. Token embeddings encode frequency, sequence content and length, and GROVER outperforms other models on genome-element and protein–DNA binding tasks.",
+  "chk": 1
+ },
+ {
+  "id": "hyena",
+  "n": "HyenaDNA",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   35
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Keeps one nucleotide per token and uses an architecture efficient over long inputs, reaching one million nucleotides.",
+  "el": {
+   "data": "One nucleotide per token",
+   "arch": "Architecture that remains efficient over long inputs; reaches one million nucleotides"
+  },
+  "s": "Single-nucleotide DNA model with 1 Mb context",
+  "about": "A genomic foundation model pretrained on the human reference genome with context up to one million single-nucleotide tokens, using Hyena implicit-convolution operators that scale sub-quadratically. It reaches state of the art on 12 of 18 Nucleotide Transformer benchmark datasets with far fewer parameters.",
+  "chk": 1
+ },
+ {
+  "id": "caduceus",
+  "n": "Caduceus",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   36
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Builds the equivalence of the two DNA strands into the architecture.",
+  "el": {
+   "data": "One nucleotide per token",
+   "arch": "Reverse-complement equivariant, long-range architecture"
+  },
+  "s": "Bi-directional, reverse-complement-equivariant DNA model",
+  "about": "Extends the Mamba state-space block to read DNA in both directions and to respect reverse-complement symmetry. It outperforms earlier long-range models, and on long-range variant-effect prediction it exceeds models ten times larger that lack these properties.",
+  "chk": 1
+ },
+ {
+  "id": "gpnmsa",
+  "n": "GPN-MSA",
+  "d": "dna",
+  "t": "rep",
+  "r": [
+   92
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Adds aligned sequences from 100 vertebrate genomes so that conservation is visible to the model.",
+  "el": {
+   "data": "Aligned sequences from 100 vertebrate genomes"
+  },
+  "s": "DNA model trained on aligned vertebrate genomes",
+  "about": "A DNA language model trained on multi-species whole-genome alignments so that evolutionary conservation is visible to it; used to predict the effects of genome-wide variants.",
+  "chk": 0
+ },
+ {
+  "id": "evo",
+  "n": "Evo",
+  "d": "dna",
+  "t": "gen",
+  "t2": "rep",
+  "r": [
+   41
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Autoregressive model that keeps one nucleotide per token; used to embed DNA and to write genomes.",
+  "el": {
+   "data": "One nucleotide per token",
+   "arch": "Architecture that remains efficient over long inputs",
+   "train": "Autoregressive"
+  },
+  "s": "Genome-scale model of prokaryotic and phage DNA",
+  "about": "A long-context model trained at single-nucleotide resolution on prokaryotic and phage genomes. It predicts and generates DNA, RNA and protein sequences, including functional CRISPR–Cas and transposon systems.",
+  "chk": 0
+ },
+ {
+  "id": "evo2",
+  "n": "Evo 2",
+  "d": "dna",
+  "t": "gen",
+  "t2": "rep",
+  "r": [
+   8
+  ],
+  "cls": [
+   "dnalm"
+  ],
+  "one": "Genomic model that learns from genomes spanning diverse species; used as a DNA encoder in BioReason.",
+  "el": {
+   "data": "Genomes spanning diverse species"
+  },
+  "s": "Genome model trained across all domains of life",
+  "about": "Trained on trillions of nucleotides from genomes across all domains of life with context up to one million bases. It predicts variant effects without task-specific training and can generate genome-scale sequences.",
+  "chk": 0
+ },
+ {
+  "id": "enformer",
+  "n": "Enformer",
+  "d": "dna",
+  "t": "pred",
+  "r": [
+   56
+  ],
+  "one": "Predicts regulatory signals along the genome; adds attention to integrate regulatory elements about 100 kilobases away.",
+  "el": {
+   "arch": "Attention integrates regulatory elements about 100 kilobases away",
+   "train": "Supervised: predictive model trained on paired measurements"
+  },
+  "s": "Convolution plus attention for expression from sequence",
+  "about": "Combines convolutional layers with transformer attention to predict gene expression and chromatin tracks from DNA sequence, integrating regulatory elements up to 100 kilobases away within a 200-kilobase input.",
+  "chk": 0
+ },
+ {
+  "id": "borzoi",
+  "n": "Borzoi",
+  "d": "dna",
+  "t": "pred",
+  "r": [
+   57
+  ],
+  "one": "Predicts RNA-seq coverage from DNA sequence.",
+  "el": {
+   "train": "Supervised: predictive model trained on paired measurements"
+  },
+  "s": "Predicts RNA-seq coverage from 524 kb of sequence",
+  "about": "Predicts RNA-seq coverage and other genomic tracks from about 524 kilobases of DNA at 32-base resolution, so that variant effects on transcription, splicing and polyadenylation can be scored.",
+  "chk": 0
+ },
+ {
+  "id": "alphagenome",
+  "n": "AlphaGenome",
+  "d": "dna",
+  "t": "pred",
+  "r": [
+   23
+  ],
+  "one": "Reads up to one megabase of DNA and outputs thousands of tracks, such as RNA expression, chromatin accessibility and transcription factor binding, at up to single-base resolution.",
+  "el": {
+   "data": "Up to one megabase of sequence in; thousands of functional tracks out",
+   "arch": "One-megabase input window",
+   "train": "Supervised: predictive model trained on paired measurements",
+   "evalu": "Developer-defined suites; cross-individual tests appeared only recently"
+  },
+  "stop": [
+   [
+    "Regulation acting over longer distances or between chromosomes lies outside a single input",
+    [
+     23
+    ],
+    "arch"
+   ]
+  ],
+  "s": "Megabase DNA to thousands of regulatory tracks",
+  "about": "Takes up to one megabase of sequence and predicts thousands of functional tracks across modalities such as gene expression, splicing, chromatin accessibility, histone marks, transcription factor binding and contacts, and scores regulatory variants.",
+  "chk": 0
+ },
+ {
+  "id": "scooby",
+  "n": "Scooby",
+  "d": "dna",
+  "t": "pred",
+  "r": [
+   58
+  ],
+  "one": "Adapts Borzoi to predict these signals in individual cells.",
+  "s": "Borzoi adapted to single cells",
+  "about": "Adds a cell-specific decoder to the pretrained Borzoi and fine-tunes it to predict single-cell RNA coverage and scATAC insertion profiles from sequence. It recapitulates cell-specific expression of held-out genes and identifies regulators and their putative targets.",
+  "chk": 1
+ },
+ {
+  "id": "reglm",
+  "n": "regLM",
+  "d": "dna",
+  "t": "gen",
+  "r": [
+   63
+  ],
+  "one": "Generates regulatory DNA with specified activity.",
+  "el": {
+   "train": "Autoregressive"
+  },
+  "s": "Prompted design of regulatory DNA",
+  "about": "A framework for designing cis-regulatory elements with high, low or cell-type-specific activity. An autoregressive HyenaDNA-based model is prompted with activity labels and its outputs are filtered by sequence-to-function models; applied to yeast promoters and human enhancers.",
+  "chk": 1
+ },
+ {
+  "id": "codont",
+  "n": "CodonTransformer",
+  "d": "dna",
+  "t": "gen",
+  "r": [
+   64
+  ],
+  "one": "Generates organism-specific codons; a multispecies codon optimizer.",
+  "s": "Host-specific codon optimization",
+  "about": "A transformer trained on over one million DNA–protein pairs from 164 organisms. It generates host-specific coding DNA with natural-like codon distributions and few negative cis-regulatory elements.",
+  "chk": 1
+ },
+ {
+  "id": "rnafm",
+  "n": "RNA-FM",
+  "d": "rna",
+  "t": "rep",
+  "r": [
+   46
+  ],
+  "cls": [
+   "rnalm"
+  ],
+  "one": "Trained on tens of millions of non-coding RNAs; recovers which bases pair in the folded structure.",
+  "el": {
+   "data": "Non-coding RNA sequences",
+   "evalu": "Recovery of base pairing in the folded structure"
+  },
+  "s": "Language model of non-coding RNAs",
+  "about": "Pretrained without labels on tens of millions of non-coding RNA sequences; its embeddings are used to predict RNA secondary structure and other structure and function properties.",
+  "chk": 0
+ },
+ {
+  "id": "rinalmo",
+  "n": "RiNALMo",
+  "d": "rna",
+  "t": "rep",
+  "r": [
+   47
+  ],
+  "cls": [
+   "rnalm"
+  ],
+  "one": "General-purpose RNA language model trained on tens of millions of non-coding RNAs; recovers base pairing.",
+  "el": {
+   "data": "Non-coding RNA sequences",
+   "evalu": "Recovery of base pairing in the folded structure"
+  },
+  "s": "Large RNA language model for structure prediction",
+  "about": "A large RNA language model pretrained on tens of millions of non-coding RNAs and fine-tuned for secondary-structure prediction, where it generalizes to RNA families not seen in training.",
+  "chk": 0
+ },
+ {
+  "id": "orthrus",
+  "n": "Orthrus",
+  "d": "rna",
+  "t": "rep",
+  "r": [
+   42
+  ],
+  "one": "For mRNA, uses contrastive learning across splice isoforms and orthologs of the same gene.",
+  "el": {
+   "train": "Contrastive learning: splice isoforms and orthologs of the same gene treated as related RNAs"
+  },
+  "s": "Contrastive mature-RNA model",
+  "about": "A Mamba-based model for mature RNA trained by contrastive learning: positive pairs are splice isoforms from 10 model organisms and orthologous transcripts from over 400 mammals. It outperforms other genomic models on five mRNA property tasks with a fraction of the fine-tuning data.",
+  "chk": 1
+ },
+ {
+  "id": "grnade",
+  "n": "gRNAde",
+  "d": "rna",
+  "t": "gen",
+  "r": [
+   65
+  ],
+  "one": "Designs RNA that folds into a target structure.",
+  "el": {
+   "arch": "Geometric deep learning"
+  },
+  "s": "Designs RNA sequences for a 3D backbone",
+  "about": "A geometric deep-learning pipeline: a multi-state graph neural network with autoregressive decoding proposes sequences for one or more 3D RNA backbones. It recovers more native sequence than Rosetta (56% vs 45% on 14 structures) and runs in seconds.",
+  "chk": 1
+ },
+ {
+  "id": "esm2",
+  "n": "ESM2",
+  "d": "prot",
+  "t": "rep",
+  "r": [
+   6
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "Protein language model trained on UniRef sequences; the running example of the review.",
+  "el": {
+   "data": "UniRef protein sequences; one token per amino acid (20-token vocabulary)",
+   "arch": "Transformer (self-attention)",
+   "train": "Masked language modeling",
+   "evalu": "Intrinsic: residue-contact recovery. Downstream: shared benchmarks such as ProteinGym",
+   "post": "Probing and fine-tuning of embeddings; zero-shot likelihood scoring; interpretability analysis"
+  },
+  "s": "Protein language model scaled to 15 billion parameters",
+  "about": "A protein language model trained on UniRef sequences and scaled to 15 billion parameters. Atomic-level structure information emerges in its representations, which enables ESMFold.",
+  "chk": 0
+ },
+ {
+  "id": "prottrans",
+  "n": "ProtTrans",
+  "d": "prot",
+  "t": "rep",
+  "r": [
+   51
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "With ESM2, established how much can be learned from sequence alone at scale.",
+  "s": "Family of protein language models",
+  "about": "A family of protein language models (Transformer-XL, XLNet, BERT, ALBERT, ELECTRA and T5 variants) trained on UniRef and BFD. Their embeddings alone, without alignments, predict secondary structure and subcellular localization.",
+  "chk": 0
+ },
+ {
+  "id": "saprot",
+  "n": "SaProt",
+  "d": "prot",
+  "t": "rep",
+  "r": [
+   52
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "Pairs each amino acid with a token for its local structure.",
+  "el": {
+   "data": "Amino acid plus local-structure token"
+  },
+  "s": "Residue plus Foldseek structure tokens",
+  "about": "Pairs each residue token with a structure token from Foldseek to form a structure-aware vocabulary. Trained on about 40 million protein sequences and structures and evaluated on 10 protein tasks.",
+  "chk": 1
+ },
+ {
+  "id": "ankh",
+  "n": "Ankh",
+  "d": "prot",
+  "t": "rep",
+  "r": [
+   53
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "Optimizes architecture and training to match larger models at a fraction of the pretraining cost.",
+  "el": {
+   "arch": "Optimized architecture",
+   "train": "Optimized training"
+  },
+  "s": "Small, optimized protein language model",
+  "about": "Built by protein-specific optimization of masking, architecture and data rather than scaling up. An encoder–decoder with a 48-layer encoder and 24-layer decoder that surpasses prior state of the art on structure and function benchmarks with far fewer parameters.",
+  "chk": 1
+ },
+ {
+  "id": "af2",
+  "n": "AlphaFold2",
+  "al": [
+   "AlphaFold"
+  ],
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   4
+  ],
+  "one": "Takes an amino acid sequence and returns three-dimensional coordinates for every atom; also uses alignments of related sequences.",
+  "el": {
+   "data": "Amino acid sequence plus alignments of related sequences; structures from the Protein Data Bank",
+   "evalu": "Blind CASP14 assessment"
+  },
+  "s": "Atom-level structure from sequence",
+  "about": "A neural network that predicts the 3D coordinates of every atom from an amino acid sequence, drawing on alignments of related sequences; near-experimental accuracy in the blind CASP14 assessment.",
+  "chk": 0
+ },
+ {
+  "id": "af3",
+  "n": "AlphaFold 3",
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   5
+  ],
+  "one": "Accurate structure prediction of biomolecular interactions.",
+  "s": "Structures of biomolecular complexes",
+  "about": "A diffusion-based architecture that predicts the joint structure of complexes containing proteins, nucleic acids, small molecules, ions and modified residues.",
+  "chk": 0
+ },
+ {
+  "id": "esmfold",
+  "n": "ESMFold",
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   6
+  ],
+  "one": "Builds on ESM2 to predict atomic-level structure from a single sequence.",
+  "s": "Single-sequence structure prediction from ESM2",
+  "about": "Predicts atomic-level structure from a single sequence using ESM2 representations, without alignments. It is much faster than alignment-based pipelines, which allowed structure prediction for hundreds of millions of metagenomic proteins.",
+  "chk": 0
+ },
+ {
+  "id": "eve",
+  "n": "EVE",
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   59
+  ],
+  "one": "Unsupervised model of evolutionary variation; scores variants using evolutionary conservation.",
+  "el": {
+   "data": "Evolutionary conservation"
+  },
+  "s": "Per-family generative model of variant effect",
+  "about": "A deep generative (variational autoencoder) model learned from evolutionary sequence alignments of each protein family. It scores missense variants without clinical labels and matches or exceeds supervised predictors at separating pathogenic from benign variants.",
+  "chk": 0
+ },
+ {
+  "id": "alphamissense",
+  "n": "AlphaMissense",
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   60
+  ],
+  "one": "Adapts AlphaFold with human population frequencies to score missense variants.",
+  "el": {
+   "data": "Human population frequencies (EVE uses evolutionary conservation; popEVE combines both)"
+  },
+  "s": "AlphaFold-based missense pathogenicity",
+  "about": "Adapts AlphaFold and is fine-tuned on variant frequencies in human and primate populations to predict the pathogenicity of missense variants across the human proteome.",
+  "chk": 0
+ },
+ {
+  "id": "popeve",
+  "n": "popEVE",
+  "d": "prot",
+  "t": "pred",
+  "r": [
+   61
+  ],
+  "one": "Combines evolutionary and population signals to make scores comparable across proteins.",
+  "el": {
+   "data": "Evolutionary conservation and human population frequencies"
+  },
+  "s": "Proteome-calibrated variant severity",
+  "about": "A deep generative model that combines evolutionary models (EVE and ESM-1v) with human population data to place variants on one proteome-wide scale. It flagged variants in 442 genes in a severe developmental-disorder cohort, 123 of them novel candidates.",
+  "chk": 1
+ },
+ {
+  "id": "progen",
+  "n": "ProGen / ProGen2",
+  "al": [
+   "ProGen",
+   "ProGen2"
+  ],
+  "d": "prot",
+  "t": "gen",
+  "r": [
+   62,
+   40
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "Takes a protein-family tag and writes a full sequence one amino acid at a time.",
+  "el": {
+   "train": "Autoregressive"
+  },
+  "s": "Protein generation from family tags",
+  "about": "ProGen generates protein sequences conditioned on a family or function tag, and the artificial lysozymes it produced were catalytically active. ProGen2 scales the same autoregressive approach to billions of parameters.",
+  "chk": 0
+ },
+ {
+  "id": "esm3",
+  "n": "ESM3",
+  "d": "prot",
+  "t": "gen",
+  "r": [
+   30
+  ],
+  "cls": [
+   "plm"
+  ],
+  "one": "Can be prompted with partial structure or function; trained on about 771 billion tokens.",
+  "el": {
+   "data": "Sequence, structure and function tokens; about 771 billion training tokens"
+  },
+  "s": "Joint sequence, structure and function model",
+  "about": "A generative model trained on sequence, structure and function tokens that can be prompted with any combination of them. Prompted designs include a fluorescent protein far from known natural sequences.",
+  "chk": 0
+ },
+ {
+  "id": "geneformer",
+  "n": "Geneformer",
+  "d": "sc",
+  "t": "rep",
+  "r": [
+   9
+  ],
+  "cls": [
+   "scfm"
+  ],
+  "one": "Encodes each cell as a list of genes ranked by expression; simulates gene deletion to see how a cell’s embedding shifts.",
+  "el": {
+   "data": "Each cell as a list of genes ranked by expression; fixed gene vocabulary",
+   "post": "Fine-tuning; in silico perturbation (simulated gene deletion)"
+  },
+  "stop": [
+   [
+    "Expression is encoded only by position in the input, not its quantitative value",
+    [
+     9
+    ],
+    "data"
+   ],
+   [
+    "A fixed list of gene identities restricts the model to the species seen in training (a limitation UCE addresses)",
+    [
+     9,
+     11
+    ],
+    "data"
+   ]
+  ],
+  "s": "Rank-ordered gene model of ~30 million cells",
+  "about": "An attention-based model pretrained on about 30 million single-cell transcriptomes, with each cell encoded as genes ranked by expression. Fine-tuning enables predictions in network biology with limited data, and in silico gene deletion nominates candidate targets.",
+  "chk": 0
+ },
+ {
+  "id": "scgpt",
+  "n": "scGPT",
+  "d": "sc",
+  "t": "rep",
+  "r": [
+   10
+  ],
+  "cls": [
+   "scfm"
+  ],
+  "one": "Pairs each gene with a binned expression value, representing magnitude explicitly.",
+  "el": {
+   "data": "Gene tokens with binned expression values; CZ CELLxGENE Discover corpus"
+  },
+  "stop": [
+   [
+    "A fixed list of gene identities restricts the model to the species seen in training",
+    [
+     10,
+     11
+    ],
+    "data"
+   ]
+  ],
+  "s": "Generative transformer on >33 million cells",
+  "about": "A generative pretrained transformer trained on over 33 million cells, with gene tokens and binned expression values. It is fine-tuned for cell-type annotation, perturbation prediction and batch and multi-omic integration.",
+  "chk": 0
+ },
+ {
+  "id": "uce",
+  "n": "UCE",
+  "d": "sc",
+  "t": "rep",
+  "r": [
+   11
+  ],
+  "cls": [
+   "scfm"
+  ],
+  "one": "Represents each gene by the ESM2 embedding of its protein, so cells from species absent from training share one space.",
+  "el": {
+   "data": "Genes represented by protein embeddings rather than a fixed gene list"
+  },
+  "s": "Zero-shot cell embeddings across species",
+  "about": "Universal Cell Embeddings are trained on tens of millions of cells from many datasets and species. Genes are represented through protein-language-model embeddings, so cells from new species map into one shared space without retraining.",
+  "chk": 0
+ },
+ {
+  "id": "scimilarity",
+  "n": "SCimilarity",
+  "d": "sc",
+  "t": "rep",
+  "r": [
+   43
+  ],
+  "one": "Metric learning places cells of the same type near one another.",
+  "el": {
+   "train": "Metric learning"
+  },
+  "stop": [
+   [
+    "Embeddings suit searching an atlas for similar cells but not predicting the response to a perturbation",
+    [
+     43
+    ],
+    "train"
+   ]
+  ],
+  "s": "Metric-learning search over 23 million cells",
+  "about": "Trained by triplet-loss metric learning on cell-ontology-annotated data, with a searchable reference of 23.4 million cells from 412 studies. A query with interstitial-lung-disease macrophages found similar cells in other fibrotic diseases, and a 3D hydrogel was shown to reproduce the state.",
+  "chk": 1
+ },
+ {
+  "id": "genept",
+  "n": "GenePT",
+  "d": "sc",
+  "t": "rep",
+  "r": [
+   109
+  ],
+  "one": "Embedding model for single-cell biology built from ChatGPT; suggests part of what single-cell models learn is already recorded in text.",
+  "s": "Gene and cell embeddings from text",
+  "about": "Embeds NCBI gene summaries with GPT-3.5, then forms cell embeddings by expression-weighted averaging or by a sentence embedding of expression-ordered gene names. No pretraining is needed, and performance is comparable or better than models pretrained on millions of cells on gene-property and cell-type tasks.",
+  "chk": 1
+ },
+ {
+  "id": "cellot",
+  "n": "CellOT",
+  "d": "sc",
+  "t": "gen",
+  "sub": "perturbation",
+  "r": [
+   66
+  ],
+  "cls": [
+   "pert"
+  ],
+  "one": "Maps control onto perturbed cell populations.",
+  "s": "Optimal transport from control to perturbed cells",
+  "about": "Learns perturbation responses from unpaired control and treated cell populations with neural optimal transport, mapping untreated cells onto their treated counterparts.",
+  "chk": 0
+ },
+ {
+  "id": "gears",
+  "n": "GEARS",
+  "d": "sc",
+  "t": "gen",
+  "sub": "perturbation",
+  "r": [
+   67
+  ],
+  "cls": [
+   "pert"
+  ],
+  "one": "Uses a gene-relationship graph to handle unseen perturbation combinations.",
+  "s": "Graph-based prediction of unseen perturbations",
+  "about": "Uses a knowledge graph of gene–gene relationships to predict transcriptional outcomes of single and multigene perturbations, including combinations not seen in training.",
+  "chk": 0
+ },
+ {
+  "id": "state",
+  "n": "State",
+  "d": "sc",
+  "t": "gen",
+  "sub": "perturbation",
+  "r": [
+   24
+  ],
+  "cls": [
+   "pert"
+  ],
+  "one": "Trained on a large perturbation corpus; treats whole cells as tokens.",
+  "s": "Perturbation effects across cell contexts",
+  "about": "Two modules: a transformer over sets of cells (State Transition) trained on over 100 million perturbed cells across 70 cell contexts, and a cell embedding model (State Embedding) trained on 167 million observational cells. It predicts perturbation effects in new contexts and comes with the Cell-Eval evaluation framework.",
+  "chk": 1
+ },
+ {
+  "id": "bulkformer",
+  "n": "BulkFormer",
+  "d": "sp",
+  "t": "rep",
+  "r": [
+   48
+  ],
+  "one": "Trained on bulk samples from public archives, keeping the gene as the unit of vocabulary while learning tissue-level patterns.",
+  "s": "Foundation model for bulk transcriptomes",
+  "about": "About 150 million parameters covering 20,010 protein-coding genes, pretrained on 581,503 human bulk RNA-seq profiles. A graph neural network models gene–gene relations and a Performer module captures global dependencies; it outperformed single-cell foundation models on five bulk tasks.",
+  "chk": 1
+ },
+ {
+  "id": "nicheformer",
+  "n": "Nicheformer",
+  "d": "sp",
+  "t": "rep",
+  "r": [
+   49
+  ],
+  "one": "Trained jointly on dissociated and spatial data, so a cell’s embedding reflects both its expression and its tissue neighborhood.",
+  "s": "Transformer on dissociated and spatial cells",
+  "about": "Pretrained on SpatialCorpus-110M, over 57 million dissociated and 53 million spatially resolved human and mouse cells across 73 tissues. Its embeddings capture spatial context, and models trained on dissociated data alone fail to recover spatial microenvironments.",
+  "chk": 1
+ },
+ {
+  "id": "virtues",
+  "n": "VirTues",
+  "d": "sp",
+  "t": "rep",
+  "r": [
+   50
+  ],
+  "one": "Extends spatial modeling beyond RNA to protein markers in multiplexed tissue images.",
+  "s": "Foundation model for spatial proteomics",
+  "about": "Combines protein-language-model embeddings of each marker with a factorized transformer, so different marker panels share one space. Supports marker reconstruction, cell typing, niche annotation and biomarker discovery; derived biomarkers predicted response to chemo-immunotherapy in triple-negative breast cancer.",
+  "chk": 1
+ },
+ {
+  "id": "genecompass",
+  "n": "GeneCompass",
+  "d": "mo",
+  "t": "rep",
+  "r": [
+   54
+  ],
+  "cls": [
+   "mo"
+  ],
+  "one": "Enriches gene tokens with prior knowledge across species.",
+  "s": "Knowledge-informed human and mouse cell model",
+  "about": "Pretrained on about 102 million human and mouse single-cell transcriptomes while integrating four types of prior biological knowledge. Fine-tuned for several tasks, and predicted candidate genes induced differentiation of human embryonic stem cells toward gonadal fate.",
+  "chk": 1
+ },
+ {
+  "id": "pinnacle",
+  "n": "PINNACLE",
+  "d": "mo",
+  "t": "rep",
+  "r": [
+   37
+  ],
+  "cls": [
+   "mo"
+  ],
+  "one": "Graph neural network over protein interaction networks built separately for each cell type, so the same protein receives a different embedding in each cell type.",
+  "el": {
+   "data": "Protein interaction networks built per cell type from single-cell data",
+   "arch": "Graph neural network"
+  },
+  "s": "Cell-type-specific protein embeddings",
+  "about": "A graph neural network over protein interaction networks built separately for each cell type from single-cell data, producing a different embedding of the same protein in each cell-type context.",
+  "chk": 0
+ },
+ {
+  "id": "aido",
+  "n": "AIDO",
+  "d": "mo",
+  "t": "rep",
+  "r": [
+   55
+  ],
+  "cls": [
+   "mo"
+  ],
+  "one": "Builds separate DNA, RNA, protein and cell models and combines their embeddings.",
+  "s": "A system of connected multiscale foundation models",
+  "about": "A perspective that proposes an AI-driven digital organism: modular, connectable foundation models spanning molecules, cells and organisms, built in three stages (module building, connection and system unification).",
+  "chk": 1
+ }
+]

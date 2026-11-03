@@ -1,0 +1,22 @@
+{
+ "plm": {
+  "d": "prot"
+ },
+ "dnalm": {
+  "d": "dna"
+ },
+ "rnalm": {
+  "d": "rna"
+ },
+ "scfm": {
+  "d": "sc",
+  "t": "rep"
+ },
+ "pert": {
+  "d": "sc",
+  "t": "gen"
+ },
+ "mo": {
+  "d": "mo"
+ }
+}

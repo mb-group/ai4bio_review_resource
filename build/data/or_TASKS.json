@@ -1,0 +1,20 @@
+[
+ {
+  "k": "rep",
+  "n": "Representation",
+  "g": "Representation model",
+  "d": "Self-supervised; each input becomes a reusable embedding"
+ },
+ {
+  "k": "pred",
+  "n": "Prediction",
+  "g": "Predictive model",
+  "d": "Supervised on paired measurements; answers one fixed question"
+ },
+ {
+  "k": "gen",
+  "n": "Generation",
+  "g": "Generative model",
+  "d": "Writes new sequences or states; perturbation models lie between prediction and generation"
+ }
+]

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Techniques · AI for Biologists: The Knowledge Boundaries of Foundation Models</title>
+<meta name="description" content="46 implementation-level techniques named in the review, grouped by design element, each with the models that use it.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <span class="ttl">AI for Biologists</span>
+    <nav>
+      <a class="navlink" href="scrollytelling.html">Story</a>
+      <a class="navlink" href="concepts.html">Concepts</a>
+      <a class="navlink" href="models.html">Models</a>
+      <a class="navlink on" href="techniques.html">Techniques</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <p class="eyebrow">Techniques</p>
+  <h1>How it's done: implementation-level depth</h1>
+  <p>46 techniques grouped by the five design elements (plus agent components): 29 come from concepts that are both an idea and a technique (shared definition, see "What it means →"); 17 are technique-only entries with no separate concept page. Each is shown with the models the review names as using it. For most "concept + technique" entries, a full how-it-works writeup beyond the shared definition is pending curator extension from the cited references — see <code>content_plan/04_techniques_page.md</code>.</p>
+</section>
+
+<div class="toolbar">
+  <div class="toolbar-row">
+    <input type="search" id="q" placeholder="Search techniques…" aria-label="Search techniques">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="toolbar-row">
+    <span class="chiplabel">Group</span>
+    <div class="chips" id="grpchips"></div>
+  </div>
+</div>
+
+<main class="main" id="groups"></main>
+
+<footer>Generated from <code>content_plan/rehome.md</code> · <a href="scrollytelling.html">Story</a> · <a href="concepts.html">Concepts</a> · <a href="models.html">Models</a></footer>
+
+<script src="site-data.js"></script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const GROUP_ORDER=['data','architecture','training_scheme','evaluation','post_analysis','agent_components'];
+
+function usedByHTML(ids){
+  const valid = (ids||[]).filter(id=>MODELS[id]);
+  if(!valid.length) return '<span style="color:var(--rule)">none named in the review</span>';
+  return valid.map(id=>`<a class="mref" href="models.html#model-${id}">${esc(MODELS[id].name)}</a>`).join(', ');
+}
+
+function bothTermCard(id){
+  const t = TERMS[id];
+  return `<div class="card" id="tech-${id}" data-grp="${t.design_element||''}" data-name="${esc(t.name.toLowerCase())}" data-def="${esc(t.def.toLowerCase())}">
+    <div class="ch"><h3>${esc(t.name)}</h3><span class="tag both">concept + technique</span></div>
+    <p class="def">${t.def}</p>
+    <p style="font-size:13px;color:var(--muted)"><b>How it works:</b> not yet written beyond the definition above — open for curator extension from the cited references.</p>
+    <p style="font-size:13.5px"><b>Used by:</b> ${usedByHTML(t.used_by)}</p>
+    <div class="actions"><a class="linkbtn" href="concepts.html#t-${id}">What it means →</a></div>
+  </div>`;
+}
+function techOnlyCard(id){
+  const t = TECHNIQUE_ONLY[id];
+  return `<div class="card" id="tech-${id}" data-grp="${t.design_element||''}" data-name="${esc(t.name.toLowerCase())}" data-def="${esc(t.def.toLowerCase())}">
+    <div class="ch"><h3>${esc(t.name)}</h3><span class="tag">technique</span></div>
+    <p class="def">${t.def}</p>
+    <p style="font-size:13.5px"><b>Used by:</b> ${usedByHTML(t.used_by)}</p>
+    ${t.source?`<p style="font-size:12px;color:var(--muted)">Source in the draft: ${esc(t.source)}</p>`:''}
+  </div>`;
+}
+
+const groupsEl = $('#groups');
+GROUP_ORDER.forEach(g=>{
+  const bothIds = Object.keys(TERMS).filter(id=>TERMS[id].kind==='both' && TERMS[id].design_element===g);
+  const onlyIds = Object.keys(TECHNIQUE_ONLY).filter(id=>TECHNIQUE_ONLY[id].design_element===g);
+  if(!bothIds.length && !onlyIds.length) return;
+  const cards = bothIds.map(bothTermCard).concat(onlyIds.map(techOnlyCard)).join('');
+  const wrap = document.createElement('div');
+  wrap.className='psec'; wrap.id='grp-'+g;
+  wrap.innerHTML = `<h2><b>${esc(EL_LABELS[g]||g)}</b></h2><div class="pgrid">${cards}</div>`;
+  groupsEl.appendChild(wrap);
+});
+
+/* ---- filters ---- */
+const grpchips=$('#grpchips'), q=$('#q');
+[['','All'],...GROUP_ORDER.map(g=>[g,EL_LABELS[g]])].forEach(([k,label])=>{
+  const b=document.createElement('button'); b.textContent=label;
+  b.dataset.k=k; b.setAttribute('aria-pressed', k===''?'true':'false');
+  b.onclick=()=>{ grpchips.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false')); applyFilter(); };
+  grpchips.appendChild(b);
+});
+q.addEventListener('input', applyFilter);
+
+function applyFilter(){
+  const grp = grpchips.querySelector('button[aria-pressed="true"]').dataset.k;
+  const query = q.value.trim().toLowerCase();
+  let shown=0, total=0;
+  $$('.card').forEach(card=>{
+    total++;
+    const okGrp = !grp || card.dataset.grp===grp;
+    const okQ = !query || card.dataset.name.includes(query) || card.dataset.def.includes(query);
+    const show = okGrp && okQ;
+    card.hidden = !show;
+    if(show) shown++;
+  });
+  $$('.psec').forEach(sec=>{ sec.hidden = sec.querySelectorAll('.card:not([hidden])').length===0; });
+  $('#count').textContent = shown+' of '+total+' techniques shown';
+}
+applyFilter();
+
+function flash(el){ el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'),2200); }
+function resolveHash(){
+  const raw = location.hash.replace(/^#/,'');
+  if(!raw || !raw.startsWith('tech-')) return;
+  const target = document.getElementById(raw);
+  if(target){
+    grpchips.querySelector('button[data-k=""]').click();
+    q.value=''; applyFilter();
+    setTimeout(()=>{ target.scrollIntoView({behavior:'smooth',block:'center'}); flash(target); },30);
+  }
+}
+addEventListener('hashchange', resolveHash);
+resolveHash();
+</script>
+</body>
+</html>

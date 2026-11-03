@@ -1,0 +1,26 @@
+{
+ "ok": [
+  "v-ok",
+  "Positive evidence"
+ ],
+ "base": [
+  "v-base",
+  "Baseline matches or wins"
+ ],
+ "fail": [
+  "v-fail",
+  "Fails on the target question"
+ ],
+ "bias": [
+  "v-bias",
+  "Bias in what was learned"
+ ],
+ "eval": [
+  "v-eval",
+  "Evaluation gap"
+ ],
+ "diff": [
+  "v-diff",
+  "Differs from the original study"
+ ]
+}

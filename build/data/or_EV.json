@@ -1,0 +1,471 @@
+[
+ {
+  "e": "data",
+  "s": "4.2",
+  "v": "ok",
+  "f": "Protein language model embeddings group residues by hydrophobicity and charge without being told the properties of amino acids, and recover which residues make physical contact in the folded structure.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   89,
+   90
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.2",
+  "v": "ok",
+  "f": "ESMFold predicts atomic-level structure from a single sequence. AlphaFold, which also uses alignments of related sequences, reached near-experimental accuracy in the blind CASP14 assessment.",
+  "m": [
+   "esmfold",
+   "af2"
+  ],
+  "r": [
+   6,
+   4,
+   91
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.2",
+  "v": "ok",
+  "f": "SaProt generalizes by pairing each amino acid with a token for its local structure.",
+  "m": [
+   "saprot"
+  ],
+  "r": [
+   52
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.2",
+  "v": "ok",
+  "f": "GPN-MSA adds aligned sequences from 100 vertebrate genomes, making conservation visible, and outperforms sequence-only models at predicting deleterious variants.",
+  "m": [
+   "gpnmsa"
+  ],
+  "r": [
+   92
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.2",
+  "v": "ok",
+  "f": "UCE represents each gene by the ESM2 embedding of its protein rather than by a fixed gene list, so it can place cells from species absent from training in a shared space.",
+  "m": [
+   "uce"
+  ],
+  "r": [
+   11
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.3",
+  "v": "bias",
+  "f": "Protein language model likelihoods partly reflect how often related sequences were sampled across the tree of life rather than fitness alone.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   32
+  ]
+ },
+ {
+  "e": "data",
+  "s": "4.3",
+  "v": "bias",
+  "f": "LLM-based gene annotators may score well on benchmarks partly because curated databases shaped both their training and the benchmark labels, and they perform worse on orphan genes and non-model organisms.",
+  "x": "LLM-based gene annotation",
+  "r": [
+   12,
+   97
+  ]
+ },
+ {
+  "e": "arch",
+  "s": "4.3",
+  "v": "fail",
+  "f": "AlphaFold2 relies heavily on related sequences and largely fails to predict the structural disruption caused by destabilizing point mutations.",
+  "m": [
+   "af2"
+  ],
+  "r": [
+   98
+  ]
+ },
+ {
+  "e": "arch",
+  "s": "4.3",
+  "v": "fail",
+  "f": "Larger protein language models do not consistently improve zero-shot fitness prediction.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   44
+  ]
+ },
+ {
+  "e": "arch",
+  "s": "4.3",
+  "v": "fail",
+  "f": "Downstream tasks often reuse features learned early in pretraining.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   99
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.2",
+  "v": "ok",
+  "f": "Protein language model likelihoods predict mutational effects without training on mutational data and correlate with deep mutational scanning measurements.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   25
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.2",
+  "v": "ok",
+  "f": "EVE, an unsupervised model of evolutionary variation, matched or exceeded supervised methods at classifying human variants as pathogenic or benign.",
+  "m": [
+   "eve"
+  ],
+  "r": [
+   59
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.2",
+  "v": "ok",
+  "f": "Autoregressive training made design possible: ProGen produced artificial lysozymes with measurable catalytic activity, and ESM3, prompted with structure and function tokens, generated a fluorescent protein distant from known natural sequences.",
+  "m": [
+   "progen",
+   "esm3"
+  ],
+  "r": [
+   62,
+   30
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "fail",
+  "f": "Enformer predicts regulatory signals across the genome well, yet it poorly explains differences in gene expression between individuals and often predicts even the wrong direction of effect.",
+  "m": [
+   "enformer"
+  ],
+  "r": [
+   100,
+   101
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "fail",
+  "f": "A 2026 preprint reports the same personal-genome gap for AlphaGenome and Borzoi.",
+  "m": [
+   "alphagenome",
+   "borzoi"
+  ],
+  "r": [
+   102
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "In predicting responses to genetic perturbations, simple linear models and even the average of the training data match or outperform foundation models.",
+  "cls": [
+   "pert"
+  ],
+  "r": [
+   103,
+   104,
+   105
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "Geneformer and scGPT embeddings did not outperform simple baselines without fine-tuning.",
+  "m": [
+   "geneformer",
+   "scgpt"
+  ],
+  "r": [
+   106
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "An L1-regularized logistic regression rivaled scBERT on its reported task.",
+  "x": "scBERT",
+  "r": [
+   107
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "Parameter-free representations match single-cell foundation models on downstream benchmarks.",
+  "cls": [
+   "scfm"
+  ],
+  "r": [
+   108
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "Simple baselines rival protein language models in mutation-dense design of function tasks.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   110
+  ]
+ },
+ {
+  "e": "train",
+  "s": "4.3",
+  "v": "base",
+  "f": "In multi-omics integration, foundation models showed no uniform advantage across 23 methods.",
+  "cls": [
+   "mo"
+  ],
+  "r": [
+   111
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "eval",
+  "f": "DNA language models are spread across competing benchmarks, on which they showed inconsistent gains over lightweight supervised models.",
+  "cls": [
+   "dnalm"
+  ],
+  "r": [
+   112,
+   113
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "eval",
+  "f": "Common perturbation metrics are dominated by systematic expression differences unrelated to the specific perturbation, so a model can score well simply by predicting an average response.",
+  "cls": [
+   "pert"
+  ],
+  "r": [
+   114
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "eval",
+  "f": "When metrics are calibrated against both an uninformative mean baseline and a positive control, several deep-learning perturbation models do outperform simple baselines, so part of the reported parity reflects the metric rather than the model.",
+  "cls": [
+   "pert"
+  ],
+  "r": [
+   115
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "fail",
+  "f": "AlphaMissense showed meaningful discordance with curated clinical evidence across 5,845 missense variants in 59 disease genes.",
+  "m": [
+   "alphamissense"
+  ],
+  "r": [
+   116
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "fail",
+  "f": "Structure-confidence scores poorly separated successes from failures among 614 experimentally characterized de novo protein designs.",
+  "m": [
+   "af2",
+   "esmfold"
+  ],
+  "r": [
+   117
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "4.3",
+  "v": "base",
+  "f": "Most of 21 pretrained RNA language models did not outperform a one-hot encoding for secondary-structure prediction once closely related sequences were removed from the test set.",
+  "cls": [
+   "rnalm"
+  ],
+  "r": [
+   118
+  ]
+ },
+ {
+  "e": "evalu",
+  "s": "5.1",
+  "v": "eval",
+  "f": "Independent evaluation concentrates on protein sequence, single-cell representation and perturbation prediction. Bulk transcriptomics has no dedicated foundation-model benchmark, spatial benchmarks are only emerging, and multi-omics and RNA models have few head-to-head comparisons.",
+  "x": "Bulk, spatial, multi-omics and RNA models",
+  "r": [
+   111,
+   118
+  ]
+ },
+ {
+  "e": "post",
+  "s": "4.2",
+  "v": "ok",
+  "f": "Sparse autoencoders have recovered features for active sites, zinc-finger domains and disulfide bonds in protein language models.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   93,
+   94,
+   95
+  ]
+ },
+ {
+  "e": "post",
+  "s": "4.2",
+  "v": "ok",
+  "f": "Simulated gene deletion with Geneformer nominated therapeutic targets for cardiomyopathy that were then supported experimentally.",
+  "m": [
+   "geneformer"
+  ],
+  "r": [
+   9
+  ]
+ },
+ {
+  "e": "post",
+  "s": "4.2",
+  "v": "ok",
+  "f": "General protein language models guided antibody evolution toward improved binding without task-specific training.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   96
+  ]
+ },
+ {
+  "e": "post",
+  "s": "4.3",
+  "v": "eval",
+  "f": "Sparse-autoencoder dictionaries so far cover only a few protein and genomic models, so for most models it remains unknown whether a correct prediction reflects real biology or a shortcut that happens to work on the test.",
+  "cls": [
+   "plm"
+  ],
+  "r": [
+   93,
+   94,
+   95
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "1",
+  "v": "fail",
+  "f": "Independent evaluations show that current agents remain brittle on realistic analysis tasks.",
+  "x": "Agentic systems",
+  "r": [
+   15,
+   16
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "3",
+  "v": "ok",
+  "f": "In BioReason, an LLM alone reached 90% on pathway questions and the encoder made little difference. On variant classification the LLM reached 49%; adding Evo 2 raised this to 80%, compared with 61% for Nucleotide Transformer.",
+  "m": [
+   "evo2",
+   "nt"
+  ],
+  "r": [
+   21
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "3",
+  "v": "ok",
+  "f": "Paper2Agent’s AlphaGenome tools outperformed general agents, showing that packaging matters.",
+  "m": [
+   "alphagenome"
+  ],
+  "r": [
+   77,
+   83
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "3",
+  "v": "diff",
+  "f": "At an LDL cholesterol locus, the AlphaGenome agent prioritized SORT1, whereas the original paper emphasized CELSR2 and PSRC1.",
+  "m": [
+   "alphagenome"
+  ],
+  "r": [
+   77
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "5.1",
+  "v": "eval",
+  "f": "Agent benchmarks test general bioinformatics analysis, not whether an agent chooses the right foundation model or interprets its output correctly.",
+  "x": "Agent benchmarks",
+  "r": [
+   15,
+   16
+  ]
+ },
+ {
+  "e": "agent",
+  "s": "5.1",
+  "v": "eval",
+  "f": "When controls that separate the encoder’s contribution from the LLM’s were applied to six systems, BioReason and BioReason-Pro were as accurate with shuffled biological inputs as with intact ones.",
+  "x": "BioReason, BioReason-Pro",
+  "r": [
+   121,
+   21,
+   120
+  ]
+ }
+]

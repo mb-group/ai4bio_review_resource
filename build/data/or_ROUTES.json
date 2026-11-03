@@ -1,0 +1,48 @@
+[
+ {
+  "k": "Tool",
+  "when": "While the agent works",
+  "txt": "The agent reads the foundation model’s output as text. The Virtual Lab agents called ESM, AlphaFold-Multimer and Rosetta to refine nanobodies; Paper2Agent packages AlphaGenome as agent tools.",
+  "r": [
+   80,
+   77,
+   83
+  ],
+  "chips": [
+   "alphagenome"
+  ]
+ },
+ {
+  "k": "Text",
+  "when": "During training",
+  "txt": "Data are rewritten as language, for example each cell as a list of its top genes.",
+  "r": [
+   84
+  ],
+  "chips": []
+ },
+ {
+  "k": "Encoder",
+  "when": "During training",
+  "txt": "Embeddings are converted into the LLM’s input, so it reads biological data alongside text: ChatNT, CellWhisperer, BioReason and BioReason-Pro.",
+  "r": [
+   19,
+   20,
+   21,
+   120
+  ],
+  "chips": [
+   "nt",
+   "evo2"
+  ]
+ },
+ {
+  "k": "Verifier",
+  "when": "During training",
+  "txt": "A foundation model scores a reasoning model’s answers during training, so its errors become part of the reward.",
+  "r": [
+   85
+  ],
+  "chips": []
+ }
+]

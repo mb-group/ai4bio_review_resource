@@ -1,0 +1,1873 @@
+{
+ "A-01e1": {
+  "id": "A-01e1",
+  "term": "biological-foundation-model",
+  "text": "FMs predict protein structures, mutation effects, and cellular responses to genetic perturbations.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-02e1": {
+  "id": "1-02e1",
+  "term": "biological-foundation-model",
+  "text": "FMs: general patterns extracted once at development, then applied to many problems (ESM2, Geneformer, Evo 2...).",
+  "models": [
+   "evo-2",
+   "geneformer",
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-10e2": {
+  "id": "1-10e2",
+  "term": "biological-foundation-model",
+  "text": "Scope of the review: molecular sequences, macromolecular structures, single-cell data, and other omics; the concepts likely apply more broadly in biology and medicine.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1-01e3": {
+  "id": "2.1-01e3",
+  "term": "biological-foundation-model",
+  "text": "Task-specific models also covered because they rest on the same premise and are frequently used as FMs: AlphaFold (structure), AlphaGenome (sequence-to-function), virtual cells (perturbation).",
+  "models": [
+   "alphagenome",
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-02e2": {
+  "id": "1-02e2",
+  "term": "agentic-system",
+  "text": "Agents: biologists with limited programming experience can apply advanced computational tools to their own datasets.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-05e1": {
+  "id": "1-05e1",
+  "term": "agentic-system",
+  "text": "Recognized successes are in conventional bioinformatics and biostatistics (GeneAgent, CellVoyager, TxAgent).",
+  "models": [
+   "geneagent"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-05e2": {
+  "id": "1-05e2",
+  "term": "agentic-system",
+  "text": "Independent benchmarks (BixBench, HeurekaBench) show agents remain brittle on realistic analysis tasks.",
+  "models": [
+   "bixbench"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-06e1": {
+  "id": "1-06e1",
+  "term": "agentic-system",
+  "text": "AlphaFold + Biomni: both draw on public resources (UniProt, PDB). AlphaFold can predict an uncharacterized protein's structure, which an agent composing existing software cannot do; the multistep work after that (compare with known structures, link to variants/expression data, plan follow-up experiments) is what an agent can assemble.",
+  "models": [
+   "biomni",
+   "uniprot",
+   "pdb",
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-01e1": {
+  "id": "3-01e1",
+  "term": "agentic-system",
+  "text": "Typical task: \"which genes respond to a drug in this single-cell dataset?\" → plan the analysis, write and run code, call an FM, check results, return to the user when a decision is needed.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-04e1": {
+  "id": "3-04e1",
+  "term": "agentic-system",
+  "text": "Biomni: composes workflows from tools and protocols mined from thousands of publications. Paper2Agent: turns a paper's codebase into MCP tools.",
+  "models": [
+   "biomni",
+   "paper2agent"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-04e2": {
+  "id": "3-04e2",
+  "term": "agentic-system",
+  "text": "Other agents target chemistry, gene-set annotation, gene editing, single-cell reanalysis, therapeutics.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.1-03e2": {
+  "id": "5.1-03e2",
+  "term": "agentic-system",
+  "text": "Evidence on adoption by biologists remains limited to surveys.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.1-02e1": {
+  "id": "6.1-02e1",
+  "term": "agentic-system",
+  "text": "Route each question to the model whose boundary covers it; combine outputs from complementary models; fall back to a simple baseline when no model applies.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.2-01e2": {
+  "id": "6.2-01e2",
+  "term": "agentic-system",
+  "text": "Recent high-profile agent studies still rely on human scientists to run experiments and interpret results.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-07e2": {
+  "id": "3-07e2",
+  "term": "knowledge-boundary",
+  "text": "Unlike conventional bioinformatics tools, FMs have little community guidance on when to trust them.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-07e3": {
+  "id": "3-07e3",
+  "term": "knowledge-boundary",
+  "text": "At an LDL cholesterol locus, the AlphaGenome agent prioritized SORT1, whereas the original paper emphasized CELSR2 and PSRC1.",
+  "models": [
+   "alphagenome"
+  ],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.1-01e1": {
+  "id": "6.1-01e1",
+  "term": "knowledge-boundary",
+  "text": "GPN-MSA (evolutionary alignments) and ChromBPNet (single assay at base resolution) already follow this pattern.",
+  "models": [
+   "gpn-msa",
+   "chrombpnet"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-01e1": {
+  "id": "1-01e1",
+  "term": "knowledge-extraction",
+  "text": "Processing: Fourier calculations turned X-ray diffraction data into the first protein structure (myoglobin).",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-01e2": {
+  "id": "1-01e2",
+  "term": "knowledge-extraction",
+  "text": "Interpreting: the Protein Data Bank grew from 7 structures (1971) to 250,000+, driving new methods for comparing and classifying structures; new disciplines formed (biostatistics, bioinformatics, computational biology).",
+  "models": [
+   "pdb"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-01e3": {
+  "id": "1-01e3",
+  "term": "knowledge-extraction",
+  "text": "Discovering: AlphaFold predicts protein structure from sequence, producing results not yet tested experimentally.",
+  "models": [
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-04e3": {
+  "id": "1-04e3",
+  "term": "embedding",
+  "text": "Crude-oil analogy (Fig 1C): raw data are refined into a reusable intermediate and distributed to diverse downstream users.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-05e1": {
+  "id": "2.1.1-05e1",
+  "term": "embedding",
+  "text": "Individual numbers may combine properties; a human could not identify which number reflects, say, polarity.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-05e3": {
+  "id": "2.1.1-05e3",
+  "term": "embedding",
+  "text": "In ESM2, proteins with similar structure or function lie near one another in embedding space even when their sequences differ.",
+  "models": [
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-04e1": {
+  "id": "1-04e1",
+  "term": "compression-vs-composability",
+  "text": "ESM2 is trained on UniRef sequences; Nucleotide Transformer and Evo 2 learn from genomes across species; Geneformer, scGPT, UCE learn from tens of millions of cells.",
+  "models": [
+   "nucleotide-transformer",
+   "evo-2",
+   "geneformer",
+   "scgpt",
+   "uce",
+   "esm2",
+   "uniref"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-04e2": {
+  "id": "1-04e2",
+  "term": "correlation-vs-causation",
+  "text": "AlphaFold predicts structure accurately without \"learning\" the physical and chemical basis of folding (Fig 1B).",
+  "models": [
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-01e2": {
+  "id": "4.2-01e2",
+  "term": "correlation-vs-causation",
+  "text": "Not captured: a protein language model predicting residue contacts has no representation of the forces driving folding.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.3-04e1": {
+  "id": "4.3-04e1",
+  "term": "correlation-vs-causation",
+  "text": "Enformer predicts regulatory signals across the genome well but poorly explains differences in expression between individuals and often predicts the wrong direction of effect; a 2026 preprint reports the same for AlphaGenome and Borzoi.",
+  "models": [
+   "enformer",
+   "borzoi",
+   "alphagenome"
+  ],
+  "direction": "limitation",
+  "design_element": "training scheme",
+  "finding": "Observed states rarely predict the effect of an intervention beyond simple baselines",
+  "source_claim": "4.3-04",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-04e5": {
+  "id": "4.3-04e5",
+  "term": "correlation-vs-causation",
+  "text": "Masked and autoregressive objectives reward predicting what occurs together, not what causes what.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": "Observed states rarely predict the effect of an intervention beyond simple baselines",
+  "source_claim": "4.3-04",
+  "landing_claim": "4.3-08"
+ },
+ "3-01e2": {
+  "id": "3-01e2",
+  "term": "llm",
+  "text": "Starting point, the limits of chat LLMs (widely available from late 2022): knowledge fixed at a training cutoff, no source for answers, hallucinations, cannot act on data or run software.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1-01e1": {
+  "id": "2.1-01e1",
+  "term": "self-supervised-learning",
+  "text": "Masking example: hide a few amino acids → model predicts them → compare with the truth → adjust → repeat across millions of sequences.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1-01e2": {
+  "id": "2.1-01e2",
+  "term": "self-supervised-learning",
+  "text": "Why it suits biology: hundreds of millions of unlabeled DNA/protein sequences and single-cell transcriptomes vs. scarce, labor-intensive, unevenly distributed validated labels (e.g., a variant classified pathogenic or benign).",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1-02e1": {
+  "id": "2.1-02e1",
+  "term": "self-supervised-learning",
+  "text": "Patterns the training is designed to extract: pairs of amino acids that mutate together because they contact each other in the fold; TF-bound short motifs in DNA (e.g., the TATA box in many promoters); groups of genes whose expression rises and falls together in a pathway.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-01e1": {
+  "id": "4.2-01e1",
+  "term": "self-supervised-learning",
+  "text": "Captured: amino acid chemistry, which residues contact each other in a fold, which mutations a protein tolerates.",
+  "models": [],
+  "direction": "success",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-02e1": {
+  "id": "4.2-02e1",
+  "term": "self-supervised-learning",
+  "text": "Protein language models are never told amino acid properties, yet embeddings group residues by hydrophobicity and charge.",
+  "models": [],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Known patterns can be recovered from unlabeled sequence",
+  "source_claim": "4.2-02",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-02e2": {
+  "id": "4.2-02e2",
+  "term": "self-supervised-learning",
+  "text": "They recover which residues physically interact in the fold, because such residues tend to mutate together over evolution.",
+  "models": [],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Known patterns can be recovered from unlabeled sequence",
+  "source_claim": "4.2-02",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-02e3": {
+  "id": "4.2-02e3",
+  "term": "self-supervised-learning",
+  "text": "ESMFold predicts atomic-level structure from a single sequence; AlphaFold, which also uses alignments of related sequences, reached near-experimental accuracy in blind CASP14.",
+  "models": [
+   "esm2",
+   "alphafold"
+  ],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Known patterns can be recovered from unlabeled sequence",
+  "source_claim": "4.2-02",
+  "landing_claim": "4.2-07"
+ },
+ "4.3-07e1": {
+  "id": "4.3-07e1",
+  "term": "fine-tuning",
+  "text": "Fine-tuning can add knowledge from the new labels, so a strong fine-tuned score does not show how much was learned in pretraining.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "post-analysis",
+  "finding": "A correct answer does not show the model knows why",
+  "source_claim": "4.3-07",
+  "landing_claim": "4.3-08"
+ },
+ "2.1-02e2": {
+  "id": "2.1-02e2",
+  "term": "zero-shot-prediction",
+  "text": "Zero-shot example: a protein language model scores how plausible a sequence is; a mutation that makes it much less plausible is more likely to disrupt function, so the score estimates variant effect.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-03e1": {
+  "id": "4.2-03e1",
+  "term": "zero-shot-prediction",
+  "text": "Protein language model likelihoods predict mutational effects without mutational training data and correlate with deep mutational scanning measurements.",
+  "models": [],
+  "direction": "success",
+  "design_element": "training scheme",
+  "finding": "Models capture what is functional",
+  "source_claim": "4.2-03",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-03e2": {
+  "id": "4.2-03e2",
+  "term": "zero-shot-prediction",
+  "text": "EVE (unsupervised model of evolutionary variation) matched or exceeded supervised methods at classifying human variants as pathogenic or benign.",
+  "models": [
+   "eve"
+  ],
+  "direction": "success",
+  "design_element": "training scheme",
+  "finding": "Models capture what is functional",
+  "source_claim": "4.2-03",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-03e3": {
+  "id": "4.2-03e3",
+  "term": "zero-shot-prediction",
+  "text": "ProteinGym turned this into a shared test of more than 200 deep mutational scanning assays.",
+  "models": [
+   "proteingym"
+  ],
+  "direction": "success",
+  "design_element": "training scheme",
+  "finding": "Models capture what is functional",
+  "source_claim": "4.2-03",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-06e3": {
+  "id": "4.2-06e3",
+  "term": "zero-shot-prediction",
+  "text": "General protein language models guided antibody evolution toward improved binding without task-specific training.",
+  "models": [],
+  "direction": "success",
+  "design_element": "post-analysis",
+  "finding": "Learned knowledge can be read out",
+  "source_claim": "4.2-06",
+  "landing_claim": "4.2-07"
+ },
+ "2.1.1-02e2": {
+  "id": "2.1.1-02e2",
+  "term": "vocabulary",
+  "text": "ESM2: the 20 standard amino acids are the vocabulary, so a 300-aa protein is 300 tokens.",
+  "models": [
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.2.1-04e3": {
+  "id": "2.2.1-04e3",
+  "term": "vocabulary",
+  "text": "Fixed gene identities from specific genome annotations restrict models to species seen in training; UCE addresses this.",
+  "models": [
+   "uce"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Single-cell: representing expression levels; fixed gene vocabulary",
+  "source_claim": "2.2.1-04",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.1.1-02e1": {
+  "id": "2.1.1-02e1",
+  "term": "token",
+  "text": "LLMs: tokens = words or word fragments. Biological FMs: tokens = amino acids, nucleotides, or short motifs; in single-cell models, genes (each cell read as a list of the genes it expresses).",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-02e3": {
+  "id": "2.1.1-02e3",
+  "term": "token",
+  "text": "DNA: model builders must choose among single nucleotides, fixed-length *k*-mers, or learned multi-nucleotide tokens.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.2.1-02e1": {
+  "id": "2.2.1-02e1",
+  "term": "token",
+  "text": "Nucleotide Transformer: fixed six-nucleotide *k*-mers. DNABERT-2 and GROVER: learned variable-length tokens.",
+  "models": [
+   "nucleotide-transformer",
+   "dnabert-2",
+   "grover"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "DNA: how to define a token",
+  "source_claim": "2.2.1-02",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-02e2": {
+  "id": "2.2.1-02e2",
+  "term": "token",
+  "text": "Multinucleotide tokens can split regulatory motifs and hide the effect of a single-nucleotide variant.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "DNA: how to define a token",
+  "source_claim": "2.2.1-02",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-02e3": {
+  "id": "2.2.1-02e3",
+  "term": "token",
+  "text": "HyenaDNA, Caduceus, Evo: one nucleotide per token, with architectures efficient over long inputs.",
+  "models": [
+   "hyenadna",
+   "caduceus",
+   "evo"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "DNA: how to define a token",
+  "source_claim": "2.2.1-02",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-04e1": {
+  "id": "2.2.1-04e1",
+  "term": "token",
+  "text": "Why hard: a cell has no inherent order, each gene carries a continuous value, and platform/processing details create strong non-biological confounders.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Single-cell: representing expression levels; fixed gene vocabulary",
+  "source_claim": "2.2.1-04",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-04e2": {
+  "id": "2.2.1-04e2",
+  "term": "token",
+  "text": "Geneformer: genes ordered by expression rank. scGPT: each gene paired with a binned expression value.",
+  "models": [
+   "geneformer",
+   "scgpt"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Single-cell: representing expression levels; fixed gene vocabulary",
+  "source_claim": "2.2.1-04",
+  "landing_claim": "2.2.1-01"
+ },
+ "4.1-02e2": {
+  "id": "4.1-02e2",
+  "term": "token",
+  "text": "Tokenization fixes the smallest unit: a six-nucleotide token blurs a single-nucleotide variant; a rank-based input discards how strongly each gene is expressed.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Single-cell: representing expression levels; fixed gene vocabulary",
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-03e1": {
+  "id": "2.1.1-03e1",
+  "term": "grammar",
+  "text": "Proteins: rules dictated by evolution; a gene persists only if the protein folds into the required structure and adopts the right dynamics.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-03e2": {
+  "id": "2.1.1-03e2",
+  "term": "grammar",
+  "text": "Regulatory DNA: the grammar lies in the number, spacing, orientation, and order of motifs, determining which TFs bind together, how strongly the gene is expressed, and in which cell types.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.2.1-04e4": {
+  "id": "2.2.1-04e4",
+  "term": "grammar",
+  "text": "Single-cell models: the grammar is co-expression patterns, the token is a gene, and the corpus is a matrix of expression counts across cells.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Single-cell: representing expression levels; fixed gene vocabulary",
+  "source_claim": "2.2.1-04",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.1.1-04e1": {
+  "id": "2.1.1-04e1",
+  "term": "corpus",
+  "text": "Examples: UniRef (hundreds of millions of protein sequences; trained ESM2); CZ CELLxGENE Discover (150M+ single cells; supplied scGPT's training data).",
+  "models": [
+   "scgpt",
+   "esm2",
+   "uniref",
+   "cz-cellxgene-discover"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-04e2": {
+  "id": "2.1.1-04e2",
+  "term": "corpus",
+  "text": "Size: ESM3 (~771B tokens) vs. Llama 3 (~15T tokens), roughly 20-fold fewer, though tokens from the two domains are not directly equivalent.",
+  "models": [
+   "esm3"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-04e3": {
+  "id": "2.1.1-04e3",
+  "term": "corpus",
+  "text": "Diversity: many sequences are near-duplicates of close relatives (hence clustering before training); sequences concentrate in a few well-studied lineages, biasing model likelihoods toward them.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-04e4": {
+  "id": "2.1.1-04e4",
+  "term": "corpus",
+  "text": "Nature of the data: text records language directly; biological data are indirect measurements shaped by assay technology and experimental design, containing only what current methods can measure and what researchers chose to study.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-02e1": {
+  "id": "4.1-02e1",
+  "term": "corpus",
+  "text": "Human proteins and model organisms are represented by many related sequences and measured cell states; poorly studied lineages and rarely profiled cell states appear seldom or not at all.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.3-02e3": {
+  "id": "4.3-02e3",
+  "term": "corpus",
+  "text": "Spatial, perturbation, and bulk corpora are small compared with sequence databases and single-cell atlases; more parameters cannot recover patterns the data never contain.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "data",
+  "finding": "Models capture both biology and the history of sampling",
+  "source_claim": "4.3-02",
+  "landing_claim": "4.3-08"
+ },
+ "5.2-03e2": {
+  "id": "5.2-03e2",
+  "term": "corpus",
+  "text": "Unlike text, biology's corpus is still being defined as new measurement technologies emerge.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": "Models capture both biology and the history of sampling",
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.1-05e2": {
+  "id": "2.1.1-05e2",
+  "term": "sparse-autoencoder",
+  "text": "The \"Jennifer Aniston neuron\" in neuroscience (a single neuron firing selectively to one person) motivates the sparse-autoencoder aim.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-06e1": {
+  "id": "4.2-06e1",
+  "term": "sparse-autoencoder",
+  "text": "Sparse autoencoders have recovered features for active sites, zinc-finger domains, and disulfide bonds in protein language models.",
+  "models": [],
+  "direction": "success",
+  "design_element": "post-analysis",
+  "finding": "Learned knowledge can be read out",
+  "source_claim": "4.2-06",
+  "landing_claim": "4.2-07"
+ },
+ "2.1.2-02e1": {
+  "id": "2.1.2-02e1",
+  "term": "five-design-elements",
+  "text": "ESM2: UniRef sequences, tokenized as individual amino acids. Geneformer: each cell as a list of genes ranked by expression.",
+  "models": [
+   "geneformer",
+   "esm2",
+   "uniref"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.2-01e1": {
+  "id": "2.1.2-01e1",
+  "term": "generalization",
+  "text": "ESM2 can score a mutation absent from its training data, but cannot score nucleotide substitutions because its vocabulary contains only amino acids.",
+  "models": [
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-05e1": {
+  "id": "4.1-05e1",
+  "term": "generalization",
+  "text": "A model tested only on data resembling its training set can look strong while failing on new proteins, species, or conditions.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "evaluation",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-05e2": {
+  "id": "4.1-05e2",
+  "term": "generalization",
+  "text": "If test proteins have close relatives in the training set, a high score may reflect recall rather than learned rules.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "evaluation",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-05e1": {
+  "id": "4.2-05e1",
+  "term": "generalization",
+  "text": "SaProt pairs each amino acid with a token for its local structure.",
+  "models": [
+   "saprot"
+  ],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "source_claim": "4.2-05",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-05e2": {
+  "id": "4.2-05e2",
+  "term": "generalization",
+  "text": "GPN-MSA adds aligned sequences from 100 vertebrate genomes, making conservation visible, and outperforms sequence-only models at predicting deleterious variants.",
+  "models": [
+   "gpn-msa"
+  ],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "source_claim": "4.2-05",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-05e3": {
+  "id": "4.2-05e3",
+  "term": "generalization",
+  "text": "UCE represents each gene by the ESM2 embedding of its protein, so it can place cells from species absent from training in a shared space.",
+  "models": [
+   "uce",
+   "esm2"
+  ],
+  "direction": "success",
+  "design_element": "data",
+  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "source_claim": "4.2-05",
+  "landing_claim": "4.2-07"
+ },
+ "4.3-03e1": {
+  "id": "4.3-03e1",
+  "term": "generalization",
+  "text": "AlphaFold2 relies heavily on related sequences and largely fails to predict the structural disruption of destabilizing point mutations.",
+  "models": [
+   "alphafold"
+  ],
+  "direction": "limitation",
+  "design_element": "architecture",
+  "finding": "One-mutation effects are often missed, and scale has not closed the gap",
+  "source_claim": "4.3-03",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-03e3": {
+  "id": "4.3-03e3",
+  "term": "transformer",
+  "text": "AlphaGenome reads one megabase at a time (underlying its state-of-the-art performance), yet longer-range or inter-chromosomal regulation lies outside a single input.",
+  "models": [
+   "alphagenome"
+  ],
+  "direction": "limitation",
+  "design_element": "architecture",
+  "finding": "One-mutation effects are often missed, and scale has not closed the gap",
+  "source_claim": "4.3-03",
+  "landing_claim": "4.3-08"
+ },
+ "2.1.2-03e1": {
+  "id": "2.1.2-03e1",
+  "term": "inductive-bias",
+  "text": "Alternatives built on features of the data: HyenaDNA (long genomic context), Caduceus (equivalence of the two DNA strands), PINNACLE (protein interaction networks).",
+  "models": [
+   "hyenadna",
+   "caduceus",
+   "pinnacle"
+  ],
+  "direction": "illustration",
+  "design_element": "architecture",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.2-04e1": {
+  "id": "2.1.2-04e1",
+  "term": "masked-language-modeling",
+  "text": "Masked: ESM2.",
+  "models": [
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-04e1": {
+  "id": "4.1-04e1",
+  "term": "masked-language-modeling",
+  "text": "ESM2 likelihoods score tolerance of a mutation but ESM2 is not built to write new sequences; ProGen2 and Evo are natural generators of new proteins and genomes.",
+  "models": [
+   "progen2",
+   "esm2",
+   "evo"
+  ],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.2-04e3": {
+  "id": "2.1.2-04e3",
+  "term": "autoregressive-modeling",
+  "text": "Autoregressive: ProGen2, Evo.",
+  "models": [
+   "progen2",
+   "evo"
+  ],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-04e1": {
+  "id": "4.2-04e1",
+  "term": "autoregressive-modeling",
+  "text": "ProGen produced artificial lysozymes with measurable catalytic activity.",
+  "models": [
+   "progen"
+  ],
+  "direction": "success",
+  "design_element": "training scheme",
+  "finding": "Models can design new, functional molecules",
+  "source_claim": "4.2-04",
+  "landing_claim": "4.2-07"
+ },
+ "4.2-04e2": {
+  "id": "4.2-04e2",
+  "term": "autoregressive-modeling",
+  "text": "ESM3, prompted with structure and function tokens, generated a fluorescent protein distant from known natural sequences.",
+  "models": [
+   "esm3"
+  ],
+  "direction": "success",
+  "design_element": "training scheme",
+  "finding": "Models can design new, functional molecules",
+  "source_claim": "4.2-04",
+  "landing_claim": "4.2-07"
+ },
+ "2.1.2-04e2": {
+  "id": "2.1.2-04e2",
+  "term": "contrastive-learning",
+  "text": "Contrastive: Orthrus (splice isoforms and orthologs of the same gene as related RNAs); SCimilarity (cells of the same type placed near one another).",
+  "models": [
+   "orthrus",
+   "scimilarity"
+  ],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-04e2": {
+  "id": "4.1-04e2",
+  "term": "contrastive-learning",
+  "text": "SCimilarity's embeddings suit searching an atlas for similar cells, not predicting perturbation response.",
+  "models": [
+   "scimilarity"
+  ],
+  "direction": "illustration",
+  "design_element": "training scheme",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.2-05e1": {
+  "id": "2.1.2-05e1",
+  "term": "intrinsic-vs-downstream-evaluation",
+  "text": "Intrinsic: ESM2 recovering residue contacts. Downstream: predicting mutation effects on ProteinGym.",
+  "models": [
+   "esm2",
+   "proteingym"
+  ],
+  "direction": "illustration",
+  "design_element": "evaluation",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.1-02e1": {
+  "id": "5.1-02e1",
+  "term": "intrinsic-vs-downstream-evaluation",
+  "text": "Bulk transcriptomics has no dedicated FM benchmark; spatial benchmarks are only emerging; multi-omics and RNA models have few head-to-head comparisons.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.1-02e2": {
+  "id": "5.1-02e2",
+  "term": "intrinsic-vs-downstream-evaluation",
+  "text": "Protein structure (CASP), protein fitness (ProteinGym), and perturbation prediction (Virtual Cell Challenge) have blind or community-maintained evaluations; sequence-to-function models are mostly evaluated on developer-defined suites, with cross-individual tests appearing only recently.",
+  "models": [
+   "proteingym",
+   "casp"
+  ],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.1.2-06e1": {
+  "id": "2.1.2-06e1",
+  "term": "in-silico-perturbation",
+  "text": "Using a model as is: scoring mutations by likelihood; Geneformer's *in silico* deletion.",
+  "models": [
+   "geneformer"
+  ],
+  "direction": "illustration",
+  "design_element": "post-analysis",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-06e2": {
+  "id": "4.2-06e2",
+  "term": "in-silico-perturbation",
+  "text": "Geneformer's simulated gene deletion nominated therapeutic targets for cardiomyopathy that were then supported experimentally.",
+  "models": [
+   "geneformer"
+  ],
+  "direction": "success",
+  "design_element": "post-analysis",
+  "finding": "Learned knowledge can be read out",
+  "source_claim": "4.2-06",
+  "landing_claim": "4.2-07"
+ },
+ "2.1.2-06e2": {
+  "id": "2.1.2-06e2",
+  "term": "interpretability-analysis",
+  "text": "Interpretability: which input positions drive a prediction; which internal features match known biology.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "post-analysis",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-06e1": {
+  "id": "4.1-06e1",
+  "term": "interpretability-analysis",
+  "text": "Probing, fine-tuning, and interpretability analysis each expose different knowledge.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "post-analysis",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.3-07e2": {
+  "id": "4.3-07e2",
+  "term": "interpretability-analysis",
+  "text": "Attention weights should not be read as biological mechanisms; sparse-autoencoder dictionaries so far cover only a few protein and genomic models.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "post-analysis",
+  "finding": "A correct answer does not show the model knows why",
+  "source_claim": "4.3-07",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-07e3": {
+  "id": "4.3-07e3",
+  "term": "interpretability-analysis",
+  "text": "For most models it remains unknown whether a correct prediction reflects real biology or a shortcut that works on the test.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "post-analysis",
+  "finding": "A correct answer does not show the model knows why",
+  "source_claim": "4.3-07",
+  "landing_claim": "4.3-08"
+ },
+ "2.2.1-03e1": {
+  "id": "2.2.1-03e1",
+  "term": "inputs-vs-outputs",
+  "text": "Single-stranded RNA folds back on itself; RNA-FM and RiNALMo (trained on tens of millions of non-coding RNAs) recover which bases pair, much as ESM2 recovers protein contacts.",
+  "models": [
+   "rna-fm",
+   "rinalmo",
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "RNA: models read sequence and fold structure; non-coding RNA models need not capture mRNA function",
+  "source_claim": "2.2.1-03",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-03e2": {
+  "id": "2.2.1-03e2",
+  "term": "inputs-vs-outputs",
+  "text": "mRNA: function depends on coding sequence, splicing, regulatory regions; Orthrus uses contrastive learning across splice isoforms and orthologs.",
+  "models": [
+   "orthrus"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "RNA: models read sequence and fold structure; non-coding RNA models need not capture mRNA function",
+  "source_claim": "2.2.1-03",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-06e1": {
+  "id": "2.2.1-06e1",
+  "term": "inputs-vs-outputs",
+  "text": "ESM2 and ProtTrans established how much can be learned from sequence alone at scale.",
+  "models": [
+   "prottrans",
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Protein: the vocabulary is settled, so innovation moves to other design elements",
+  "source_claim": "2.2.1-06",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-06e2": {
+  "id": "2.2.1-06e2",
+  "term": "inputs-vs-outputs",
+  "text": "SaProt and ESM3 add structure/function tokens; ProGen2 adopts next-token prediction for generation; Ankh matches larger models at a fraction of the pretraining cost.",
+  "models": [
+   "progen2",
+   "saprot",
+   "ankh",
+   "esm3"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Protein: the vocabulary is settled, so innovation moves to other design elements",
+  "source_claim": "2.2.1-06",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-07e1": {
+  "id": "2.2.1-07e1",
+  "term": "inputs-vs-outputs",
+  "text": "GeneCompass: enriches gene tokens with prior knowledge.",
+  "models": [
+   "genecompass"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Multi-omics: no shared vocabulary; models take different routes to align modalities",
+  "source_claim": "2.2.1-07",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-07e3": {
+  "id": "2.2.1-07e3",
+  "term": "inputs-vs-outputs",
+  "text": "AIDO: separate DNA, RNA, protein, and cell models, with embeddings combined.",
+  "models": [
+   "aido"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Multi-omics: no shared vocabulary; models take different routes to align modalities",
+  "source_claim": "2.2.1-07",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2-01e1": {
+  "id": "2.2-01e1",
+  "term": "inputs-vs-outputs",
+  "text": "Contrast: a general-purpose LLM serves many kinds of text and tasks.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": "Multi-omics: no shared vocabulary; models take different routes to align modalities",
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "2.2.1-05e1": {
+  "id": "2.2.1-05e1",
+  "term": "bulk-rna-seq",
+  "text": "BulkFormer: trained on bulk profiles linked to tissue type, disease, and clinical outcome; gene remains the vocabulary unit.",
+  "models": [
+   "bulkformer"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Bulk and spatial: bulk trades resolution for clinical linkage; spatial adds neighborhood",
+  "source_claim": "2.2.1-05",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-05e2": {
+  "id": "2.2.1-05e2",
+  "term": "spatial-transcriptomics",
+  "text": "Nicheformer: trained jointly on dissociated and spatial data, so a cell's embedding reflects its expression and its neighborhood. VirTues: extends spatial modeling to protein markers in multiplexed tissue images.",
+  "models": [
+   "nicheformer",
+   "virtues"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Bulk and spatial: bulk trades resolution for clinical linkage; spatial adds neighborhood",
+  "source_claim": "2.2.1-05",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.1-07e2": {
+  "id": "2.2.1-07e2",
+  "term": "graph-neural-network",
+  "text": "PINNACLE: protein interaction networks built per cell type; the same protein gets a different embedding in each cell type.",
+  "models": [
+   "pinnacle"
+  ],
+  "direction": "illustration",
+  "design_element": "data",
+  "finding": "Multi-omics: no shared vocabulary; models take different routes to align modalities",
+  "source_claim": "2.2.1-07",
+  "landing_claim": "2.2.1-01"
+ },
+ "2.2.2-02e1": {
+  "id": "2.2.2-02e1",
+  "term": "representation-model",
+  "text": "ESM2 embeddings used to predict structure, annotate function, and score mutations.",
+  "models": [
+   "esm2"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-02",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-02e2": {
+  "id": "2.2.2-02e2",
+  "term": "representation-model",
+  "text": "What is embedded: a residue or protein (ESM2), a DNA segment (Nucleotide Transformer, Evo), a gene in context (Geneformer, scGPT), a whole cell (UCE).",
+  "models": [
+   "nucleotide-transformer",
+   "geneformer",
+   "scgpt",
+   "uce",
+   "esm2",
+   "evo"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-02",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-03e1": {
+  "id": "2.2.2-03e1",
+  "term": "predictive-model",
+  "text": "AlphaFold: amino acid sequence → 3D coordinates of every atom (from PDB structures).",
+  "models": [
+   "pdb",
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-03",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-03e2": {
+  "id": "2.2.2-03e2",
+  "term": "predictive-model",
+  "text": "AlphaGenome: up to 1 Mb of sequence → thousands of tracks (RNA expression, chromatin accessibility, TF binding) at up to single-base resolution; extends Enformer and Borzoi; Scooby adapts Borzoi to single cells.",
+  "models": [
+   "enformer",
+   "borzoi",
+   "scooby",
+   "alphagenome"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-03",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-03e3": {
+  "id": "2.2.2-03e3",
+  "term": "predictive-model",
+  "text": "Variant-effect predictors (clinical labels are scarce, so they use other signals): EVE (evolutionary conservation), AlphaMissense (adapts AlphaFold with human population frequencies), popEVE (combines both so scores are comparable across proteins).",
+  "models": [
+   "alphamissense",
+   "popeve",
+   "eve",
+   "alphafold"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-03",
+  "landing_claim": "2.2.2-01"
+ },
+ "4.3-06e1": {
+  "id": "4.3-06e1",
+  "term": "predictive-model",
+  "text": "AlphaMissense: meaningful discordance with curated clinical evidence across 5,845 missense variants in 59 disease genes.",
+  "models": [
+   "alphamissense"
+  ],
+  "direction": "limitation",
+  "design_element": "evaluation",
+  "finding": "Application-level studies show similar gaps",
+  "source_claim": "4.3-06",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-06e2": {
+  "id": "4.3-06e2",
+  "term": "predictive-model",
+  "text": "Structure-confidence scores poorly separated successes from failures among 614 experimentally characterized de novo protein designs.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "evaluation",
+  "finding": "Application-level studies show similar gaps",
+  "source_claim": "4.3-06",
+  "landing_claim": "4.3-08"
+ },
+ "2.2.2-04e1": {
+  "id": "2.2.2-04e1",
+  "term": "generative-model",
+  "text": "Proteins: ProGen (protein-family tag → full sequence, one amino acid at a time); ESM3 (prompted with partial structure or function).",
+  "models": [
+   "progen",
+   "esm3"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-04",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-04e2": {
+  "id": "2.2.2-04e2",
+  "term": "generative-model",
+  "text": "Nucleic acids: Evo (genomes), regLM (regulatory DNA with specified activity), CodonTransformer (organism-specific codons), gRNAde (RNA that folds into a target structure).",
+  "models": [
+   "codontransformer",
+   "grnade",
+   "reglm",
+   "evo"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-04",
+  "landing_claim": "2.2.2-01"
+ },
+ "2.2.2-04e3": {
+  "id": "2.2.2-04e3",
+  "term": "perturbation-model",
+  "text": "Perturbation: CellOT (maps control onto perturbed populations), GEARS (gene-relationship graph for unseen combinations), State (trained on a large perturbation corpus, treats whole cells as tokens).",
+  "models": [
+   "cellot",
+   "gears",
+   "state"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": "2.2.2-04",
+  "landing_claim": "2.2.2-01"
+ },
+ "3-02e1": {
+  "id": "3-02e1",
+  "term": "reasoning-model",
+  "text": "External components that can extend the system: documents, tools, or a connected FM.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-07e1": {
+  "id": "3-07e1",
+  "term": "reasoning-model",
+  "text": "A reasoning model's written steps are not guaranteed valid or faithful; biological inference, unlike mathematical proof, starts from incomplete premises that only experiments can test.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-03e1": {
+  "id": "3-03e1",
+  "term": "mcp",
+  "text": "MCP analogy: like USB for computer devices; a database, program, or FM wrapped once as an MCP tool can be used by any compatible agent.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-03e2": {
+  "id": "3-03e2",
+  "term": "skill-files",
+  "text": "Skill file contents: steps of a standard analysis, or when a tool's output should not be trusted.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-04e3": {
+  "id": "3-04e3",
+  "term": "multi-agent-system",
+  "text": "Virtual Lab: agents acting as a principal investigator and specialist scientists designed nanobodies; the AI co-scientist and Robin extend this to hypothesis generation.",
+  "models": [
+   "virtual-lab",
+   "ai-co-scientist",
+   "robin"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "1-06e2": {
+  "id": "1-06e2",
+  "term": "tool-route",
+  "text": "Agents calling FMs as tools: Biomni, Virtual Biotech.",
+  "models": [
+   "biomni",
+   "virtual-biotech"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-05e1": {
+  "id": "3-05e1",
+  "term": "tool-route",
+  "text": "Tool: Virtual Lab agents called ESM, AlphaFold-Multimer, and Rosetta to refine nanobodies; Paper2Agent's AlphaGenome tools outperformed general agents, showing that packaging matters.",
+  "models": [
+   "alphagenome",
+   "alphafold-multimer",
+   "paper2agent",
+   "virtual-lab",
+   "rosetta"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-05e2": {
+  "id": "3-05e2",
+  "term": "text-route",
+  "text": "Text: each cell as a list of its top genes.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-05e3": {
+  "id": "3-05e3",
+  "term": "encoder-route",
+  "text": "Encoder: ChatNT, CellWhisperer, BioReason.",
+  "models": [
+   "chatnt",
+   "cellwhisperer",
+   "bioreason"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-06e1": {
+  "id": "3-06e1",
+  "term": "encoder-route",
+  "text": "BioReason: on pathway questions the LLM alone reached 90% and the encoder made little difference; on variant classification it reached 49%, rising to 80% with Evo 2 vs. 61% with Nucleotide Transformer.",
+  "models": [
+   "nucleotide-transformer",
+   "evo-2",
+   "bioreason"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.1-03e1": {
+  "id": "5.1-03e1",
+  "term": "encoder-route",
+  "text": "Systems feeding FM embeddings into an LLM rarely report controls separating encoder and LLM contributions; applied to six systems, BioReason and BioReason-Pro were as accurate with shuffled biological inputs as with intact ones.",
+  "models": [
+   "bioreason-pro",
+   "bioreason"
+  ],
+  "direction": "limitation",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "3-05e4": {
+  "id": "3-05e4",
+  "term": "verifier-route",
+  "text": "Verifier: rbio1.",
+  "models": [
+   "rbio1"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4-01e1": {
+  "id": "4-01e1",
+  "term": "decipherment-questions",
+  "text": "Why \"extinct\": the vocabulary must be inferred, no living speaker can confirm the grammar, and the only surviving texts are the measurements assays happened to record.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4-01e2": {
+  "id": "4-01e2",
+  "term": "decipherment-questions",
+  "text": "Why LLM boundaries are hidden: modern language is densely represented in their training data.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.2-01e3": {
+  "id": "4.2-01e3",
+  "term": "decipherment-questions",
+  "text": "Each answer rests on comparing model outputs with independent data or on laboratory tests of designs.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4-02e1": {
+  "id": "4-02e1",
+  "term": "orchestration-boundary",
+  "text": "BixBench scores only end-to-end answers.",
+  "models": [
+   "bixbench"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-03e1": {
+  "id": "4.1-03e1",
+  "term": "cnn",
+  "text": "ChromBPNet (CNN): ~2 kb at single-base resolution, suited to motifs and variants within them. Enformer (adds attention): regulatory elements ~100 kb away. HyenaDNA: one million nucleotides.",
+  "models": [
+   "hyenadna",
+   "enformer",
+   "chrombpnet"
+  ],
+  "direction": "illustration",
+  "design_element": "architecture",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.1-05e3": {
+  "id": "4.1-05e3",
+  "term": "simple-baselines",
+  "text": "How a benchmark is split and which simple baselines it includes decides which weaknesses can be seen.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": "evaluation",
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "4.3-04e2": {
+  "id": "4.3-04e2",
+  "term": "simple-baselines",
+  "text": "For genetic perturbation responses, simple linear models and even the average of the training data match or outperform FMs.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "training scheme",
+  "finding": "Observed states rarely predict the effect of an intervention beyond simple baselines",
+  "source_claim": "4.3-04",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-04e3": {
+  "id": "4.3-04e3",
+  "term": "simple-baselines",
+  "text": "Single-cell: Geneformer and scGPT embeddings did not outperform simple baselines without fine-tuning; L1-regularized logistic regression rivaled scBERT; parameter-free representations match single-cell FMs; GenePT suggests part of what these models learn is already recorded in text.",
+  "models": [
+   "geneformer",
+   "scgpt",
+   "scbert",
+   "genept"
+  ],
+  "direction": "limitation",
+  "design_element": "training scheme",
+  "finding": "Observed states rarely predict the effect of an intervention beyond simple baselines",
+  "source_claim": "4.3-04",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-04e4": {
+  "id": "4.3-04e4",
+  "term": "simple-baselines",
+  "text": "Similar results for mutation-dense protein design and for multi-omics integration (no uniform advantage across 23 methods).",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "training scheme",
+  "finding": "Observed states rarely predict the effect of an intervention beyond simple baselines",
+  "source_claim": "4.3-04",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-05e1": {
+  "id": "4.3-05e1",
+  "term": "simple-baselines",
+  "text": "DNA language models are spread across competing benchmarks, with inconsistent gains over lightweight supervised models.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "evaluation",
+  "finding": "Tests sometimes do not measure what they claim",
+  "source_claim": "4.3-05",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-06e3": {
+  "id": "4.3-06e3",
+  "term": "simple-baselines",
+  "text": "Most of 21 pretrained RNA language models did not outperform one-hot encoding for secondary-structure prediction once closely related sequences were removed from the test set.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "evaluation",
+  "finding": "Application-level studies show similar gaps",
+  "source_claim": "4.3-06",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-02e1": {
+  "id": "4.3-02e1",
+  "term": "sampling-bias",
+  "text": "Protein language model likelihoods partly reflect how often related sequences were sampled across the tree of life rather than fitness alone.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "data",
+  "finding": "Models capture both biology and the history of sampling",
+  "source_claim": "4.3-02",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-02e2": {
+  "id": "4.3-02e2",
+  "term": "circular-annotation",
+  "text": "Gene-function annotation can become circular: curated databases shaped both LLM-based annotators' training and the benchmark labels; they perform worse on orphan genes and non-model organisms.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "data",
+  "finding": "Models capture both biology and the history of sampling",
+  "source_claim": "4.3-02",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-05e2": {
+  "id": "4.3-05e2",
+  "term": "systematic-variation",
+  "text": "Common perturbation metrics are dominated by systematic expression differences unrelated to the specific perturbation, so a model can score well by predicting an average response.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "evaluation",
+  "finding": "Tests sometimes do not measure what they claim",
+  "source_claim": "4.3-05",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-05e3": {
+  "id": "4.3-05e3",
+  "term": "systematic-variation",
+  "text": "Conversely, when metrics are calibrated against an uninformative mean baseline and a positive control, several deep-learning perturbation models do outperform simple baselines; part of the reported parity reflects the metric, not the model.",
+  "models": [],
+  "direction": "success",
+  "design_element": "evaluation",
+  "finding": "Tests sometimes do not measure what they claim",
+  "source_claim": "4.3-05",
+  "landing_claim": "4.3-08"
+ },
+ "4.3-03e2": {
+  "id": "4.3-03e2",
+  "term": "scaling-laws",
+  "text": "Larger protein language models do not consistently improve zero-shot fitness prediction; downstream tasks often reuse features learned early in pretraining.",
+  "models": [],
+  "direction": "limitation",
+  "design_element": "architecture",
+  "finding": "One-mutation effects are often missed, and scale has not closed the gap",
+  "source_claim": "4.3-03",
+  "landing_claim": "4.3-08"
+ },
+ "5.2-02e1": {
+  "id": "5.2-02e1",
+  "term": "scaling-laws",
+  "text": "Scale: molecule → cell → tissue → organism.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": "One-mutation effects are often missed, and scale has not closed the gap",
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.2-03e1": {
+  "id": "5.2-03e1",
+  "term": "scaling-laws",
+  "text": "Multimodal proposals: PINNACLE, AIDO.",
+  "models": [
+   "pinnacle",
+   "aido"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": "One-mutation effects are often missed, and scale has not closed the gap",
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.3-02e1": {
+  "id": "5.3-02e1",
+  "term": "stages-of-biological-science",
+  "text": "Historical parallel: Darwin's cataloguing of species.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "5.3-02e2": {
+  "id": "5.3-02e2",
+  "term": "stages-of-biological-science",
+  "text": "Claims framed in engineering-stage language, such as \"de novo design,\" should be read with this stage in mind.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.2-01e1": {
+  "id": "6.2-01e1",
+  "term": "boundary-statement",
+  "text": "Tool descriptions state what a tool does but seldom where it fails; a variant score from a model trained without population data looks as authoritative as a well-supported result.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.2-02e1": {
+  "id": "6.2-02e1",
+  "term": "boundary-statement",
+  "text": "Contents of a boundary statement, organized by the five design elements: species, assays, and conditions in the training data; context length and tokenization; training objective; benchmarks used, including comparisons with simple baselines; and the post-analysis methods under which the reported results hold.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.2-03e1": {
+  "id": "6.2-03e1",
+  "term": "boundary-statement",
+  "text": "Just as GeneAgent checks its claims against curated databases, an agent could confirm a query lies within a model's training and evaluation domain before relying on its output.",
+  "models": [
+   "geneagent"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.2-04e1": {
+  "id": "6.2-04e1",
+  "term": "self-driving-lab",
+  "text": "Agents that plan experiments + FMs that propose candidates + self-driving labs = closed loops that target boundary regions directly.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.3-02e1": {
+  "id": "6.3-02e1",
+  "term": "shared-literacy",
+  "text": "Embedded-scientist programs, reciprocal laboratory placements, fellowships, and professional community-management roles offer deeper cross-disciplinary exposure than short courses.",
+  "models": [],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.3-01e1": {
+  "id": "6.3-01e1",
+  "term": "model-registry",
+  "text": "UniProt and the PDB became trusted infrastructure; open-source ecosystems made models widely reusable; blind assessments such as CASP and CAGI established credible measures of progress.",
+  "models": [
+   "uniprot",
+   "pdb",
+   "casp",
+   "cagi"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ },
+ "6.3-03e1": {
+  "id": "6.3-03e1",
+  "term": "model-registry",
+  "text": "Existing precedent for model exchange: Kipoi repository.",
+  "models": [
+   "kipoi"
+  ],
+  "direction": "illustration",
+  "design_element": null,
+  "finding": null,
+  "source_claim": null,
+  "landing_claim": null
+ }
+}

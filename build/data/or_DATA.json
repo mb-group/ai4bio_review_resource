@@ -1,0 +1,38 @@
+[
+ {
+  "k": "dna",
+  "n": "DNA sequence",
+  "u": "token: k-mer or nucleotide",
+  "c": "--c-dna"
+ },
+ {
+  "k": "rna",
+  "n": "RNA sequence",
+  "u": "token: nucleotide",
+  "c": "--c-rna"
+ },
+ {
+  "k": "prot",
+  "n": "Protein sequence",
+  "u": "token: amino acid",
+  "c": "--c-prot"
+ },
+ {
+  "k": "sc",
+  "n": "Single-cell",
+  "u": "token: gene",
+  "c": "--c-sc"
+ },
+ {
+  "k": "sp",
+  "n": "Bulk & spatial omics",
+  "u": "token: gene",
+  "c": "--c-sp"
+ },
+ {
+  "k": "mo",
+  "n": "Multi-omics",
+  "u": "no shared vocabulary",
+  "c": "--c-mo"
+ }
+]

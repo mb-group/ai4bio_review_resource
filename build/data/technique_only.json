@@ -1,0 +1,176 @@
+{
+ "k-mer-tokenization": {
+  "id": "k-mer-tokenization",
+  "name": "k-mer tokenization",
+  "group": "Data and tokenization",
+  "def": "Splitting DNA into fixed-length tokens of k nucleotides. Nucleotide Transformer uses six-nucleotide k-mers; such tokens can split regulatory motifs and hide the effect of a single-nucleotide variant.",
+  "used_by": [
+   "nucleotide-transformer"
+  ],
+  "source": "2.1.1-02e3, 2.2.1-02e1"
+ },
+ "learned-variable-length-tokens": {
+  "id": "learned-variable-length-tokens",
+  "name": "Learned variable-length tokens",
+  "group": "Data and tokenization",
+  "def": "Multinucleotide tokens whose lengths are learned from genomic sequences rather than fixed in advance (DNABERT-2, GROVER). Like k-mers, they can split motifs and hide single-nucleotide variants.",
+  "used_by": [
+   "dnabert-2",
+   "grover"
+  ],
+  "source": "2.2.1-02e1, 2.2.1-02e2"
+ },
+ "single-nucleotide-tokenization": {
+  "id": "single-nucleotide-tokenization",
+  "name": "Single-nucleotide tokenization",
+  "group": "Data and tokenization",
+  "def": "Keeping one nucleotide per token to retain single-nucleotide resolution over long distances; it requires architectures that remain efficient over long inputs.",
+  "used_by": [
+   "hyenadna",
+   "caduceus",
+   "evo"
+  ],
+  "source": "2.2.1-02e3"
+ },
+ "expression-rank-encoding": {
+  "id": "expression-rank-encoding",
+  "name": "Expression-rank encoding",
+  "group": "Data and tokenization",
+  "def": "Representing a cell as genes ordered by expression rank, so that expression is encoded only by position in the input and not by its quantitative value; this sidesteps platform- and processing-specific confounders.",
+  "used_by": [
+   "geneformer"
+  ],
+  "source": "2.2.1-04e1, 2.2.1-04e2"
+ },
+ "binned-expression-encoding": {
+  "id": "binned-expression-encoding",
+  "name": "Binned expression-value encoding",
+  "group": "Data and tokenization",
+  "def": "Pairing each gene with a binned expression value, so that expression magnitude is represented explicitly.",
+  "used_by": [
+   "scgpt"
+  ],
+  "source": "2.2.1-04e2"
+ },
+ "genes-as-protein-embeddings": {
+  "id": "genes-as-protein-embeddings",
+  "name": "Genes represented by protein embeddings",
+  "group": "Data and tokenization",
+  "def": "Representing each gene by the ESM2 embedding of its protein rather than by a fixed gene list, so that cells from species absent from training can be placed in a shared space.",
+  "used_by": [
+   "uce",
+   "esm2"
+  ],
+  "source": "2.2.1-04e3, 4.2-05e3"
+ },
+ "structure-function-tokens": {
+  "id": "structure-function-tokens",
+  "name": "Structure and function tokens",
+  "group": "Data and tokenization",
+  "def": "Adding tokens for local structure or function alongside amino acids: SaProt pairs each amino acid with a local-structure token, and ESM3 can be prompted with structure and function tokens.",
+  "used_by": [
+   "saprot",
+   "esm3"
+  ],
+  "source": "2.2.1-06e2, 4.2-05e1"
+ },
+ "prior-knowledge-tokens": {
+  "id": "prior-knowledge-tokens",
+  "name": "Prior-knowledge-enriched tokens",
+  "group": "Data and tokenization",
+  "def": "Enriching gene tokens with prior knowledge before training.",
+  "used_by": [
+   "genecompass"
+  ],
+  "source": "2.2.1-07e1"
+ },
+ "sequence-clustering": {
+  "id": "sequence-clustering",
+  "name": "Sequence clustering before training",
+  "group": "Data and tokenization",
+  "def": "Clustering protein databases by sequence similarity before training, because many sequences are near-duplicates of close evolutionary relatives.",
+  "used_by": [
+   "uniref"
+  ],
+  "source": "2.1.1-04e3"
+ },
+ "alignment-augmented-input": {
+  "id": "alignment-augmented-input",
+  "name": "Alignment-augmented input",
+  "group": "Data and tokenization",
+  "def": "Adding aligned sequences of related genomes or proteins as input, which makes conservation visible. GPN-MSA adds alignments from 100 vertebrate genomes; AlphaFold also uses alignments of related sequences.",
+  "used_by": [
+   "gpn-msa",
+   "alphafold"
+  ],
+  "source": "4.2-02e3, 4.2-05e2"
+ },
+ "long-context-architectures": {
+  "id": "long-context-architectures",
+  "name": "Long-context architectures",
+  "group": "Architecture",
+  "def": "Architectures designed to stay efficient over very long inputs; HyenaDNA reaches one million nucleotides.",
+  "used_by": [
+   "hyenadna",
+   "caduceus"
+  ],
+  "source": "2.1.2-03e1, 4.1-03e1"
+ },
+ "likelihood-scoring-of-variants": {
+  "id": "likelihood-scoring-of-variants",
+  "name": "Likelihood scoring of variants",
+  "group": "Training scheme",
+  "def": "Scoring how plausible a sequence is given the sequences a model was trained on; a mutation that makes the sequence much less plausible is more likely to disrupt function.",
+  "used_by": [
+   "esm2"
+  ],
+  "source": "2.1-02e2, 4.2-03e1"
+ },
+ "prompting-partial-structure-function": {
+  "id": "prompting-partial-structure-function",
+  "name": "Prompting with partial structure or function",
+  "group": "Training scheme",
+  "def": "Generating a sequence by giving the model a partial specification of structure or function as a prompt (ESM3).",
+  "used_by": [
+   "esm3"
+  ],
+  "source": "2.2.2-04e1"
+ },
+ "similarity-aware-splitting": {
+  "id": "similarity-aware-splitting",
+  "name": "Similarity-aware train/test splitting",
+  "group": "Evaluation",
+  "def": "Removing from the test set sequences that have close relatives in the training set, so that a high score reflects learned rules and not recall.",
+  "used_by": [],
+  "source": "4.1-05e2, 4.3-06e3"
+ },
+ "calibrated-metrics": {
+  "id": "calibrated-metrics",
+  "name": "Calibrated metrics (mean baseline + positive control)",
+  "group": "Evaluation",
+  "def": "Calibrating a metric against both an uninformative mean baseline and a positive control. Under such metrics several deep-learning perturbation models do outperform simple baselines.",
+  "used_by": [],
+  "source": "4.3-05e3"
+ },
+ "shuffled-input-control": {
+  "id": "shuffled-input-control",
+  "name": "Shuffled-input control",
+  "group": "Evaluation",
+  "def": "Replacing biological inputs with shuffled ones to test whether the encoder contributes to a system's accuracy. BioReason and BioReason-Pro were as accurate with shuffled inputs as with intact ones.",
+  "used_by": [
+   "bioreason",
+   "bioreason-pro"
+  ],
+  "source": "5.1-03e1"
+ },
+ "packaging-as-mcp-tool": {
+  "id": "packaging-as-mcp-tool",
+  "name": "Packaging a model as an MCP tool",
+  "group": "Agent components",
+  "def": "Wrapping a database, program, or FM once as an MCP tool so that any compatible agent can use it. Paper2Agent turns a paper's codebase into MCP tools.",
+  "used_by": [
+   "paper2agent"
+  ],
+  "source": "3-05e1, 3-03e1"
+ }
+}

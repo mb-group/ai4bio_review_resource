@@ -1,0 +1,717 @@
+[
+ {
+  "g": "A. Core concepts",
+  "t": "Foundation model",
+  "d": "A model trained on broad data, usually by self-supervised learning at scale, that can be adapted to many downstream tasks. Used here to also include large task-specific models, such as AlphaFold and AlphaGenome, that rest on the same premise and are often used as foundation models.",
+  "e": "ESM2, Evo 2, Geneformer, AlphaGenome",
+  "s": [
+   "2.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Knowledge boundary",
+  "d": "The range of inputs, tasks, and conditions over which a model’s outputs can be relied upon. It is set by the five design elements and is inherited by any agent that calls the model.",
+  "e": "Framework used throughout Sections 4–6",
+  "s": [
+   "1",
+   "4",
+   "6.2"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Self-supervised learning",
+  "d": "Training in which the targets are created from the raw data themselves, for example by hiding part of each input and asking the model to predict it, so that no manual labels are required.",
+  "e": "Masked and autoregressive objectives",
+  "s": [
+   "2.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Pretraining",
+  "d": "The initial, large-scale training stage, usually on unlabeled data, before a model is adapted to a specific task.",
+  "e": "Masked prediction on UniRef sequences (ESM2)",
+  "s": [
+   "2.1",
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Transfer learning",
+  "d": "Carrying knowledge captured during pretraining, usually through the embedding, over to a new task so that a small labeled dataset suffices.",
+  "e": "Probing or fine-tuning on ESM2 embeddings",
+  "s": [
+   "2.1",
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Generalization",
+  "d": "The ability to make useful predictions for inputs not encountered during training. Its limits are set by how the model was built.",
+  "e": "Scoring mutations in proteins absent from training (ESM2); embedding cells from unseen species (UCE)",
+  "s": [
+   "2.1.2",
+   "4.2"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Vocabulary and token",
+  "d": "The vocabulary is the set of basic units a model can recognize, analogous to the words of a language; a token is one such unit as it occurs in a particular input.",
+  "e": "20 amino acids (ESM2); genes (Geneformer, scGPT)",
+  "s": [
+   "2.1.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Tokenization",
+  "d": "The procedure that converts raw data into tokens, such as splitting DNA into single nucleotides, fixed-length k-mers, or learned multi-nucleotide units.",
+  "e": "Six-nucleotide k-mers (Nucleotide Transformer); learned tokens (DNABERT-2, GROVER)",
+  "s": [
+   "2.1.1",
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Grammar",
+  "d": "The rules by which a language’s units are combined. In biology these rules are largely set by evolution and only partly known, so a model may succeed on a test through a shortcut rather than a general principle.",
+  "e": "Number, spacing, orientation, and order of transcription factor binding motifs",
+  "s": [
+   "2.1.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Corpus",
+  "d": "The body of training data. Biological corpora are indirect measurements shaped by assay technology and research choices, and they are smaller and less diverse than text corpora.",
+  "e": "UniRef (ESM2); CZ CELLxGENE Discover (scGPT)",
+  "s": [
+   "2.1.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Corpus coverage",
+  "d": "The extent to which training data sample species, tissues, cell states, assays, and conditions. Uneven coverage limits what a model can learn.",
+  "e": "Sequence sampling bias across the tree of life",
+  "s": [
+   "2.1.1",
+   "4.1",
+   "4.3"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Embedding",
+  "d": "A list of numbers, typically hundreds to thousands, that a model assigns to each token or input. Because all embeddings from a model share one numeric space, inputs with similar properties lie close together.",
+  "e": "ESM2 protein embeddings; UCE cell embeddings",
+  "s": [
+   "2.1.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Five design elements",
+  "d": "Data, model architecture, training scheme, evaluation scheme, and post-analysis. Together they determine how a model transforms an input into an output and set its knowledge boundary.",
+  "e": "ESM2 used as the reference example",
+  "s": [
+   "2.1.2",
+   "4.1"
+  ]
+ },
+ {
+  "g": "A. Core concepts",
+  "t": "Decipherment analogy",
+  "d": "Our framing of learning biology from data as deciphering an extinct language: the vocabulary must be inferred, no living speaker can confirm the grammar, and the surviving texts are the measurements assays happened to record.",
+  "e": "Organizes the evidence on what models capture and miss",
+  "s": [
+   "4",
+   "4.2"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Transformer",
+  "d": "A neural network architecture built on self-attention, in which each token is represented in the context of all other tokens in the input.",
+  "e": "ESM2, Enformer, scGPT",
+  "s": [
+   "2.1.2",
+   "4.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Self-attention",
+  "d": "The Transformer mechanism that lets every token draw information from every other token. Its cost grows roughly quadratically with input length, which limits context length.",
+  "e": "Enformer’s integration of regulatory elements about 100 kb away",
+  "s": [
+   "2.1.2",
+   "4.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Convolutional neural network",
+  "d": "An architecture that slides small filters along the input, each detecting a short local pattern such as a transcription factor binding motif.",
+  "e": "ChromBPNet",
+  "s": [
+   "4.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Inductive bias",
+  "d": "Assumptions about the data built into an architecture. Transformers carry few, so they adapt to very different corpora but need more data to learn modality-specific patterns.",
+  "e": "Strand equivalence (Caduceus); interaction networks (PINNACLE)",
+  "s": [
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Context length",
+  "d": "The span of input a model can consider at once. An interaction longer than this window cannot be learned, however much data is available.",
+  "e": "About 2 kb (ChromBPNet); about 100 kb (Enformer); about 1 Mb (HyenaDNA, AlphaGenome)",
+  "s": [
+   "4.1",
+   "4.3"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Long-range sequence architectures",
+  "d": "State-space and long-convolution architectures that replace attention with operations whose cost scales more favorably with input length, enabling very long inputs at single-nucleotide resolution.",
+  "e": "HyenaDNA, Caduceus, Evo",
+  "s": [
+   "2.1.2",
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Reverse-complement equivariance",
+  "d": "A design property ensuring that a DNA sequence and its reverse complement receive consistent predictions, reflecting the equivalence of the two DNA strands.",
+  "e": "Caduceus",
+  "s": [
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Graph neural network",
+  "d": "An architecture that updates the embedding of each node with information from its neighbors in a network, such as a protein interaction network.",
+  "e": "PINNACLE",
+  "s": [
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Masked language modeling",
+  "d": "A training objective in which some tokens are hidden and the model predicts them from the surrounding context. Its likelihoods can score how well a mutation is tolerated.",
+  "e": "ESM2",
+  "s": [
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Autoregressive training",
+  "d": "A training objective in which the model predicts each token from the tokens before it, which makes such models natural generators of new sequences.",
+  "e": "ProGen2, Evo, regLM",
+  "s": [
+   "2.1.2",
+   "4.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Contrastive and metric learning",
+  "d": "Objectives that place related examples close together and unrelated examples far apart in the embedding space, based on defined positive and negative pairs.",
+  "e": "Orthrus (contrastive); SCimilarity (metric)",
+  "s": [
+   "2.1.2",
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Parameters and scale",
+  "d": "The number of learned weights in a model and the size of its training data. Larger scale has not consistently improved biological performance.",
+  "e": "Larger protein language models in zero-shot fitness prediction",
+  "s": [
+   "4.3",
+   "5.2"
+  ]
+ },
+ {
+  "g": "B. Model architecture and training",
+  "t": "Scaling laws",
+  "d": "Empirical relationships between model size, data size, compute, and performance, first characterized for language models.",
+  "e": "LLMs, contrasted with biological foundation models",
+  "s": [
+   "5.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Inputs and outputs",
+  "d": "The two dimensions along which we survey models: the type of biological data that enters a model and the task the model performs.",
+  "e": "Figure 2B",
+  "s": [
+   "2.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Protein language model",
+  "d": "A model trained on protein sequences, typically with amino acids as tokens.",
+  "e": "ESM2, ProtTrans, SaProt, Ankh",
+  "s": [
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "DNA (genomic) language model",
+  "d": "A model trained on DNA sequences, differing mainly in tokenization, context length, and use of evolutionary information.",
+  "e": "Nucleotide Transformer, DNABERT-2, HyenaDNA, Evo 2, GPN-MSA",
+  "s": [
+   "2.2.1",
+   "4.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "RNA language model",
+  "d": "A model trained on RNA nucleotide sequences, unlike single-cell models, which read how much of each RNA a cell contains. Each reflects the RNA class it was trained on.",
+  "e": "RNA-FM, RiNALMo (non-coding RNA); Orthrus (mRNA)",
+  "s": [
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Single-cell foundation model",
+  "d": "A model trained on single-cell expression profiles, with genes as tokens and expression encoded by rank or by binned value.",
+  "e": "Geneformer (rank), scGPT (binned value), UCE",
+  "s": [
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Bulk and spatial omics models",
+  "d": "Models trained on tissue-averaged expression (bulk) or on expression recorded together with each cell’s position in a tissue section (spatial).",
+  "e": "BulkFormer; Nicheformer, VirTues",
+  "s": [
+   "2.2.1"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Multi-omics model",
+  "d": "A model that learns from more than one molecular layer, such as DNA, RNA, protein, and chromatin, and must align them in one space.",
+  "e": "GeneCompass, PINNACLE, AIDO",
+  "s": [
+   "2.2.1",
+   "5.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Representation model",
+  "d": "A model whose main output is a reusable embedding that supports many downstream tasks.",
+  "e": "ESM2, Nucleotide Transformer, Geneformer, UCE",
+  "s": [
+   "2.2.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Predictive model",
+  "d": "A model trained on paired measurements to answer one fixed question, so it can predict only what has been measured.",
+  "e": "AlphaFold, AlphaGenome, AlphaMissense",
+  "s": [
+   "2.2.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Sequence-to-function model",
+  "d": "A model that maps DNA sequence to many functional genomic readouts, such as RNA expression, chromatin accessibility, and transcription factor binding tracks.",
+  "e": "Enformer, Borzoi, AlphaGenome, Scooby",
+  "s": [
+   "2.2.2",
+   "4.3"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Variant-effect prediction",
+  "d": "Estimating the functional or clinical consequence of a genetic variant. Because clinical labels are scarce, predictors rely on evolutionary or population signals.",
+  "e": "EVE, AlphaMissense, popEVE, GPN-MSA",
+  "s": [
+   "2.2.2",
+   "4.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Generative model",
+  "d": "A model that writes new sequences or states rather than scoring existing ones; its vocabulary determines what it can write.",
+  "e": "ProGen, ESM3, regLM, CodonTransformer, gRNAde",
+  "s": [
+   "2.2.2",
+   "4.2"
+  ]
+ },
+ {
+  "g": "C. Model categories (inputs and outputs)",
+  "t": "Virtual cell / perturbation model",
+  "d": "A model that predicts how a cell’s expression state changes after an intervention, such as a gene knockout, producing a state that was never measured.",
+  "e": "State, CellOT, GEARS",
+  "s": [
+   "2.1",
+   "2.2.2",
+   "4.3"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Probing",
+  "d": "Training a separate, much simpler model, such as a linear regression, on a foundation model’s fixed embeddings with a small labeled dataset.",
+  "e": "Predicting a protein property from ESM2 embeddings",
+  "s": [
+   "2.1",
+   "4.1"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Fine-tuning",
+  "d": "Training the foundation model itself further on labeled data for a specific task. It can add knowledge from the new labels, so a strong fine-tuned score does not show what was learned in pretraining.",
+  "e": "Task-specific adaptation of ESM2",
+  "s": [
+   "2.1",
+   "4.3"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Zero-shot prediction",
+  "d": "Applying a model to a task without any labeled data, for example by scoring mutations with the model’s own likelihoods.",
+  "e": "Mutation-effect scoring with protein language models",
+  "s": [
+   "2.1",
+   "4.2"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "In silico perturbation",
+  "d": "Simulating an intervention, such as deleting a gene, within a model’s input and measuring the predicted change in its embedding or output.",
+  "e": "Geneformer nomination of cardiomyopathy targets",
+  "s": [
+   "2.1.2",
+   "4.2"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Interpretability analysis",
+  "d": "Methods that ask how a model arrives at its outputs, such as which input positions drive a prediction or which internal features match known biology.",
+  "e": "Input attribution; sparse-autoencoder features",
+  "s": [
+   "2.1.2",
+   "4.2",
+   "4.3"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Sparse autoencoder",
+  "d": "An auxiliary model that re-expresses each embedding as a combination of a much larger set of features, each tending to correspond to a single property.",
+  "e": "Features for active sites, zinc-finger domains, and disulfide bonds in protein language models",
+  "s": [
+   "2.1.1",
+   "4.2",
+   "4.3"
+  ]
+ },
+ {
+  "g": "D. Using and interpreting a trained model (post-analysis)",
+  "t": "Shortcut",
+  "d": "A pattern that happens to work on a test without reflecting the underlying biology, so that good test performance overstates what a model has learned.",
+  "e": "Correct predictions without mechanistic knowledge",
+  "s": [
+   "2.1.1",
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Intrinsic and downstream evaluation",
+  "d": "Intrinsic evaluation asks whether a model has learned the structure of its data; downstream evaluation asks whether it helps with a practical task. The two do not always agree.",
+  "e": "Residue contact recovery (ESM2); ProteinGym",
+  "s": [
+   "2.1.2"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Benchmark",
+  "d": "A standardized set of tasks and metrics used to compare models. How a benchmark is split, and which simple baselines it includes, decides which weaknesses can be seen.",
+  "e": "ProteinGym, BixBench",
+  "s": [
+   "4.1",
+   "4.3",
+   "5.1"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Blind community assessment",
+  "d": "Evaluation organized independently of model developers, with answers withheld until predictions are submitted.",
+  "e": "CASP, CAGI",
+  "s": [
+   "4.2",
+   "6.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Baseline",
+  "d": "A simple reference method against which a model is compared, such as linear or logistic regression, a one-hot encoding of sequence, or the average of the training data.",
+  "e": "Linear baselines in perturbation prediction",
+  "s": [
+   "4.3",
+   "5.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Held-out split",
+  "d": "Data withheld from training for testing. If test examples have close relatives in the training data, a high score may reflect recall rather than learned rules.",
+  "e": "Removing closely related RNAs from test sets",
+  "s": [
+   "4.1",
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Deep mutational scanning",
+  "d": "An experimental method that measures the functional effects of many mutations in a protein, used as ground truth for fitness prediction.",
+  "e": "ProteinGym assays",
+  "s": [
+   "4.2"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Systematic variation",
+  "d": "Expression differences shared across perturbations that are unrelated to any specific perturbation. It can let a model score well simply by predicting an average response.",
+  "e": "Common perturbation-response metrics",
+  "s": [
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Calibrated metric",
+  "d": "A metric anchored against both an uninformative mean baseline and a positive control, so that scores reflect perturbation-specific prediction.",
+  "e": "Re-evaluation of deep-learning perturbation models",
+  "s": [
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Confidence score",
+  "d": "A model’s own estimate of how reliable a prediction is. It may not track real-world success.",
+  "e": "Structure confidence for de novo protein designs",
+  "s": [
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Circularity",
+  "d": "Overlap between the sources used to train a model and those used to label its benchmark, which can inflate apparent performance.",
+  "e": "LLM-based gene function annotation",
+  "s": [
+   "4.3"
+  ]
+ },
+ {
+  "g": "E. Evaluation",
+  "t": "Shuffled-input control",
+  "d": "Replacing a model’s biological input with shuffled data to test whether that input actually contributes to the model’s answers.",
+  "e": "BioReason, BioReason-Pro",
+  "s": [
+   "5.1"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Large language model (LLM)",
+  "d": "A model trained on large text corpora to predict text. In this review, LLM refers to general-purpose language models rather than biological foundation models; in agents, the LLM plans tasks and interprets results.",
+  "e": "Models behind ChatGPT or Claude",
+  "s": [
+   "1",
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Agent / agentic system",
+  "d": "A system that coordinates an LLM, the user, and many tools to carry out a multistep task, such as planning an analysis, writing and running code, and checking results.",
+  "e": "Biomni, GeneAgent, Virtual Biotech",
+  "s": [
+   "1",
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Hallucination",
+  "d": "A fluent but false statement produced by an LLM.",
+  "e": "Limitation of chat-based LLMs",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Retrieval-augmented generation (RAG)",
+  "d": "Basing an LLM’s answer on documents retrieved at query time, such as papers or database entries, so that answers are current and traceable to a source.",
+  "e": "Grounding answers in literature and databases",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Tool use (function calling)",
+  "d": "The ability of an LLM to send a request to external software, databases, or models and read back the result.",
+  "e": "Virtual Lab agents calling ESM and AlphaFold-Multimer",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Reasoning model",
+  "d": "An LLM trained, not merely prompted, to write out intermediate steps and rewarded when its final answer to a checkable problem is correct. It makes multistep answers more reliable but adds no information absent from training.",
+  "e": "Written reasoning steps are not guaranteed to be valid or faithful",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Model Context Protocol (MCP)",
+  "d": "A standard interface that lets a database, program, or foundation model, wrapped once as a tool, be used by any compatible agent.",
+  "e": "Paper2Agent",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Skill file",
+  "d": "Written instructions that an agent loads when needed, such as the steps of a standard analysis or when a tool’s output should not be trusted.",
+  "e": "A laboratory’s preferred analysis workflow",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Agent harness",
+  "d": "The software that runs an agent over long tasks by repeating the plan–act–revise cycle, providing a workspace for code and files, and asking a human for approval at key decisions.",
+  "e": "Long-running scientific analyses",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Multi-agent system",
+  "d": "A system in which several LLM agents with distinct roles collaborate on a task.",
+  "e": "Virtual Lab, AI co-scientist, Robin",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Paper agent",
+  "d": "An agent that exposes a research paper’s codebase and workflows as callable tools.",
+  "e": "Paper2Agent’s AlphaGenome agent",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Routes into an agent",
+  "d": "The four ways a foundation model can enter an agent: as a tool whose output is read as text, as data rewritten as text, as an encoder whose embeddings the LLM reads, or as a verifier that scores answers during training.",
+  "e": "Virtual Lab (tool); BioReason, ChatNT, CellWhisperer (encoder)",
+  "s": [
+   "3"
+  ]
+ },
+ {
+  "g": "F. Agentic systems",
+  "t": "Orchestration boundary",
+  "d": "The limit an agent adds on top of its tools’ knowledge boundaries, arising from how well it selects and combines them. Current benchmarks cannot yet measure it separately.",
+  "e": "End-to-end scoring in BixBench",
+  "s": [
+   "4"
+  ]
+ },
+ {
+  "g": "G. Making boundaries explicit",
+  "t": "Boundary statement",
+  "d": "Our proposed structured, machine-readable record released with each foundation model, organized by the five design elements, stating where its outputs can be relied upon.",
+  "e": "Training species, assays, and conditions; context length; objective; benchmarks and baselines",
+  "s": [
+   "6.2"
+  ]
+ },
+ {
+  "g": "G. Making boundaries explicit",
+  "t": "Model card / datasheet",
+  "d": "Structured documentation of a model’s or dataset’s intended use, composition, evaluation, and limitations.",
+  "e": "Precedent for boundary statements",
+  "s": [
+   "6.2"
+  ]
+ },
+ {
+  "g": "G. Making boundaries explicit",
+  "t": "Self-driving laboratory",
+  "d": "A robotic platform that runs experiments chosen by a model and returns the results for the next round, which could target regions outside a model’s knowledge boundary.",
+  "e": "Closed-loop protein engineering",
+  "s": [
+   "6.2"
+  ]
+ },
+ {
+  "g": "G. Making boundaries explicit",
+  "t": "Model registry",
+  "d": "A proposed community-maintained record linking each model to its boundary statement, independent evaluations, known limitations, and replication results.",
+  "e": "Precedent in genomics model repositories",
+  "s": [
+   "6.3"
+  ]
+ }
+]

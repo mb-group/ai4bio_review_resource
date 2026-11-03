@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Models · AI for Biologists: The Knowledge Boundaries of Foundation Models</title>
+<meta name="description" content="A catalog of every model named in the review, with its five design elements, what it has shown, and where its knowledge stops.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <span class="ttl">AI for Biologists</span>
+    <nav>
+      <a class="navlink" href="scrollytelling.html">Story</a>
+      <a class="navlink" href="concepts.html">Concepts</a>
+      <a class="navlink on" href="models.html">Models</a>
+      <a class="navlink" href="techniques.html">Techniques</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <p class="eyebrow">Models</p>
+  <h1>Every model named in the review</h1>
+  <p>68 entries: foundation and task-specific models grouped by their primary data type, then agentic systems &amp; multimodal LLMs, then resources (databases, benchmarks, software). Where the review does not cover a design element for a model, that field says so rather than being filled from memory.</p>
+</section>
+
+<div class="toolbar">
+  <div class="toolbar-row">
+    <input type="search" id="q" placeholder="Search models…" aria-label="Search models">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="toolbar-row">
+    <span class="chiplabel">Type</span>
+    <div class="chips" id="typechips"></div>
+  </div>
+  <div class="toolbar-row">
+    <span class="chiplabel">Data type</span>
+    <div class="chips" id="datachips"></div>
+  </div>
+  <div class="toolbar-row">
+    <span class="chiplabel">Task</span>
+    <div class="chips" id="taskchips"></div>
+  </div>
+</div>
+
+<main class="main" id="groups"></main>
+
+<footer>Generated from <code>content_plan/rehome.md</code> + <code>mock-up/online_resource.html</code> · <a href="scrollytelling.html">Story</a> · <a href="concepts.html">Concepts</a> · <a href="techniques.html">Techniques</a></footer>
+
+<script src="site-data.js"></script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const TYPE_LABEL={foundation_model:'Foundation model',task_specific:'Task-specific model',multimodal_llm:'Multimodal LLM',agent:'Agentic system',resource:'Resource'};
+const DT_LABEL={DNA:'DNA',RNA:'RNA',protein:'Protein','single-cell':'Single-cell','bulk-spatial':'Bulk & spatial','multi-omics':'Multi-omics'};
+const DT_ORDER=['protein','DNA','RNA','single-cell','bulk-spatial','multi-omics'];
+const EL_ORDER=['data','architecture','training_scheme','evaluation','post_analysis'];
+const EL_TITLE={data:'Data',architecture:'Model architecture',training_scheme:'Training scheme',evaluation:'Evaluation scheme',post_analysis:'Post-analysis'};
+
+function refCite(n){
+  const r = REFS[String(n)];
+  if(!r) return '['+n+']';
+  return `<span class="tag" title="${esc(r.t)}">[${n}] ${esc(r.s)} ${esc(r.y)}</span>`;
+}
+
+function configRow(key, cfg){
+  if(!cfg || cfg.source==='not_covered'){
+    return `<div class="elrow"><b>${EL_TITLE[key]}</b><span class="notcov">Not covered in the review</span></div>`;
+  }
+  const refLine = cfg.ref_text ? `<span class="reftxt">From the original paper: ${esc(cfg.ref_text)}</span>` : '';
+  return `<div class="elrow"><b>${EL_TITLE[key]}</b>${esc(cfg.text)}${refLine}</div>`;
+}
+
+function modelCard(id){
+  const m = MODELS[id];
+  const dtTags = (m.data_types||[]).map(d=>`<span class="tag de">${DT_LABEL[d]||d}</span>`).join('');
+  const taskTags = (m.tasks||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  const desc = m.description ? `<p class="def">${esc(m.description)}</p>` :
+    `<p class="def" style="color:var(--muted);font-style:italic">Not covered in the review beyond the examples below.</p>`;
+  const about = m.about ? `<p class="def" style="font-size:13px;color:var(--muted)">${esc(m.about)}</p>` : '';
+  const config = EL_ORDER.map(k=>configRow(k, m.configuration && m.configuration[k])).join('');
+  const shownItems = (m.shown||[]).map(exid=>`<li>${EXAMPLES[exid].text_html}</li>`).join('');
+  const stopItemsFromStop = (m.stop_findings||[]).map(s=>`<li>${esc(s.text)}${s.refs&&s.refs.length?' '+s.refs.map(refCite).join(' '):''}</li>`).join('');
+  const stopItemsFromEx = (m.stops_examples||[]).map(exid=>`<li>${EXAMPLES[exid].text_html}</li>`).join('');
+  const hasShown = shownItems.length>0, hasStops = (stopItemsFromStop+stopItemsFromEx).length>0;
+  const shownStops = (hasShown||hasStops) ? `<div class="shown-stops">
+      <div class="col ok"><h4>✓ What it has shown</h4><ul>${shownItems||'<li style="color:var(--muted)">No tagged success example in this build.</li>'}</ul></div>
+      <div class="col no"><h4>✗ Where it stops</h4><ul>${stopItemsFromStop}${stopItemsFromEx}${(!stopItemsFromStop&&!stopItemsFromEx)?'<li style="color:var(--muted)">No tagged limitation in this build.</li>':''}</ul></div>
+    </div>` : '';
+  const mentioned = (m.mentioned_in||[]);
+  const mentionedHTML = mentioned.length ? `<p style="font-size:13px;color:var(--muted);margin:10px 0 0">Mentioned in ${mentioned.length} example${mentioned.length===1?'':'s'}, under: ${
+    [...new Set(mentioned.map(exid=>EXAMPLES[exid].term))].map(tid=>`<a class="kw" href="concepts.html#t-${tid}">${esc(TERMS[tid].name)}</a>`).join(', ')
+  }</p>` : '';
+  const related = (m.related_models||[]).filter(r=>MODELS[r]);
+  const relatedHTML = related.length ? `<p style="font-size:13px;color:var(--muted);margin:6px 0 0">Related: ${related.map(r=>`<a class="mref" href="models.html#model-${r}">${esc(MODELS[r].name)}</a>`).join(', ')}</p>` : '';
+  const refsHTML = (m.refs||[]).length ? `<p style="font-size:12.5px;color:var(--muted);margin:10px 0 0">References: ${m.refs.map(refCite).join(' ')}</p>` : '';
+  return `<div class="card" id="model-${id}" data-type="${m.type}" data-dt="${(m.data_types||[]).join(',')}" data-task="${(m.tasks||[]).join(',')}"
+      data-name="${esc(m.name.toLowerCase())}">
+    <div class="ch"><h3>${esc(m.name)}</h3><span class="tag">${TYPE_LABEL[m.type]||m.type}</span></div>
+    <div class="rowtags">${dtTags}${taskTags}</div>
+    ${desc}${about}
+    <details>
+      <summary style="cursor:pointer;font:600 12.5px var(--f-display);color:var(--accent);margin-bottom:4px">Configuration &amp; evidence →</summary>
+      <div class="elgrid">${config}</div>
+      ${shownStops}
+      ${mentionedHTML}${relatedHTML}${refsHTML}
+    </details>
+  </div>`;
+}
+
+const groupsEl = $('#groups');
+const phase1 = Object.values(MODELS).filter(m=>m.phase===1);
+const phase2 = Object.values(MODELS).filter(m=>m.phase===2);
+const phase3 = Object.values(MODELS).filter(m=>m.phase===3);
+
+function addGroup(idSuffix, titleHTML, introText, models){
+  if(!models.length) return;
+  models.sort((a,b)=>a.name.localeCompare(b.name));
+  const wrap = document.createElement('div');
+  wrap.className='psec'; wrap.id='grp-'+idSuffix;
+  wrap.innerHTML = `<h2>${titleHTML}</h2>${introText?`<p class="intro">${esc(introText)}</p>`:''}<div class="pgrid">${models.map(m=>modelCard(m.id)).join('')}</div>`;
+  groupsEl.appendChild(wrap);
+}
+
+DT_ORDER.forEach(dt=>{
+  const ms = phase1.filter(m=>(m.data_types||[])[0]===dt);
+  addGroup('dt-'+dt, `<b>${DT_LABEL[dt]}</b>`, GROUP_INTRO[dt], ms);
+});
+const otherPhase1 = phase1.filter(m=>!DT_ORDER.includes((m.data_types||[])[0]));
+addGroup('dt-other', `<b>Other</b>`, '', otherPhase1);
+addGroup('phase2', `<b>Agentic systems &amp; multimodal LLMs</b>`, 'Phase 2: models named in §3 and the evidence sections that sit inside or alongside agents, or combine text with biological data.', phase2);
+addGroup('phase3', `<b>Resources</b>`, 'Phase 3: databases, benchmarks, and software the review names as infrastructure rather than as models in their own right.', phase3);
+
+/* ---- filters ---- */
+const typechips=$('#typechips'), datachips=$('#datachips'), taskchips=$('#taskchips'), q=$('#q');
+function buildChips(el, order, getLabel){
+  order.forEach(k=>{
+    const b=document.createElement('button'); b.textContent = k? getLabel(k) : 'All';
+    b.dataset.k=k; b.setAttribute('aria-pressed', k===''?'true':'false');
+    b.onclick=()=>{ el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false')); applyFilter(); };
+    el.appendChild(b);
+  });
+}
+buildChips(typechips, ['','foundation_model','task_specific','multimodal_llm','agent','resource'], k=>TYPE_LABEL[k]);
+buildChips(datachips, ['',...DT_ORDER], k=>DT_LABEL[k]);
+buildChips(taskchips, ['','representation','prediction','generation'], k=>k[0].toUpperCase()+k.slice(1));
+q.addEventListener('input', applyFilter);
+
+function applyFilter(){
+  const type = typechips.querySelector('button[aria-pressed="true"]').dataset.k;
+  const dt = datachips.querySelector('button[aria-pressed="true"]').dataset.k;
+  const task = taskchips.querySelector('button[aria-pressed="true"]').dataset.k;
+  const query = q.value.trim().toLowerCase();
+  let shown=0, total=0;
+  $$('.card').forEach(card=>{
+    total++;
+    const okType = !type || card.dataset.type===type;
+    const okDt = !dt || card.dataset.dt.split(',').includes(dt);
+    const okTask = !task || card.dataset.task.split(',').includes(task);
+    const okQ = !query || card.dataset.name.includes(query);
+    const show = okType && okDt && okTask && okQ;
+    card.hidden = !show;
+    if(show) shown++;
+  });
+  $$('.psec').forEach(sec=>{ sec.hidden = sec.querySelectorAll('.card:not([hidden])').length===0; });
+  $('#count').textContent = shown+' of '+total+' models shown';
+}
+applyFilter();
+
+function flash(el){ el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'),2200); }
+function resolveHash(){
+  const raw = location.hash.replace(/^#/,'');
+  if(!raw || !raw.startsWith('model-')) return;
+  const target = document.getElementById(raw);
+  if(target){
+    typechips.querySelector('button[data-k=""]').click();
+    datachips.querySelector('button[data-k=""]').click();
+    taskchips.querySelector('button[data-k=""]').click();
+    q.value=''; applyFilter();
+    target.querySelector('details').open = true;
+    setTimeout(()=>{ target.scrollIntoView({behavior:'smooth',block:'center'}); flash(target); },30);
+  }
+}
+addEventListener('hashchange', resolveHash);
+resolveHash();
+</script>
+</body>
+</html>

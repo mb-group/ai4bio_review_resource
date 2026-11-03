@@ -1,0 +1,301 @@
+{
+ "nt": {
+  "data": "Three corpora: the human reference genome, 3,202 genetically diverse human genomes from the 1000 Genomes Project, and 850 genomes from species across the tree of life. Sequences are split into non-overlapping six-nucleotide tokens, giving an input window of about six kilobases.",
+  "arch": "Encoder-only (BERT-style) transformer, from 50 million to 2.5 billion parameters; the second-generation models add rotary position embeddings and gated feed-forward layers.",
+  "train": "Masked language modeling: about 15% of tokens are hidden and predicted from the surrounding sequence.",
+  "evalu": "Eighteen genomic prediction tasks (promoters, enhancers, splice sites, histone marks) assessed with ten-fold cross-validation, plus zero-shot ranking of functional variants.",
+  "post": "Probing of embeddings from every layer, parameter-efficient fine-tuning, and attention-map analysis showing attention to elements such as enhancers."
+ },
+ "dnabert2": {
+  "data": "Genomes of 135 species in six categories, about 32.5 billion bases in total. Byte-pair encoding replaces k-mers, with a learned vocabulary of 4,096 tokens.",
+  "arch": "BERT-style encoder of about 117 million parameters, with ALiBi positional biases that remove a fixed input-length limit, FlashAttention, and GEGLU feed-forward layers.",
+  "train": "Masked language modeling; because tokens vary in length, predicting a masked token recovers both its content and its length.",
+  "evalu": "Introduces the Genome Understanding Evaluation (GUE): 28 datasets across seven tasks in human, mouse, yeast and virus genomes, extended to 36 datasets and nine tasks with longer inputs. It matches the 2.5-billion-parameter Nucleotide Transformer with about 21 times fewer parameters.",
+  "post": "Full or parameter-efficient (LoRA) fine-tuning for each downstream task."
+ },
+ "grover": {
+  "data": "The human reference genome. The byte-pair vocabulary is chosen by testing which number of merge cycles best supports next-k-mer prediction.",
+  "arch": "BERT-style transformer encoder.",
+  "train": "Masked language modeling.",
+  "evalu": "Intrinsic: next-k-mer prediction accuracy, used to select the vocabulary. Downstream: fine-tuning on promoter identification, protein-DNA binding such as CTCF sites, and other genome-element tasks, compared with Nucleotide Transformer and DNABERT.",
+  "post": "Analysis of token embeddings, which encode token frequency, sequence content and length; fine-tuning for downstream tasks."
+ },
+ "hyena": {
+  "data": "The human reference genome, one nucleotide per token, with inputs of up to one million nucleotides.",
+  "arch": "Decoder built from Hyena operators, long implicit convolutions with data-dependent gating, instead of attention, so compute grows sub-quadratically with input length.",
+  "train": "Next-nucleotide prediction, with a schedule that starts on short inputs and lengthens them gradually.",
+  "evalu": "Nucleotide Transformer benchmark, where it reaches state of the art on 12 of 18 datasets with far fewer parameters, GenomicBenchmarks, and species classification that benefits from long inputs.",
+  "post": "Fine-tuning, and adaptation of the frozen model through a short learned prefix (soft prompting)."
+ },
+ "caduceus": {
+  "data": "The human reference genome at single-nucleotide resolution, with inputs of up to about 131 kilobases.",
+  "arch": "Built from Mamba state-space blocks extended to read DNA in both directions and to give equivalent outputs for a sequence and its reverse complement.",
+  "train": "Masked language modeling.",
+  "evalu": "GenomicBenchmarks, Nucleotide Transformer tasks, and long-range variant-effect prediction on expression QTLs, where it outperforms models ten times larger that lack bidirectionality and reverse-complement equivariance.",
+  "post": "Fine-tuning for short-range tasks; for variant effects, frozen embeddings around each variant are passed to a simple classifier."
+ },
+ "gpnmsa": {
+  "data": "128-base windows of the human genome together with the aligned sequence of 89 other vertebrates from a 100-vertebrate alignment, the ten closest primates excluded. Training concentrates on conserved regions.",
+  "arch": "Transformer of about 86 million parameters; at each position the nucleotides of all species are encoded together, so the model reads the alignment column by column.",
+  "train": "Masked language modeling on the human sequence while the aligned species stay visible. The loss down-weights repeats and up-weights conserved sites.",
+  "evalu": "ClinVar pathogenic versus common gnomAD missense variants, recurrent somatic variants from COSMIC, deep mutational scanning for 31 proteins, OMIM regulatory variants, and enrichment of rare versus common variants among extreme scores.",
+  "post": "Zero-shot variant scoring as the log-likelihood ratio of alternative to reference allele, with precomputed genome-wide scores released."
+ },
+ "evo": {
+  "data": "About 300 billion nucleotides of prokaryotic and phage genome sequence, one nucleotide per token, with a context of about 131 kilobases.",
+  "arch": "StripedHyena: 7 billion parameters combining Hyena convolution layers with a small number of attention layers.",
+  "train": "Next-nucleotide prediction.",
+  "evalu": "Zero-shot prediction of the fitness effects of mutations in proteins, non-coding RNAs and regulatory DNA, and of gene essentiality.",
+  "post": "Zero-shot likelihood scoring, and use of the hidden states as embeddings for downstream models."
+ },
+ "evo2": {
+  "data": "Genome sequence spanning bacteria, archaea, eukaryotes and bacteriophage, with a context extended to one million bases at single-nucleotide resolution. Viruses of eukaryotic hosts were deliberately excluded from training as a safety measure, and the authors report reduced performance on them as a result.",
+  "arch": "StripedHyena 2, a hybrid of input-dependent convolution operators and attention, released at 7 billion and 40 billion parameters.",
+  "train": "Next-nucleotide prediction in two phases: pretraining on an 8,192-token context weighted toward gene-rich regions, then a mid-training phase that extends the context to one million tokens.",
+  "evalu": "Zero-shot variant effect prediction, strongest on non-coding and splice-altering variants and weaker than specialized models on coding missense variants, together with a supervised classifier on its embeddings for BRCA1 variants.",
+  "post": "Zero-shot likelihood scoring, embeddings for supervised heads, and sparse autoencoders whose features align with exon-intron boundaries, transcription factor motifs and protein secondary structure."
+ },
+ "enformer": {
+  "data": "Paired measurements from ENCODE, Roadmap and FANTOM: several thousand human and mouse tracks of gene expression, chromatin accessibility, histone modification and transcription factor binding, over a 196-kilobase input window at 128-base resolution.",
+  "arch": "Convolutional stem that compresses the sequence, followed by transformer layers whose attention integrates regulatory elements about 100 kilobases away.",
+  "train": "Supervised multi-task regression on the measured tracks, trained jointly on human and mouse.",
+  "evalu": "Held-out genomic regions for track prediction, then correlation with measured expression QTL and chromatin QTL effects.",
+  "post": "In silico mutagenesis and attribution (input gradients) to locate the bases driving a prediction; scoring variants as the difference between reference and alternative predictions."
+ },
+ "borzoi": {
+  "data": "RNA-seq coverage along with chromatin tracks, from a 524-kilobase input window predicted at 32-base resolution.",
+  "arch": "U-Net-style convolutional encoder and decoder with transformer layers in the middle, so a long input is read at a coarse scale and the output is returned at fine resolution.",
+  "train": "Supervised multi-task regression with a Poisson and multinomial loss, which separates the total signal of a track from its shape along the sequence.",
+  "evalu": "Held-out regions, and variant scoring against measured expression, splicing and polyadenylation QTLs.",
+  "post": "Variant scoring by comparing reference and alternative predictions; attribution to find the motifs responsible."
+ },
+ "alphagenome": {
+  "data": "Over 5,900 human tracks across 11 output types, including RNA expression, CAGE and PRO-cap, splicing, chromatin accessibility, histone marks, transcription factor binding and contact maps, drawn from ENCODE, FANTOM5, GTEx and 4D Nucleome, plus mouse tracks.",
+  "arch": "Encoder-decoder with a U-Net shape: convolutional layers reduce a one-megabase input, transformer layers mix long-range information, and the decoder returns predictions at up to single-base resolution.",
+  "train": "Supervised multi-task regression on reference sequence against population-averaged signal, with a teacher-student distillation step that folds several models trained on different data splits into one.",
+  "evalu": "State of the art on 22 of 24 track-prediction tasks and matching or exceeding other models on 24 of 26 variant-effect evaluations, including eQTL benchmarks against Enformer and Borzoi.",
+  "post": "Variant scoring as the difference between predictions for reference and alternative sequence, served through a public API."
+ },
+ "scooby": {
+  "data": "The 10x Multiome human bone marrow dataset, about 64,000 cells with paired RNA and ATAC profiles. Each cell enters the model as a 14-dimensional embedding of its state.",
+  "arch": "The pretrained Borzoi trunk, frozen and adapted with low-rank adapters, plus a small network that turns each cell's embedding into the weights of that cell's output layer, so model size does not grow with the number of cells.",
+  "train": "Multi-task Poisson and multinomial loss on RNA and ATAC profiles for 64 randomly sampled cells per sequence; only the adapters, one new layer and the decoder are trained.",
+  "evalu": "Correlation of predicted and observed profiles, pseudobulk gene-level correlation of 0.86, cell-type-specific deviation, generalization to a cell type held out of training, and ablations without adapters.",
+  "post": "In silico motif replacement to score transcription factor activity per cell, allele comparison against fine-mapped GTEx eQTLs, and gradient attribution to find the motif a variant disrupts."
+ },
+ "reglm": {
+  "data": "Measured activity of regulatory sequences: yeast promoters and human enhancers, each sequence labeled by the activity class it belongs to.",
+  "arch": "A HyenaDNA backbone fine-tuned on labeled sequences.",
+  "train": "Next-nucleotide prediction conditioned on a prefix that encodes the desired activity label.",
+  "evalu": "Independent sequence-to-function models and classifiers are used to check that the sequences carry the requested activity, with comparison to natural sequences of the same class.",
+  "post": "Filtering of candidate sequences by the sequence-to-function models, and motif analysis of what the model learned to place."
+ },
+ "codont": {
+  "data": "Over one million DNA-protein pairs from 164 organisms, tokenized as amino acid and codon pairs with an organism token.",
+  "arch": "Encoder-style transformer (about 90 million parameters) built on a BigBird backbone.",
+  "train": "Masked prediction of codons given the protein sequence and the target organism, after pretraining on the paired corpus.",
+  "evalu": "Comparison with other codon optimizers on codon usage similarity to natural host genes, GC content, and the number of negative cis-regulatory elements introduced.",
+  "post": "Direct use as a generator for a chosen host organism, with analysis of the codon distributions it produces."
+ },
+ "rnafm": {
+  "data": "About 23 million non-coding RNA sequences from RNAcentral, one nucleotide per token.",
+  "arch": "Transformer encoder of about 100 million parameters.",
+  "train": "Masked language modeling.",
+  "evalu": "Intrinsic: recovery of base pairing. Downstream: secondary and three-dimensional structure prediction, protein-RNA binding, and untranslated-region function tasks.",
+  "post": "Frozen embeddings fed to task-specific heads, fine-tuning, and attention analysis against known base pairs."
+ },
+ "rinalmo": {
+  "data": "About 36 million non-coding RNA sequences from RNAcentral, Rfam, Ensembl and the nucleotide archive, de-duplicated and clustered so each batch is diverse. One nucleotide per token.",
+  "arch": "Encoder-only transformer with 33 layers and 650 million parameters, using rotary position embeddings, SwiGLU feed-forward layers and FlashAttention.",
+  "train": "Masked language modeling on 15% of tokens.",
+  "evalu": "Secondary structure within families, and the harder leave-one-family-out setting across nine families where its mean F1 of about 0.72 exceeds thermodynamic methods; also splice-site prediction and mean ribosome load.",
+  "post": "Fine-tuning with a structure head, and t-SNE of the sequence-level embedding, which separates RNA families."
+ },
+ "orthrus": {
+  "data": "About 32 million mature transcripts: splice isoforms from ten metazoan species and orthologous transcripts from over 400 mammals, encoded as nucleotide, splice-site and codon-position tracks.",
+  "arch": "Mamba state-space encoder, 1.3 million to 10 million parameters, with a projection head used only during pretraining.",
+  "train": "Contrastive learning, in which isoforms of a gene and orthologs across species are treated as a positive pair and unrelated transcripts are pushed apart; a variant adds masked language modeling.",
+  "evalu": "Linear probing and fine-tuning on mRNA half-life, mean ribosome load, protein localization, GO class and RNA-binding-protein tasks; it matches much larger models with far fewer parameters and stays accurate with as few as 30 labeled examples.",
+  "post": "Analysis of isoform embeddings against shared protein domains and coding overlap, and clustering of isoforms of individual genes by known function."
+ },
+ "grnade": {
+  "data": "RNA structures from RNASolo at 4 angstroms or better: 4,223 unique sequences and 12,011 structures, clustered by structural similarity so that test RNAs are dissimilar to training ones.",
+  "arch": "Rotation-equivariant graph neural network over nucleotide graphs; each conformation is encoded separately and the states are pooled in an order-invariant way, followed by an autoregressive decoder over the four bases. About 2 million parameters.",
+  "train": "Cross-entropy against the native sequence with teacher forcing, with noise added to coordinates.",
+  "evalu": "Native sequence recovery, self-consistency after refolding, and perplexity as a zero-shot ranker; about 56% recovery versus about 45% for Rosetta on 14 benchmark RNAs, in seconds rather than hours.",
+  "post": "Perplexity-based ranking of candidate mutants, and chemical-mapping assessment of designs in a community design round."
+ },
+ "esm2": {
+  "evalu": "Residue-contact recovery from attention maps, perplexity, and structure prediction accuracy through ESMFold, plus zero-shot variant-effect benchmarks. Accuracy improves smoothly with scale from 8 million to 15 billion parameters.",
+  "post": "Contact prediction from attention, linear probing and fine-tuning of embeddings, zero-shot likelihood scoring of mutations, and use as the trunk of ESMFold."
+ },
+ "prottrans": {
+  "data": "UniRef50, UniRef100 and BFD, about 393 billion amino acids in the largest corpus; one token per residue.",
+  "arch": "Six architectures trained for comparison, including BERT, Albert, Electra, XLNet, Transformer-XL and T5, from millions to 11 billion parameters.",
+  "train": "Masked language modeling for the encoder models and autoregressive or replaced-token objectives for the others, trained on supercomputers with thousands of GPUs and TPU cores.",
+  "evalu": "Per-residue tasks (secondary structure on CASP12, TS115, CB513) and per-protein tasks (subcellular localization, membrane versus soluble), compared with alignment-based methods.",
+  "post": "Embeddings extracted from the frozen models and fed to small supervised heads; unsupervised analysis showing that the embedding space reflects biophysical and functional properties."
+ },
+ "saprot": {
+  "data": "About 40 million sequences with predicted structures from AlphaFold DB; each residue becomes a combined token of amino acid and Foldseek structure letter, a vocabulary of 441 tokens.",
+  "arch": "ESM-style encoder of 650 million parameters.",
+  "train": "Masked language modeling over the combined structure-aware vocabulary.",
+  "evalu": "Ten tasks including thermostability, metal-ion binding, protein-protein interaction, subcellular localization and mutation-effect prediction, against sequence-only and structure-only baselines.",
+  "post": "Frozen embeddings, fine-tuning, and zero-shot likelihood scoring of mutations."
+ },
+ "ankh": {
+  "data": "UniRef50, with systematic experiments on corpus choice; one token per residue.",
+  "arch": "Encoder-decoder with a 48-layer encoder and 24-layer decoder, released at 450 million and 1.15 billion parameters, after an explicit search over depth, width, activation and attention settings.",
+  "train": "Span masking tuned by experiment rather than inherited from language models, with masking probability and span length chosen for proteins.",
+  "evalu": "Structure and function benchmarks, where it exceeds the previous state of the art while using about 10% of the parameters and about 30% of the training data of the largest models.",
+  "post": "Frozen embeddings for downstream heads, and generation of variants with the decoder."
+ },
+ "af2": {
+  "arch": "Evoformer blocks that pass information between an alignment representation and a residue-pair representation, followed by a structure module that builds the coordinates directly, with three recycling passes.",
+  "train": "Supervised on Protein Data Bank structures, with self-distillation on predicted structures of unlabeled sequences, and auxiliary losses including masked alignment prediction.",
+  "post": "The per-residue confidence score pLDDT and the pairwise PAE, used to judge which parts of a prediction to trust."
+ },
+ "af3": {
+  "data": "Protein Data Bank structures of complexes: proteins with nucleic acids, small molecules, ions and modified residues, with alignments and templates as input.",
+  "arch": "A reduced Evoformer (the Pairformer) followed by a diffusion module that generates atom coordinates directly, removing the need for hand-built stereochemical terms.",
+  "train": "Supervised diffusion denoising on experimental structures, with cross-distillation from AlphaFold-Multimer predictions to control hallucinated disorder.",
+  "evalu": "Accuracy on protein-ligand, protein-nucleic-acid and antibody-antigen complexes, compared with docking tools and AlphaFold-Multimer.",
+  "post": "Confidence scores per atom and per interface, used to rank predicted complexes."
+ },
+ "esmfold": {
+  "data": "A single amino acid sequence, with no alignment and no template.",
+  "arch": "The frozen ESM2 language model as a trunk, with a folding module adapted from AlphaFold2 on top.",
+  "train": "Supervised on Protein Data Bank structures while the language model stays frozen.",
+  "evalu": "CAMEO and CASP14 targets, where accuracy approaches AlphaFold2 on sequences with good language-model perplexity and falls on those with poor perplexity; an order of magnitude faster at inference.",
+  "post": "Prediction of structures at metagenomic scale, released as the ESM Metagenomic Atlas, with perplexity and pLDDT used to filter."
+ },
+ "eve": {
+  "data": "A multiple alignment per protein family, with no clinical labels or functional measurements.",
+  "arch": "Variational autoencoder trained separately for each protein, with a sparse decoder.",
+  "train": "Maximizing the likelihood of the aligned family sequences; a variant's score is the change in evidence lower bound relative to the reference.",
+  "evalu": "Agreement with ClinVar labels on 3,219 genes and with deep mutational scanning, plus a Gaussian-mixture assignment of variants to pathogenic, benign or uncertain classes.",
+  "post": "An uncertainty-aware three-class call per variant, with public score sets."
+ },
+ "alphamissense": {
+  "arch": "The AlphaFold architecture with its structure module replaced by a head that outputs a pathogenicity score.",
+  "train": "Two stages: the AlphaFold structure-prediction task, then fine-tuning against the frequency of variants observed in human and primate populations, treating observed variants as benign and unobserved ones as weakly deleterious.",
+  "evalu": "ClinVar, deep mutational scanning assays, and cohort-based tests, with calibration into likely-pathogenic, likely-benign and uncertain classes covering 89% of all 71 million possible missense variants.",
+  "post": "A released score set for the whole human proteome."
+ },
+ "popeve": {
+  "data": "Scores from two evolutionary models, EVE (per-family alignments) and ESM-1v (a protein language model), combined with human population variation from UK Biobank.",
+  "arch": "A latent Gaussian process that links evolutionary scores to gene-level population constraint, so scores become comparable across proteins rather than only within one.",
+  "train": "Learning which variants are seen in the population given their evolutionary score.",
+  "evalu": "A severe developmental disorder meta-cohort of about 31,000 trios with unaffected siblings and population controls, reaching 97% average precision in separating diagnosed cases from controls; the authors argue ClinVar benchmarks overstate real-world accuracy.",
+  "post": "A proteome-wide severity threshold set by a mixture model, gene-collapsing analysis, and an interactive public score viewer."
+ },
+ "progen": {
+  "data": "About 280 million protein sequences with over 100,000 conditioning tags for family, biological process and molecular function.",
+  "arch": "Decoder-only transformer, 1.2 billion parameters in ProGen and 151 million to 6.4 billion in ProGen2.",
+  "train": "Next-amino-acid prediction conditioned on the control tags.",
+  "evalu": "Perplexity on held-out families, and wet-lab measurement of expression, catalytic activity and crystal structure for generated lysozymes; ProGen2 adds zero-shot fitness prediction benchmarks.",
+  "post": "Likelihood-based filtering and ranking of candidate sequences before testing."
+ },
+ "esm3": {
+  "arch": "Transformer with 1.4 billion to 98 billion parameters over discrete tracks for sequence, structure and function, so any track can be partly given and the rest predicted.",
+  "train": "Masked prediction across all tracks at once with a variable masking rate, so the model learns to fill in whichever track is missing.",
+  "evalu": "Structure prediction, conditional generation under combinations of prompts, and wet-lab characterization of a generated fluorescent protein distant from natural sequences.",
+  "post": "Iterative prompting with partial structure or function, chain-of-thought-style decoding over tracks, and alignment-style tuning toward desired properties."
+ },
+ "geneformer": {
+  "arch": "BERT-style encoder of six layers and about 10 million parameters (later versions larger), over an input of 2,048 ranked gene tokens.",
+  "train": "Masked prediction of hidden genes in the rank sequence, so the model learns which genes keep company in a cell.",
+  "evalu": "Fine-tuned tasks in network biology including dosage-sensitive transcription factors, chromatin-state prediction and disease classification, in each case with limited task data.",
+  "post": "Fine-tuning; in silico deletion or activation of a gene followed by comparison of the shifted cell embedding with disease and healthy reference states, used to nominate cardiomyopathy targets later supported experimentally."
+ },
+ "scgpt": {
+  "arch": "Transformer of about 50 million parameters with three parallel embeddings per token: gene identity, binned expression value and condition.",
+  "train": "A generative masked objective in which masked expression values are predicted in an iterative order rather than all at once.",
+  "evalu": "Cell-type annotation, multi-batch and multi-omic integration, perturbation response prediction and gene-network inference, each with fine-tuning.",
+  "post": "Fine-tuning per task, attention-based gene-network extraction, and zero-shot embedding extraction."
+ },
+ "uce": {
+  "data": "About 36 million cells from more than 300 datasets across eight species. Each cell is a bag of 1,024 genes sampled in proportion to expression, each gene represented by the ESM2 embedding of its protein and ordered by chromosome.",
+  "arch": "Transformer with 33 layers and over 650 million parameters; the cell embedding is the output of a prepended summary token.",
+  "train": "Self-supervised binary prediction of whether each masked gene is expressed in the cell, with no cell-type or dataset labels.",
+  "evalu": "Zero-shot integration scored with scIB metrics, cross-species embedding of species absent from training, and agreement between embedding distances and the Cell Ontology.",
+  "post": "Zero-shot embedding without fine-tuning, classifiers trained on the frozen space, and an Integrated Mega-scale Atlas of embedded cells."
+ },
+ "scimilarity": {
+  "data": "About 7.9 million annotated cells from 52 studies for training, with a search reference of 22.7 million cells from 399 studies.",
+  "arch": "Encoder and decoder mapping each cell into a 128-dimensional space.",
+  "train": "Triplet loss on cells of the same annotated type from different studies, combined with a reconstruction loss; one weight balances integration against search quality.",
+  "evalu": "Ontology-aware silhouette width against Harmony, scVI and scArches, annotation F1 on 14 held-out studies, and attribution agreement with marker genes.",
+  "post": "Approximate nearest-neighbor search over the reference in milliseconds per cell, annotation transfer, outlier flagging, and the fibrosis macrophage case study confirmed in a hydrogel model."
+ },
+ "genept": {
+  "data": "NCBI text summaries for about 34,000 genes, embedded with GPT-3.5; no single-cell pretraining corpus at all.",
+  "arch": "No trained model: gene embeddings come from the text embedding API, and a cell is either an expression-weighted average of its genes or a sentence embedding of its genes in expression order.",
+  "train": "None; the embeddings are used as they come.",
+  "evalu": "Gene-property tasks (dosage sensitivity, bivalent promoters, chromatin dynamics) and cell-level tasks (cell-type annotation, batch structure), compared with Geneformer and scGPT.",
+  "post": "Direct use of the frozen embeddings, with logistic regression or k-nearest neighbors on top."
+ },
+ "cellot": {
+  "data": "Unpaired control and treated cell populations, since measuring a cell destroys it; drug, cytokine and genetic perturbation datasets, including patient-derived leukemia samples.",
+  "arch": "A pair of neural networks parameterizing a convex potential and its conjugate, which together define an optimal-transport map from control to perturbed cells.",
+  "train": "A min-max objective that learns the transport map without any paired examples.",
+  "evalu": "Held-out perturbations and held-out patients, scored by how well the predicted population matches the measured one in marker distributions.",
+  "post": "Per-cell predicted responses, used to compare patients and to flag resistant subpopulations."
+ },
+ "gears": {
+  "data": "Perturb-seq screens together with a knowledge graph of gene-gene relationships drawn from Gene Ontology, which gives unseen perturbations a position in the graph.",
+  "arch": "Graph neural network over two graphs, one of perturbations and one of genes, with a per-gene output head.",
+  "train": "Supervised regression on post-perturbation expression, with the graph allowing the model to reach perturbations and combinations absent from training.",
+  "evalu": "Prediction of single and combinatorial perturbations not seen in training, including classification of genetic interaction types such as synergy and suppression.",
+  "post": "Uncertainty estimates, and ranking of candidate combinations for screening."
+ },
+ "state": {
+  "data": "State Transition is trained on over 100 million perturbed cells across about 70 cell contexts, including the Tahoe-100M drug atlas and public CRISPR screens; State Embedding is pretrained on 167 million observational cells.",
+  "arch": "Two modules. State Embedding is a masked autoencoder over the top expressed genes, with genes represented by protein-language-model embeddings. State Transition is a transformer over sets of cells, so a population rather than a single cell is mapped to its perturbed counterpart.",
+  "train": "State Transition minimizes a distribution-level loss (maximum mean discrepancy) between predicted and measured cell populations, rather than matching single cells.",
+  "evalu": "Zero-shot splits that hold out whole cell types and few-shot splits that hold out perturbations, scored with the released Cell-Eval framework, whose metrics include perturbation discrimination and overlap of differentially expressed genes.",
+  "post": "Embedding of new datasets, similarity search over an embedding database, and prediction of responses in cell contexts not seen in training."
+ },
+ "bulkformer": {
+  "data": "About 522,000 human bulk RNA-seq profiles from GEO and ARCHS4, spanning nine physiological systems in health and disease, over a fixed vocabulary of 20,010 protein-coding genes, each gene identified by an ESM2 embedding of its protein.",
+  "arch": "About 150 million parameters in blocks that alternate a graph convolution over a gene co-expression graph with Performer attention layers, which keeps attention linear in the number of genes.",
+  "train": "Masked modeling of expression values: about 15% of values are hidden and reconstructed, with the loss computed only on masked positions.",
+  "evalu": "Transcriptome imputation, disease annotation across 23 diseases, cancer subtype classification across 33 TCGA types, prognosis in about 10,000 patients, drug response on GDSC, and gene essentiality on DepMap, against single-cell foundation models and simple baselines.",
+  "post": "Used mainly as a frozen feature extractor: gene-level embeddings for per-gene tasks and pooled sample-level embeddings for classification and survival models."
+ },
+ "nicheformer": {
+  "data": "SpatialCorpus-110M: over 57 million dissociated and 53 million spatially resolved human and mouse cells across 73 tissues and several imaging technologies. Expression is normalized per technology and the cell becomes a ranked gene sequence of 1,500 tokens, prefixed by tokens for assay, modality and organism.",
+  "arch": "Twelve transformer encoder blocks, 16 attention heads, hidden size 512, about 49 million parameters.",
+  "train": "Masked language modeling on 15% of tokens, including the context tokens.",
+  "evalu": "Three spatially defined tasks introduced with the model: region and niche label prediction, neighborhood composition, and local cell density, under both linear probing and fine-tuning, against Geneformer, scGPT, scVI and PCA.",
+  "post": "Linear probes on frozen embeddings, full fine-tuning, and transfer of spatial labels to dissociated data."
+ },
+ "virtues": {
+  "data": "Fifteen imaging mass cytometry datasets across eight organ sites: 147 markers, about 3,100 patients, 8,887 samples and over 14.5 million segmented cells.",
+  "arch": "Image patches are tokenized per marker and each marker token is fused with an ESM2 embedding of that protein, so panels with different markers share one space. Attention is factorized into marker attention and spatial attention, and patch tokens are aggregated into cell, niche and tissue tokens.",
+  "train": "Masked autoencoding with three masking strategies: individual patches, whole markers, and all markers at selected positions.",
+  "evalu": "Marker reconstruction (mean correlation about 0.72) including markers and cohorts never seen, cell typing against other spatial models, cross-cohort label transfer, and tissue-level clinical prediction including response to chemo-immunotherapy in triple-negative breast cancer.",
+  "post": "Clustering of cell embeddings into phenotypic states, patient-level risk grouping validated by survival analysis, and niche-level retrieval of similar tissues."
+ },
+ "genecompass": {
+  "data": "About 126 million human and mouse single-cell transcriptomes, with genes aligned across species through 17,465 homologs and a species token on every cell.",
+  "arch": "Twelve-layer transformer, 12 heads, 768 dimensions, over 2,048 gene tokens and more than 100 million parameters. Each gene token adds four kinds of prior knowledge: a promoter-sequence embedding from a DNA language model, co-expression relationships, gene family membership, and transcription factor-target links.",
+  "train": "Masked language modeling with two heads, one recovering the masked gene identity and one its expression value.",
+  "evalu": "Single-species and cross-species cell-type annotation, gene-network inference, drug dose-response, dosage-sensitive transcription factor identification, and perturbation prediction, where its gene embeddings reduced error for GEARS by about 15%.",
+  "post": "In silico knockout or overexpression by editing the input expression value, then comparing the cell embedding against reference states; applied to reprogramming and differentiation, including candidate genes that shifted stem cells toward a gonadal fate."
+ },
+ "pinnacle": {
+  "data": "Cell-type-specific protein interaction networks built from a human multi-organ single-cell atlas, giving 394,760 protein representations across 156 cell types in 24 tissues, organized by a cell-type network and a tissue hierarchy.",
+  "arch": "Graph attention over three kinds of node, proteins, cell types and tissues, with an attention bridge that carries tissue and cellular organization into the protein representations, all in one shared space.",
+  "train": "Self-supervised: link prediction on protein interactions plus classification of which cell type a protein belongs to, with matching objectives at the cell-type and tissue levels.",
+  "evalu": "Nomination of therapeutic targets for rheumatoid arthritis and inflammatory bowel disease, where it beat context-free models in 29 of 156 cell-type contexts and 13 of 152 respectively.",
+  "post": "Zero-shot retrieval of the tissue hierarchy, enrichment of structure-based representations of immune checkpoint complexes, and comparison of drug effects across cellular contexts."
+ },
+ "aido": {
+  "data": "Proposes drawing on sequence archives, curated databases, structure repositories, interaction and pathway resources, single-cell and imaging atlases, and population cohorts, each feeding its own module.",
+  "arch": "A modular system rather than one network: separate foundation models for DNA, RNA, protein, small molecules, networks, cells and phenotypes, connected through shared tokens, structure tokenizers and cross-scale positional encodings.",
+  "train": "Proposes masked modeling, next-token prediction, autoencoding, contrastive learning and diffusion per module, then a weighted combination of objectives to align modules end to end.",
+  "evalu": "None reported: the paper is a perspective that sets out a three-stage programme (build modules, connect them, unify the system) and states hypotheses rather than measured results.",
+  "post": "Envisages querying the connected system across scales, from molecular to phenotypic."
+ }
+}

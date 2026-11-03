@@ -1,0 +1,8 @@
+{
+ "plm": "Protein language models",
+ "dnalm": "DNA language models",
+ "rnalm": "RNA language models",
+ "scfm": "Single-cell foundation models",
+ "pert": "Perturbation models",
+ "mo": "Multi-omics models"
+}
