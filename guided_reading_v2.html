@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guided reading v2 · AI for Biologists: The Knowledge Boundaries of Foundation Models</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F2F5F4; --surface:#FFFFFF; --ink:#13222A; --muted:#566870; --rule:#D3DBDC; --rule-soft:#E4EAEA;
+  --accent:#A3266F; --accent-soft:#F6E3EE; --ok:#2F7A4E; --ok-soft:#E1F0E6; --no:#A3362B; --no-soft:#F5E1DE;
+  --blue:#2E6FA8;
+  --f-display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Newsreader",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0E171B; --surface:#152228; --ink:#E2EAEC; --muted:#93A4AB; --rule:#2A3A42; --rule-soft:#1E2C33;
+  --accent:#E373B4; --accent-soft:#3A1B2E; --ok:#6CC491; --ok-soft:#173226; --no:#EE8778; --no-soft:#3A1C18;
+  --blue:#6FA7DB; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-display);font-size:16px;line-height:1.5}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+
+.bar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:1240px;margin:0 auto;padding:10px clamp(16px,3vw,32px);display:flex;gap:16px;align-items:center}
+.bar .ttl{font-weight:700;font-size:14px;white-space:nowrap}
+.bar nav{display:flex;gap:2px;overflow-x:auto;flex:1}
+.bar nav a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:4px;white-space:nowrap}
+.bar nav a.on{color:var(--accent);background:var(--accent-soft)}
+.seg{display:flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;flex:none}
+.seg button{font:600 12.5px var(--f-display);padding:6px 10px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.prog{height:3px;background:var(--rule-soft)}
+.prog i{display:block;height:100%;width:0;background:var(--accent)}
+@media(max-width:900px){.bar .ttl{display:none}}
+
+.hero{min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.eyebrow{font:600 14px var(--f-display);color:var(--accent);margin:0 0 14px}
+.hero h1{font-size:clamp(28px,4.4vw,58px);line-height:1.08;letter-spacing:-.025em;margin:0 0 20px;max-width:20em;text-wrap:balance}
+.hero .sub{font-family:var(--f-body);font-size:clamp(18px,2vw,24px);max-width:36em;margin:0 0 10px}
+.hero .au{font-size:13.5px;color:var(--muted);margin:0 0 30px}
+.cue{font-weight:600;color:var(--muted);font-size:14px}
+
+.story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.step{min-height:94vh;display:flex;align-items:center;padding:6vh 0;opacity:.38;transition:opacity .35s}
+.step.on,body.deep .step{opacity:1}
+.step .card{width:100%}
+.chap{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;font-weight:600;color:var(--accent);margin-bottom:12px}
+.chap .sec{font:400 11.5px var(--f-mono);color:var(--muted);white-space:nowrap}
+.step h2{font-size:clamp(24px,2.7vw,34px);line-height:1.12;letter-spacing:-.022em;margin:0 0 14px;text-wrap:balance}
+.plain{font-family:var(--f-body);font-size:18.5px;line-height:1.55;margin:0 0 18px}
+.more{font:600 14px var(--f-display);display:inline-flex;gap:8px;align-items:center;background:transparent;border:1px solid var(--rule);color:var(--ink);padding:8px 14px;border-radius:6px;cursor:pointer}
+.more:hover{border-color:var(--ink)}
+.more .pm{font-family:var(--f-mono);color:var(--accent)}
+.ex{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+.ex li{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:10px 12px;font-family:var(--f-body);font-size:15.5px;line-height:1.45}
+.ex li b{font-family:var(--f-display);font-weight:700}
+.ex .cite{display:block;font:400 11.5px var(--f-mono);color:var(--muted);margin-bottom:2px}
+.ex li.note{border-left-color:var(--blue)}
+
+.panel{position:sticky;top:84px;height:calc(100vh - 110px);align-self:start;margin-top:6vh}
+.stage{position:relative;height:100%;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.viz{position:absolute;inset:0;padding:clamp(16px,2.4vw,32px);display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .4s,transform .4s;overflow:auto}
+.viz.on{opacity:1;pointer-events:auto;transform:none}
+.viz h4{margin:0;font-size:12.5px;font-weight:600;color:var(--muted)}
+.mock{position:absolute;right:10px;bottom:8px;font:400 10.5px var(--f-mono);color:var(--muted);opacity:.7}
+
+.pill{display:inline-block;font:600 12px var(--f-display);padding:3px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.box{border:1px solid var(--rule);border-radius:8px;padding:16px;background:var(--paper)}
+.box h5{margin:6px 0 6px;font-size:18px}
+.box p{margin:0 0 8px;font-family:var(--f-body);font-size:15.5px}
+.box small{font:400 11.5px var(--f-mono);color:var(--muted)}
+.mid{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:12px;color:var(--muted);gap:4px;max-width:90px}
+.mid b{font-size:26px;color:var(--accent);line-height:1}
+.toks{display:flex;gap:6px;flex-wrap:wrap}
+.tok{font:500 18px var(--f-mono);padding:8px 11px;border:1px solid var(--rule);border-radius:5px;background:var(--paper)}
+.tok.m{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.chips3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.chips3 .box{padding:12px}.chips3 b{font-size:15px}.chips3 p{font-size:14px;margin:4px 0 0}
+table.t{border-collapse:collapse;width:100%;font-size:13.5px}
+table.t th{text-align:left;font-size:12px;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:2px solid var(--ink)}
+table.t td{padding:9px 8px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+table.t td:first-child{font-weight:700;white-space:nowrap}
+table.t td.x{color:var(--accent);font-family:var(--f-body);font-size:14.5px}
+table.t td.m{font-family:var(--f-mono);font-size:12px}
+.five{display:grid;gap:8px}
+.five .r{display:grid;grid-template-columns:130px 1fr 1fr;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);font-size:13.5px}
+.five .r b{font-size:14.5px}
+.five .r span.k{font-size:12px;color:var(--muted);display:block}
+.five .r em{font-style:normal;color:var(--accent);font-weight:600}
+.layer{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:11px 0;border-bottom:1px dashed var(--rule)}
+.layer .y{font:500 12px var(--f-mono);color:var(--accent);padding-top:3px}
+.layer b{display:block}.layer span{font-family:var(--f-body);font-size:15px;color:var(--muted)}
+.routes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.routes .box{padding:10px}.routes b{font-size:14px;display:block}.routes span{font-size:12.5px;color:var(--muted)}
+.routes .box.hl{border-color:var(--accent);background:var(--accent-soft)}
+.bars{display:grid;gap:8px;margin-top:4px}
+.bars .b{display:grid;grid-template-columns:160px 1fr 42px;gap:10px;align-items:center;font-size:13px}
+.bars .tr{height:16px;background:var(--rule-soft);border-radius:3px;overflow:hidden}
+.bars .tr i{display:block;height:100%;background:var(--blue);border-radius:3px;width:0;transition:width 1s .2s}
+.viz.on .bars .tr i{width:var(--w)}
+.bars .b.hi .tr i{background:var(--accent)}
+.bars .n{font:500 12.5px var(--f-mono);text-align:right}
+.bars .grp{font:600 11.5px var(--f-display);color:var(--muted);margin-top:8px}
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ev .col{border-radius:8px;padding:12px;transition:opacity .4s,transform .4s}
+.ev .col.ok{background:var(--ok-soft)}.ev .col.no{background:var(--no-soft)}
+.ev h5{margin:0 0 8px;font-size:14px}
+.ev .col.ok h5{color:var(--ok)}.ev .col.no h5{color:var(--no)}
+.ev ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:13px}
+.ev li i{font:500 10.5px var(--f-mono);font-style:normal;opacity:.75;display:block}
+[data-focus="ok"] .ev .col.no,[data-focus="no"] .ev .col.ok{opacity:.28;transform:scale(.98)}
+.three{display:grid;gap:10px}
+.three .box{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.three .n{font:700 28px var(--f-display);color:var(--accent);line-height:1}
+.three b{font-size:16px}
+pre.code{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;font:400 12.5px/1.65 var(--f-mono);overflow:auto;white-space:pre}
+pre.code .k{color:var(--accent)}pre.code .c{color:var(--muted)}
+svg text{font-family:var(--f-display)}
+
+.outro{max-width:1000px;margin:0 auto;padding:12vh clamp(16px,3vw,32px) 14vh}
+.outro h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:0 0 26px}
+.take{list-style:none;padding:0;margin:0 0 36px;counter-reset:t}
+.take li{counter-increment:t;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--rule);font-family:var(--f-body);font-size:20px}
+.take li::before{content:counter(t);font:700 22px var(--f-display);color:var(--accent)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:600 15px var(--f-display);text-decoration:none;color:var(--ink);padding:12px 20px;border-radius:6px;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--paper)}
+footer{border-top:1px solid var(--rule);padding:24px clamp(16px,3vw,32px);font-size:13px;color:var(--muted);text-align:center}
+
+@media(max-width:900px){
+  .story{grid-template-columns:1fr;gap:0}
+  .panel{order:-1;position:sticky;top:50px;height:40vh;margin:0;z-index:5;padding-top:8px;background:var(--paper)}
+  .step{min-height:80vh;align-items:flex-start;padding:5vh 0}
+  .viz{padding:12px;font-size:90%}
+  .two{grid-template-columns:1fr}.mid{max-width:none;flex-direction:row}
+  .five .r{grid-template-columns:90px 1fr}.five .r>*:nth-child(3){display:none}
+  .ev{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <span class="ttl">Guided reading</span>
+    <nav id="nav" aria-label="Chapters"></nav>
+    <div class="seg" role="group" aria-label="Reading mode">
+      <button id="mSkim" aria-pressed="true">Skim</button>
+      <button id="mDeep" aria-pressed="false">Show all examples</button>
+    </div>
+  </div>
+  <div class="prog"><i id="prog"></i></div>
+</header>
+
+<section class="hero" id="top">
+  <p class="eyebrow">Guided reading · companion to the review</p>
+  <h1>AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems</h1>
+  <p class="sub">A five-minute scroll through the review. Each step gives one key message. Open the examples only if you want the papers behind it.</p>
+  <p class="au">Tian Cai, Andrew Kleist, Jaimin Patel, Duccio Malinverni, Alexander K. Taylor, Malvika Sharan, Renato Umeton, M. Madan Babu · St. Jude Children's Research Hospital</p>
+  <span class="cue">↓ Scroll to begin</span>
+</section>
+
+<main class="story" id="story">
+  <div class="steps" id="steps"></div>
+  <aside class="panel" aria-hidden="true"><div class="stage" id="stage"></div></aside>
+</main>
+
+<section class="outro" id="outro">
+  <h2>Five things to remember</h2>
+  <ol class="take">
+    <li>Foundation models give versatility; agentic systems give accessibility. Integrating them needs a shared language about reliability.</li>
+    <li>That language is the <b>knowledge boundary</b>: the inputs, tasks and conditions where a model's output can be trusted.</li>
+    <li>Five design elements (data, architecture, training scheme, evaluation scheme, post-analysis) set that boundary for any model.</li>
+    <li>Evidence shows real learned biology, but also simple baselines that often match the models. Benchmarks, confidence and application reliability must be established separately.</li>
+    <li>Release every model with a structured boundary statement, and keep a community registry, so researchers and agents know when to call it.</li>
+  </ol>
+  <div class="btns">
+    <a class="btn p" href="#">Read the full review →</a>
+    <a class="btn" href="#">Explore figures, catalog and glossary</a>
+  </div>
+</section>
+<footer>Mockup v2 for developer hand-off · text condensed from review draft v11 · reference numbers follow the review's Literature Cited</footer>
+
+<script>
+const CHAPTERS = [
+  {id:'c1', label:'The problem'},
+  {id:'c2', label:'How models are built'},
+  {id:'c3', label:'Agents'},
+  {id:'c4', label:'Evidence'},
+  {id:'c5', label:'Outlook'},
+];
+
+const STEPS = [
+ {ch:'c1', sec:'§1 · Fig 1', viz:'two',
+  key:'Two AI tools are reshaping biology, and they complement each other.',
+  plain:'Foundation models compress huge datasets into reusable numeric representations (versatility). Agentic systems turn plain-language requests into multistep analyses (accessibility). Agents are starting to call foundation models as tools.',
+  ex:[
+   {t:'AlphaFold + Biomni', a:'Jumper 2021; Huang 2026', r:'4, 17', d:'Both draw on UniProt and the PDB. AlphaFold predicts a structure an agent cannot; the agent then assembles the follow-up analyses around it.'},
+   {t:'Agents that call foundation models', a:'Huang 2026; Zhang 2026', r:'17, 18', d:'Biomni and the Virtual Biotech now use foundation models as tools.'},
+   {t:'ChatNT, CellWhisperer, BioReason', a:'de Almeida 2025; Schaefer 2025; Fallahpour 2025', r:'19–21', d:'Feed foundation-model embeddings directly into an LLM.'},
+  ]},
+ {ch:'c1', sec:'§1', viz:'boundary',
+  key:'The missing piece is an explicit "knowledge boundary" for every model.',
+  plain:'A model\'s knowledge boundary is the range of inputs, tasks and conditions over which its outputs can be relied on. Without it, researchers cannot judge when to trust a result, and agents cannot know when a model applies.',
+  ex:[
+   {note:1, t:'Why LLM boundaries are rarely visible', d:'Human language is densely represented in LLM training data. Biology is closer to deciphering an extinct language: the vocabulary must be inferred and no living speaker can confirm the grammar (§4).'},
+  ]},
+ {ch:'c2', sec:'§2.1', viz:'mask',
+  key:'Train once on unlabeled data, then reuse the model for many tasks.',
+  plain:'Self-supervised learning hides part of each example and asks the model to fill it in, so no human labels are needed. That suits biology, where sequences are abundant and validated labels are scarce. The trained model is reused by probing, fine-tuning or zero-shot prediction.',
+  ex:[
+   {t:'"Foundation model" defined', a:'Bommasani 2021', r:'22', d:'Models trained on broad data and adapted to many downstream tasks.'},
+   {t:'ESM2', a:'Lin 2023', r:'6', d:'Masked amino acids are predicted from the visible sequence, repeated across millions of proteins.'},
+   {t:'Zero-shot variant effect', a:'Meier 2021', r:'25', d:'A mutation that makes a sequence much less plausible is more likely to disrupt function, with no labeled data used.'},
+  ]},
+ {ch:'c2', sec:'§2.1.1', viz:'language',
+  key:'Biological models borrow the language of language. The places the analogy breaks predict their limits.',
+  plain:'Four concepts describe how a model works: vocabulary and tokens, grammar, corpus, and embedding. Each is easy to define for human language, and harder in biology, where the grammar is largely unknown and the corpus is an indirect, biased measurement.',
+  ex:[
+   {t:'Vocabulary: ESM2 vs DNA models', a:'Lin 2023; Dalla-Torre 2025; Nguyen 2023', r:'6, 7, 35', d:'ESM2 has 20 amino-acid tokens. DNA has no word boundaries, so Nucleotide Transformer uses 6-mers while HyenaDNA keeps one nucleotide per token.'},
+   {t:'Corpus size', a:'Hayes 2025; Grattafiori 2024', r:'30, 31', d:'ESM3 saw about 771 billion tokens, roughly 20-fold fewer than Llama 3, and many sequences are near-duplicates.'},
+   {t:'Reading embeddings with sparse autoencoders', a:'Simon 2025; Adams 2025; Gujral 2025', r:'93–95', d:'Re-express each embedding as many features that tend to match single properties.'},
+  ]},
+ {ch:'c2', sec:'§2.1.2 · Fig 2A', viz:'five',
+  key:'Five design elements describe any model, and each one sets part of its boundary.',
+  plain:'Data, architecture, training scheme, evaluation scheme and post-analysis. Innovations usually change one of them. This is the review\'s core template, shown here with ESM2.',
+  ex:[
+   {t:'Data: Geneformer', a:'Theodoris 2023', r:'9', d:'Encodes each cell as genes ranked by expression, discarding quantitative levels.'},
+   {t:'Architecture alternatives', a:'Schiff 2024; Nguyen 2023; Li 2024', r:'36, 35, 37', d:'Caduceus (two DNA strands), HyenaDNA (long context), PINNACLE (interaction networks).'},
+   {t:'Training scheme', a:'Nijkamp 2023; Fradkin 2024', r:'40, 42', d:'Autoregressive (ProGen2) makes natural generators; contrastive (Orthrus) pulls related examples together.'},
+   {t:'Evaluation scheme: ProteinGym', a:'Notin 2023', r:'44', d:'A shared downstream benchmark. Intrinsic and downstream evaluation do not always agree.'},
+  ]},
+ {ch:'c2', sec:'§2.2 · Fig 2B,C', viz:'landscape',
+  key:'Models are shaped by what they read (inputs) and what they produce (outputs).',
+  plain:'Six data types, from DNA to multi-omics, and three tasks: representation, prediction and generation. Each biological model is foundational mainly within its own range, unlike a general-purpose LLM.',
+  ex:[
+   {t:'Single-cell tokens', a:'Theodoris 2023; Cui 2024; Rosen 2023', r:'9–11', d:'Geneformer ranks genes, scGPT bins values, UCE reaches species unseen in training.'},
+   {t:'Prediction: AlphaGenome', a:'Avsec 2026', r:'23', d:'Takes up to one megabase of DNA and outputs thousands of regulatory tracks.'},
+   {t:'Perturbation models', a:'Bunne 2023; Roohani 2024; Adduri 2025', r:'66, 67, 24', d:'Sit between prediction and generation: produce a cell state that was never measured.'},
+  ]},
+ {ch:'c3', sec:'§3 · Fig 3A', viz:'agents',
+  key:'An agent is an LLM plus tools, skills and human approval, assembled in layers.',
+  plain:'Each component answered a limitation of the one before. Because the components are general-purpose, biological agents can be assembled quickly. Reasoning and reinforcement learning improve how a system uses its knowledge but add none.',
+  ex:[
+   {t:'Biomni, Paper2Agent', a:'Huang 2026; Miao 2025', r:'17, 77', d:'Compose workflows from tools mined from publications, or turn a paper\'s codebase into MCP tools.'},
+   {t:'Multi-agent systems', a:'Swanson 2025; Gottweis 2026; Ghareeb 2026', r:'80–82', d:'The Virtual Lab designed nanobodies; the AI co-scientist and Robin extend this to hypothesis generation.'},
+   {t:'Model Context Protocol', a:'Anthropic 2024', r:'74', d:'Standardizes how tools connect to models, much as USB did for devices.'},
+  ]},
+ {ch:'c3', sec:'§3', viz:'routes',
+  key:'A foundation model enters an agent in four ways, and the route decides whose boundary the agent inherits.',
+  plain:'Only the encoder route lets the LLM work with raw biological data. When the answer lies in the LLM\'s textual knowledge, the encoder adds little; when it lies beyond, the encoder sets the ceiling.',
+  ex:[
+   {t:'BioReason', a:'Fallahpour 2025', r:'21', d:'Pathway questions: LLM alone 90%. Variant classification: 49% alone, 80% with Evo 2, 61% with Nucleotide Transformer.'},
+   {t:'AlphaGenome agent at an LDL locus', a:'Miao 2025', r:'77', d:'The agent prioritized SORT1, whereas the original paper emphasized CELSR2 and PSRC1.'},
+   {t:'Tool route example', a:'Swanson 2025', r:'80', d:'Virtual Lab agents called ESM, AlphaFold-Multimer and Rosetta to refine nanobodies.'},
+  ]},
+ {ch:'c4', sec:'§4.2', viz:'evidence', state:'ok',
+  key:'Evidence for: self-supervised training captures real biology, most clearly for proteins.',
+  plain:'Without labels, models recover amino-acid chemistry, residue contacts and mutation tolerance, and can design functional molecules. Success is clearest where the corpus is largest and the rules are written directly into sequence.',
+  ex:[
+   {t:'Residue chemistry and contacts', a:'Rives 2021; Rao 2021', r:'89, 90', d:'Embeddings group residues by hydrophobicity and charge, and recover physical contacts.'},
+   {t:'Designing proteins', a:'Madani 2023; Hayes 2025', r:'62, 30', d:'ProGen produced active lysozymes; ESM3 generated a fluorescent protein distant from natural ones.'},
+   {t:'Experimental follow-up', a:'Theodoris 2023; Hie 2024', r:'9, 96', d:'Geneformer-nominated cardiomyopathy targets were supported; protein language models guided antibody evolution.'},
+  ]},
+ {ch:'c4', sec:'§4.3', viz:'evidence', state:'no',
+  key:'Evidence against: independent tests repeatedly find simple baselines competitive.',
+  plain:'Linear models, one-hot encodings and even the training average often match foundation models, especially for effects of mutations, personal expression and perturbations. The boundary has layers: missing data, hard-to-learn knowledge, hidden or exaggerated capability, and knowledge that exists but cannot be read out.',
+  ex:[
+   {t:'Perturbation prediction', a:'Ahlmann-Eltze 2025', r:'103', d:'Deep-learning models did not outperform simple linear baselines.'},
+   {t:'Single-cell embeddings', a:'Kedzierska 2025', r:'106', d:'Geneformer and scGPT embeddings did not beat simple baselines without fine-tuning.'},
+   {t:'Personal gene expression', a:'Huang 2023; Sasse 2023', r:'100, 101', d:'Enformer explains little between-individual variation and often predicts the wrong direction.'},
+   {t:'A counterpoint', a:'Miller 2026', r:'115', d:'With calibrated metrics, several perturbation models do beat baselines. Part of the parity reflects the metric, not the model.'},
+  ]},
+ {ch:'c5', sec:'§5', viz:'challenges',
+  key:'Three open challenges: uneven evaluation, the single-model bet, and an early-stage field.',
+  plain:'Independent evaluation covers only a few areas and usually tests one design element. Scaling has not reliably improved biology models as it did language models. Much current work sits at the pattern-prediction stage, not mechanism or engineering.',
+  ex:[
+   {t:'Controls rarely reported', a:'Fang 2026', r:'121', d:'Six systems were as accurate with shuffled biological inputs as with intact ones.'},
+   {t:'Scaling laws', a:'Kaplan 2020; Notin 2023', r:'124, 44', d:'Larger protein language models do not consistently predict mutational effects better.'},
+   {note:1, t:'Two lenses on maturity', d:'Scientific maturity (observation → mechanism → engineering) and evolutionary competition (generalists first, specialists later).'},
+  ]},
+ {ch:'c5', sec:'§6', viz:'statement',
+  key:'Proposal: release every model with a structured boundary statement that people and agents can read.',
+  plain:'Organized by the five design elements, a machine-readable statement records training data, context length, objective, benchmarks (including baselines) and the conditions under which results hold. A community registry would keep the living record.',
+  ex:[
+   {t:'Precedents', a:'Mitchell 2019; Gebru 2021', r:'126, 127', d:'Model cards and datasheets.'},
+   {t:'Agents that check before trusting', a:'Wang 2025', r:'12', d:'GeneAgent checks its claims against curated databases.'},
+   {t:'Specialists fill boundary gaps', a:'Benegas 2025; Pampari 2024', r:'92, 45', d:'GPN-MSA (evolutionary alignments) and ChromBPNet (single assay, base resolution).'},
+   {t:'Closing the loop', a:'King 2009; Rapp 2024', r:'128, 129', d:'Self-driving labs can target boundary regions with new measurements.'},
+  ]},
+];
+
+const VIZ = {
+two:`<h4>Fig 1 · Complementary roles</h4>
+<div class="two">
+ <div class="box"><span class="pill">Versatility</span><h5>Foundation models</h5><p>Compress raw data into embeddings that are reused for many tasks.</p><small>ESM2 · Evo 2 · Geneformer</small></div>
+ <div class="mid"><b>⇄</b>foundation models called as tools</div>
+ <div class="box"><span class="pill">Accessibility</span><h5>Agentic systems</h5><p>Turn plain-language requests into multistep analyses.</p><small>Biomni · Virtual Biotech</small></div>
+</div>`,
+
+boundary:`<h4>The knowledge boundary</h4>
+<svg viewBox="0 0 520 330" width="100%" role="img" aria-label="A circle labeled reliable inside and unknown outside">
+ <circle cx="260" cy="165" r="118" fill="var(--ok-soft)" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="7 6"/>
+ <text x="260" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="var(--ok)">Reliable</text>
+ <text x="260" y="172" text-anchor="middle" font-size="13" fill="var(--ink)">inputs, tasks, conditions</text>
+ <text x="260" y="190" text-anchor="middle" font-size="13" fill="var(--ink)">the model was built for</text>
+ <g fill="var(--ok)"><circle cx="205" cy="115" r="4"/><circle cx="318" cy="120" r="4"/><circle cx="215" cy="222" r="4"/><circle cx="312" cy="215" r="4"/></g>
+ <g font-size="20" font-weight="700" fill="var(--no)"><text x="60" y="80">?</text><text x="440" y="70">?</text><text x="455" y="270">?</text><text x="70" y="285">?</text></g>
+ <text x="40" y="40" font-size="13" fill="var(--muted)">Outside: untested, undocumented</text>
+ <text x="260" y="320" text-anchor="middle" font-size="13" font-weight="600" fill="var(--accent)">boundary</text>
+</svg>`,
+
+mask:`<h4>Self-supervised training, then three ways to reuse</h4>
+<div class="toks"><span class="tok">M</span><span class="tok">K</span><span class="tok">T</span><span class="tok m">?</span><span class="tok">L</span><span class="tok">V</span><span class="tok">G</span><span class="tok m">?</span><span class="tok">A</span><span class="tok">S</span></div>
+<p style="margin:0;font-size:14px;color:var(--muted)">Hide residues → predict them → compare with truth → adjust. Repeat across millions of sequences.</p>
+<div class="chips3">
+ <div class="box"><b>Probing</b><p>Embedding → simple model trained on a few labels.</p></div>
+ <div class="box"><b>Fine-tuning</b><p>Keep training the model itself on a few labels.</p></div>
+ <div class="box"><b>Zero-shot</b><p>No labels. Score how plausible a sequence is.</p></div>
+</div>`,
+
+language:`<h4>The language analogy, and where it breaks</h4>
+<table class="t"><tr><th>Concept</th><th>Language</th><th>Biology</th><th>Where it breaks</th></tr>
+<tr><td>Vocabulary / token</td><td class="m">words</td><td class="m">residues, nucleotides, genes</td><td class="x">DNA has no spaces; tokenization is itself a scientific choice</td></tr>
+<tr><td>Grammar</td><td class="m">human-made rules</td><td class="m">evolution, motif arrangement</td><td class="x">Rules largely unknown, so a shortcut can look like understanding</td></tr>
+<tr><td>Corpus</td><td class="m">text records language</td><td class="m">indirect measurements</td><td class="x">Biased by species, tissue and assay</td></tr>
+<tr><td>Embedding</td><td class="m">word vectors</td><td class="m">hundreds to thousands of numbers</td><td class="x">Not directly human-readable</td></tr></table>`,
+
+five:`<h4>Fig 2A · Five design elements, illustrated with ESM2</h4>
+<div class="five">
+ <div class="r"><div><b>Data</b><span class="k">sets what can be known</span></div><div>UniRef sequences, amino-acid tokens</div><div><em>Rare lineages are barely seen</em></div></div>
+ <div class="r"><div><b>Architecture</b><span class="k">sets which relationships</span></div><div>Transformer (self-attention)</div><div><em>Input window caps long-range effects</em></div></div>
+ <div class="r"><div><b>Training scheme</b><span class="k">sets what is rewarded</span></div><div>Masked language modeling</div><div><em>Rewards co-occurrence, not causation</em></div></div>
+ <div class="r"><div><b>Evaluation</b><span class="k">sets what is visible</span></div><div>Residue contacts, ProteinGym</div><div><em>Split and baselines hide or show flaws</em></div></div>
+ <div class="r"><div><b>Post-analysis</b><span class="k">sets what is accessible</span></div><div>Probing, fine-tuning, interpretability</div><div><em>Knowledge may exist but stay unreadable</em></div></div>
+</div>`,
+
+landscape:`<h4>Fig 2B · Inputs × outputs (illustrative, not exhaustive)</h4>
+<table class="t"><tr><th>Input</th><th>Representation</th><th>Prediction</th><th>Generation</th></tr>
+<tr><td>DNA</td><td class="m">Nucleotide Transformer, Evo</td><td class="m">AlphaGenome, Enformer</td><td class="m">Evo, regLM</td></tr>
+<tr><td>RNA</td><td class="m">RNA-FM, RiNALMo, Orthrus</td><td class="m">—</td><td class="m">gRNAde, CodonTransformer</td></tr>
+<tr><td>Single cell</td><td class="m">Geneformer, scGPT, UCE</td><td class="m">Scooby</td><td class="m">State, GEARS, CellOT</td></tr>
+<tr><td>Bulk &amp; spatial</td><td class="m">BulkFormer, Nicheformer, VirTues</td><td class="m">—</td><td class="m">—</td></tr>
+<tr><td>Protein</td><td class="m">ESM2, ProtTrans, SaProt</td><td class="m">AlphaFold, EVE, AlphaMissense</td><td class="m">ProGen, ESM3</td></tr>
+<tr><td>Multi-omics</td><td class="m">GeneCompass, PINNACLE, AIDO</td><td class="m">—</td><td class="m">—</td></tr></table>`,
+
+agents:`<h4>Fig 3A · How agents are assembled</h4>
+<div>
+ <div class="layer"><span class="y">late 2022</span><div><b>Chat LLMs</b><span>Fixed training cutoff; hallucinations; cannot act on data</span></div></div>
+ <div class="layer"><span class="y">2020–2025</span><div><b>RAG · function calling · reasoning models</b><span>Retrieve sources, call programs, write out steps</span></div></div>
+ <div class="layer"><span class="y">late 2024</span><div><b>Model Context Protocol</b><span>One standard way to plug in any tool, including a foundation model</span></div></div>
+ <div class="layer"><span class="y">2025</span><div><b>Skill files</b><span>Instructions loaded when needed, such as when not to trust an output</span></div></div>
+ <div class="layer"><span class="y">2025</span><div><b>Harness</b><span>Plan–act–revise loop, workspace, human approval at key decisions</span></div></div>
+</div>`,
+
+routes:`<h4>Four routes in · BioReason as a case study</h4>
+<div class="routes">
+ <div class="box"><b>Tool</b><span>agent reads output as text</span></div>
+ <div class="box"><b>Text</b><span>data rewritten as language</span></div>
+ <div class="box hl"><b>Encoder</b><span>embeddings feed the LLM</span></div>
+ <div class="box"><b>Verifier</b><span>scores answers in training</span></div>
+</div>
+<div class="bars">
+ <div class="grp">Pathway questions (answer lies in text knowledge)</div>
+ <div class="b"><span>LLM alone</span><div class="tr"><i style="--w:90%"></i></div><span class="n">90%</span></div>
+ <div class="grp">Variant classification (answer lies beyond text)</div>
+ <div class="b"><span>LLM alone</span><div class="tr"><i style="--w:49%"></i></div><span class="n">49%</span></div>
+ <div class="b"><span>+ Nucleotide Transformer</span><div class="tr"><i style="--w:61%"></i></div><span class="n">61%</span></div>
+ <div class="b hi"><span>+ Evo 2</span><div class="tr"><i style="--w:80%"></i></div><span class="n">80%</span></div>
+</div>`,
+
+evidence:`<h4>§4 · What models captured vs. where knowledge stops</h4>
+<div class="ev">
+ <div class="col ok"><h5>✓ Captured</h5><ul>
+  <li><i>DATA</i>Residue chemistry and contacts emerge from unlabeled sequence</li>
+  <li><i>TRAINING</i>Likelihoods predict mutation effects, zero-shot</li>
+  <li><i>TRAINING</i>Functional lysozymes and a novel fluorescent protein designed</li>
+  <li><i>DATA</i>Richer tokens (structure, alignments) improve generalization</li>
+  <li><i>POST-ANALYSIS</i>Sparse autoencoders recover active-site features</li></ul></div>
+ <div class="col no"><h5>✗ Limits</h5><ul>
+  <li><i>DATA</i>Likelihoods partly reflect sampling history; thin spatial and perturbation corpora</li>
+  <li><i>ARCHITECTURE</i>Family-level models miss single-mutation effects; input windows cap range</li>
+  <li><i>TRAINING</i>Rarely beat simple baselines at predicting interventions</li>
+  <li><i>EVALUATION</i>Metrics can reward predicting the average response</li>
+  <li><i>POST-ANALYSIS</i>A correct answer does not show the model knows why</li></ul></div>
+</div>`,
+
+challenges:`<h4>§5 · A balanced assessment</h4>
+<div class="three">
+ <div class="box"><span class="n">1</span><div><b>Evaluation is uneven</b><p>Concentrated in proteins, single-cell and perturbation, and usually tests only the evaluation scheme. Few models say when a query is out of range.</p></div></div>
+ <div class="box"><span class="n">2</span><div><b>One big model may not fit biology</b><p>Language has a unified structure. Biology varies by scale, data type, species and condition, and its corpus is still being defined.</p></div></div>
+ <div class="box"><span class="n">3</span><div><b>The field is early</b><p>Mostly pattern-level prediction. Claims phrased as engineering, such as "de novo design", should be read with this stage in mind.</p></div></div>
+</div>`,
+
+statement:`<h4>§6.2 · A boundary statement (illustrative mock)</h4>
+<pre class="code"><span class="c">// organized by the five design elements</span>
+{
+  <span class="k">"model"</span>: "ExampleProteinLM",
+  <span class="k">"data"</span>: {
+    <span class="k">"species"</span>: ["human", "mouse", "…"],
+    <span class="k">"excluded"</span>: ["viral proteins"]
+  },
+  <span class="k">"architecture"</span>: { <span class="k">"context_length"</span>: 1024, <span class="k">"tokens"</span>: "amino acid" },
+  <span class="k">"training_scheme"</span>: "masked language modeling",
+  <span class="k">"evaluation"</span>: {
+    <span class="k">"benchmarks"</span>: ["ProteinGym"],
+    <span class="k">"simple_baselines_included"</span>: true
+  },
+  <span class="k">"post_analysis"</span>: { <span class="k">"results_hold_for"</span>: ["zero-shot scoring"] }
+}</pre>
+<p style="margin:0;font-size:13.5px;color:var(--muted)">Readable by a biologist deciding whether to trust a result, and by an agent deciding whether to call the model.</p>`,
+};
+
+const $ = s => document.querySelector(s);
+const stepsEl = $('#steps'), stage = $('#stage'), nav = $('#nav');
+
+CHAPTERS.forEach((c,i)=>{ const a=document.createElement('a'); a.href='#'; a.dataset.ch=c.id; a.textContent=(i+1)+'. '+c.label;
+  a.onclick=e=>{e.preventDefault(); const t=document.querySelector('.step[data-ch="'+c.id+'"]'); if(t) t.scrollIntoView({behavior:'smooth',block:'center'})}; nav.appendChild(a)});
+
+Object.keys(VIZ).forEach(id=>{ const d=document.createElement('div'); d.className='viz'; d.dataset.viz=id; d.innerHTML=VIZ[id]; stage.appendChild(d); });
+const mk=document.createElement('span'); mk.className='mock'; mk.textContent='mock visual · to be redesigned'; stage.appendChild(mk);
+
+const chapName = id => { const i=CHAPTERS.findIndex(c=>c.id===id); return (i+1)+' · '+CHAPTERS[i].label };
+STEPS.forEach((s,i)=>{
+  const el=document.createElement('article'); el.className='step'; el.id='step-'+(i+1); el.dataset.i=i; el.dataset.ch=s.ch;
+  const exHTML = s.ex.map(e=>'<li class="'+(e.note?'note':'')+'"><span class="cite">'+(e.note?'Idea':(e.a+' · ref '+e.r))+'</span><b>'+e.t+'.</b> '+e.d+'</li>').join('');
+  el.innerHTML='<div class="card"><div class="chap"><span>'+chapName(s.ch)+'</span><span class="sec">Review '+s.sec+'</span></div>'+
+    '<h2>'+s.key+'</h2><p class="plain">'+s.plain+'</p>'+
+    '<button class="more" aria-expanded="false" aria-controls="ex-'+i+'"><span>Examples &amp; papers ('+s.ex.length+')</span><span class="pm">+</span></button>'+
+    '<ul class="ex" id="ex-'+i+'" hidden>'+exHTML+'</ul></div>';
+  stepsEl.appendChild(el);
+});
+function setOpen(btn,open){ const ul=document.getElementById(btn.getAttribute('aria-controls')); btn.setAttribute('aria-expanded',open); ul.hidden=!open; btn.querySelector('.pm').textContent=open?'−':'+'; }
+stepsEl.addEventListener('click',e=>{ const b=e.target.closest('.more'); if(b) setOpen(b,b.getAttribute('aria-expanded')!=='true'); });
+
+const skim=$('#mSkim'), deep=$('#mDeep');
+function mode(isDeep){ document.body.classList.toggle('deep',isDeep); skim.setAttribute('aria-pressed',!isDeep); deep.setAttribute('aria-pressed',isDeep);
+  document.querySelectorAll('.more').forEach(b=>setOpen(b,isDeep)); }
+skim.onclick=()=>mode(false); deep.onclick=()=>mode(true);
+
+const vizEls=[...stage.querySelectorAll('.viz')], stepEls=[...document.querySelectorAll('.step')];
+function activate(i){
+  stepEls.forEach((e,j)=>e.classList.toggle('on',i===j));
+  const s=STEPS[i]; vizEls.forEach(v=>v.classList.toggle('on', !!s && v.dataset.viz===s.viz));
+  stage.dataset.focus = (s && s.state) || '';
+  document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on', !!s && a.dataset.ch===s.ch));
+  if(s) history.replaceState(null,'','#step-'+(i+1));
+}
+const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting) activate(+e.target.dataset.i); }); },{rootMargin:'-42% 0px -42% 0px'});
+stepEls.forEach(e=>io.observe(e));
+
+addEventListener('scroll',()=>{ const h=document.documentElement; $('#prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; },{passive:true});
+
+if(location.hash.startsWith('#step-')){ const t=document.querySelector(location.hash); if(t) setTimeout(()=>t.scrollIntoView({block:'center'}),50); }
+else activate(-1);
+</script>
+</body>
+</html>
