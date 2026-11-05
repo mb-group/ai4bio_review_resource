@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scrollytelling · AI for Biologists: The Knowledge Boundaries of Foundation Models</title>
-<meta name="description" content="A scrolling walk through the review's argument, in 15 beats. Keywords link to short definitions below; nothing expands in place.">
+<meta name="description" content="A scrolling walk through the review's argument, in 14 beats. Keywords link to short definitions below; nothing expands in place.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -54,6 +54,11 @@ a{color:inherit}
 .hero h1{font-size:clamp(28px,4.4vw,56px);line-height:1.08;letter-spacing:-.025em;margin:0 0 22px;max-width:21em;text-wrap:balance}
 .hero .sub{font-family:var(--f-body);font-size:clamp(17px,1.8vw,21px);max-width:38em;margin:0 0 12px;color:var(--ink)}
 .hero .au{font-size:13px;color:var(--muted);margin:0 0 34px;max-width:60ch}
+.hero .au sup,.hero .affs sup{font-size:.7em;line-height:0}
+.hero .au{margin:0 0 12px;font-size:14px;color:var(--ink)}
+.hero .affs{font-size:12.5px;color:var(--muted);margin:0 0 12px;max-width:70ch;line-height:1.5}
+.hero .affs a{color:var(--muted)}
+.hero .affs.corr{margin-bottom:34px}
 .cue{font-weight:600;color:var(--muted);font-size:13.5px;display:flex;align-items:center;gap:8px}
 .cue .arrow{animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -72,7 +77,11 @@ a{color:inherit}
 .chap .sec{font:400 11.5px var(--f-mono);color:var(--muted);white-space:nowrap}
 .step h2{font-size:clamp(23px,2.6vw,33px);line-height:1.14;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance;font-weight:700}
 .step .supp{font-family:var(--f-body);font-size:18px;line-height:1.55;margin:0 0 6px;color:var(--ink)}
-body.headlines .supp,body.headlines .rows,body.headlines .closing,body.headlines .extra{display:none!important}
+body.headlines .supp,body.headlines .rows,body.headlines .closing,body.headlines .extra,body.headlines .intuit{display:none!important}
+.intuit{margin:16px 0 0;padding:11px 14px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:4px;font-family:var(--f-body)}
+.intuit .il{font:700 11px var(--f-display);letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.intuit blockquote{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.intuit .is{font:400 11px var(--f-mono);color:var(--muted);margin:6px 0 0}
 
 a.kw{text-decoration:none;border-bottom:1px dotted var(--accent);color:inherit;cursor:pointer}
 a.kw:hover{background:var(--accent-soft)}
@@ -115,7 +124,7 @@ a.kw.flash{background:var(--accent-soft)}
 .hl.on{opacity:1}
 .echo-terms{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:auto;font-size:12px;color:var(--muted)}
 .echo-terms span{font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.04em}
-a.kw{font-size:12.5px}
+.viz a.kw{font-size:12.5px}
 .ex{border:1px solid var(--rule);border-left:3px solid var(--blue);border-radius:7px;padding:10px 12px;background:var(--paper)}
 .ex.limitation{border-left-color:var(--no)} .ex.strength{border-left-color:var(--ok)}
 .ex .meta{display:flex;gap:6px;margin-bottom:4px}
@@ -197,6 +206,40 @@ footer a{color:var(--ink)}
   .two{grid-template-columns:1fr}.mid{max-width:none;flex-direction:row}
   .routes4{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ---------- section dividers (scene transitions) ---------- */
+.divider{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:9vh 0 5vh;opacity:.34;transition:opacity .35s}
+.divider.on{opacity:1}
+.divider .dn{font:600 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.divider h3{font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.025em;margin:0 0 12px;text-wrap:balance}
+.divider .dd{font-family:var(--f-body);font-size:18px;line-height:1.5;color:var(--muted);margin:0;max-width:30em}
+.divider::before{content:"";display:block;width:56px;height:3px;background:var(--accent);margin:0 0 22px}
+.divider.turn{border-top:1px solid var(--rule)}
+.divider.turn::before{width:100%;height:4px}
+.divider .df{font:700 13px var(--f-display);color:var(--ink);background:var(--accent-soft);border-left:3px solid var(--accent);padding:8px 12px;border-radius:4px;margin:0 0 22px;align-self:flex-start}
+.viz.trans{justify-content:center;align-items:flex-start;gap:10px}
+.viz.trans .tn{font:600 13px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
+.viz.trans h3{font-size:clamp(28px,3.2vw,42px);line-height:1.08;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.viz.trans .td{font-family:var(--f-body);font-size:17px;color:var(--muted);margin:0;max-width:26em}
+.viz.trans.turn{background:var(--accent-soft)}
+.bar nav a.act2{color:var(--ink)}
+.bar nav a.gap{margin-left:8px;border-left:1px solid var(--rule);border-radius:0 4px 4px 0;padding-left:12px}
+/* dark transition bands (override) */
+.divider{position:relative;opacity:1;background:#0E171B;color:#E2EAEC;box-shadow:0 0 0 100vmax #0E171B;clip-path:inset(0 -100vmax);margin:6vh 0}
+.divider>*{opacity:.45;transition:opacity .35s}
+.divider.on>*{opacity:1}
+.divider h3{color:#F3F7F8}
+.divider .dn{color:#E373B4}
+.divider .dd{color:#9FB0B7}
+.divider::before{background:#E373B4}
+.divider.turn{border-top:0;background:#1B0F18;box-shadow:0 0 0 100vmax #1B0F18}
+.divider .df{background:rgba(227,115,180,.16);color:#F3F7F8;border-left-color:#E373B4}
+.viz.trans{background:#0E171B}
+.viz.trans.turn{background:#1B0F18}
+.viz.trans .tn{color:#E373B4}
+.viz.trans h3{color:#F3F7F8}
+.viz.trans .td{color:#9FB0B7}
+@media(max-width:980px){.divider{min-height:40vh;padding:5vh 0 3vh}}
 </style>
 </head>
 <body>
@@ -219,10 +262,11 @@ footer a{color:var(--ink)}
 </header>
 
 <section class="hero" id="top">
-  <p class="eyebrow">Scrollytelling · the review's argument, in order</p>
+  <p class="eyebrow">Online resource for the review</p>
   <h1>AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems</h1>
-  <p class="sub">Scroll to read the review's 15-beat argument top to bottom. Reading only the headlines takes about two minutes; the full page, about six. Underlined words link to a short definition further down the page &mdash; nothing expands in place.</p>
-  <p class="au">Tian Cai, Andrew Kleist, Jaimin Patel, Duccio Malinverni, Alexander K. Taylor, Malvika Sharan, Renato Umeton, M. Madan Babu · St. Jude Children's Research Hospital</p>
+  <p class="au">Tian Cai<sup>1,*</sup>, Andrew Kleist<sup>1</sup>, Jaimin Patel<sup>1</sup>, Duccio Malinverni<sup>1</sup>, Alexander K. Taylor<sup>2</sup>, Malvika Sharan<sup>3</sup>, Renato Umeton<sup>3</sup>, and M. Madan Babu<sup>1,3,*</sup></p>
+  <p class="affs"><sup>1</sup>Center of Excellence for Data Driven Discovery, Department of Structural Biology, St. Jude Children’s Research Hospital, Memphis, Tennessee 38105, USA<br><sup>2</sup>Department of Computer Science, University of California, Los Angeles, California 90095, USA<br><sup>3</sup>Office of Data Science, St. Jude Children’s Research Hospital, Memphis, Tennessee 38105, USA</p>
+  <p class="affs corr">*Corresponding authors: Tian Cai (<a href="mailto:tian.cai@stjude.org">tian.cai@stjude.org</a>) and M. Madan Babu (<a href="mailto:madan.babu@stjude.org">madan.babu@stjude.org</a>), St. Jude Children’s Research Hospital, 262 Danny Thomas Place, Memphis, Tennessee 38105, USA</p>
   <p class="cue"><span class="arrow">↓</span> Scroll to begin</p>
   <div class="legend">
     <span><i></i> concept or row keyword &mdash; links to a definition below</span>
@@ -245,7 +289,7 @@ footer a{color:var(--ink)}
   </div>
 </section>
 
-<footer>Generated from <code>content_plan/</code> (15 beats · <a href="resource.html#/glossary">89 glossary terms</a> · <a href="resource.html#/catalog">44 models</a> · <a href="techniques.html">46 techniques</a>) · visual language adapted from <code>mock-up/</code></footer>
+<footer>Generated from <code>content_plan/</code> (14 beats · <a href="resource.html#/glossary">89 glossary terms</a> · <a href="resource.html#/catalog">44 models</a> · <a href="techniques.html">46 techniques</a>) · visual language adapted from <code>mock-up/</code></footer>
 
 <script src="site-data.js"></script>
 <script src="glossary-map.js"></script>
@@ -272,38 +316,40 @@ const D = (el,label)=>`<a class="kw" href="resource.html#/glossary?de=${el}">${l
 const BEATS = [
 {id:'A-01', scene:'abstract', section:'Abstract', figure:'two',
  covers:['A-01','A-02','A-03','A-04'],
- headline:`AI is reshaping biological research, but it is unclear when to trust it; we call this the ${K('knowledge-boundary','knowledge boundary')}.`,
+ headline:`Artificial intelligence (AI) is changing how biological research is done. Every model has a ${K('knowledge-boundary','knowledge boundary')}: the range of inputs, tasks, and conditions over which its outputs can be relied on.`,
  supporting:`Five design elements set the boundary. The review gathers evidence on where ${K('biological-foundation-model','foundation models')} succeed or fail, and proposes standard descriptions of model limits for researchers and for ${K('agentic-system','agentic systems')}.`},
 
 {id:'1-01', scene:'s1', section:'1', figure:'fig1-A',
  covers:['1-01','1-02','1-03','1-04','1-05','1-06','1-07','1-08','1-09','1-10'],
  headline:`Foundation models ${K('compression-vs-composability','compress')} data and agents ${K('compression-vs-composability','compose')} tools; what limits their joint use is the lack of an explicit account of each model's knowledge boundary.`,
  supporting:`Foundation models offer versatility; agentic systems offer accessibility. Models are bounded by data, architecture, and training objective; agents by their tools and the ${K('llm','LLM')}'s documented knowledge. Making the boundary explicit helps researchers decide when to trust a model, and lets agents use it as a reliable component.`,
- sectionTerms:['knowledge-extraction']},
+ sectionTerms:['knowledge-extraction'],
+ defs:[{"l": "Foundation model", "text": "Biological foundation models, trained on millions of sequences, protein structures, or cellular measurements, extract general patterns from data once and can then be applied to many biological problems. Examples: ESM2 (proteins), Nucleotide Transformer and Evo 2 (genomes), Geneformer, scGPT, and UCE (single cells)."}, {"l": "Agentic system", "text": "Agentic systems run analyses from plain-language instructions: an agent uses a large language model (LLM) to plan tasks and carries them out by assembling literature, databases, and software. Examples: Biomni and the Virtual Biotech."}, {"l": "Premise of a foundation model", "text": "What a foundation model 'knows' is bounded by what its training data contain and by how much of that content its architecture and training objective allow it to capture."}, {"p": "Why", "l": "“compress” and “compose”", "text": "Foundation models develop higher order ‘knowledge’ from data by compressing data into dense numeric mathematical objects called embeddings. Agentic systems integrate and link tools (including foundation models), literature, databases, and data into workflows. Together, the two turn raw biological data (e.g., a protein sequence) into a reusable intermediate form (e.g., a sequence embedding) and deliver it to diverse downstream applications and users, by analogy to crude oil processing (Fig. 1C).", "src": "§1, Fig. 1B and 1C caption"}]},
 
 {id:'2.1-01', scene:'s2', section:'2.1', figure:'fig1-C',
  covers:['2.1-01','2.1-02','2.1.1-01','2.1.1-02','2.1.1-03','2.1.1-04','2.1.1-05'],
- headline:`A foundation model is trained once on unlabeled data and reused for many tasks; it borrows the language of LLMs, but the analogy breaks at several points, and each break foreshadows a boundary.`,
- supporting:`${K('self-supervised-learning','Self-supervised learning')} suits biology, where unlabeled data are abundant and labels are scarce. Reuse comes through ${K('probing','probing')}, ${K('fine-tuning','fine-tuning')}, or ${K('zero-shot-prediction','zero-shot use')}.`,
+ headline:`A foundation model can be understood by analogy and by contrast with a large language model (${K('llm','LLM')}).`,
  rows:[
-   {labelHTML:`${K('vocabulary','Vocabulary')} / ${K('token','token')}`, text:`DNA has no word boundaries`},
-   {labelHTML:K('grammar','Grammar'), text:`the rules are largely unknown`},
-   {labelHTML:K('corpus','Corpus'), text:`smaller and more biased than it looks`},
-   {labelHTML:K('embedding','Embedding'), text:`cannot be read directly; similar inputs lie close together`},
+   {labelHTML:`${K('vocabulary','Vocabulary')} / ${K('token','token')}`, text:`<br><i>Like an LLM:</i> an input is read as a sequence of tokens, much as a sentence is read as words; in ESM2 the 20 standard amino acids are the vocabulary, so a protein of 300 amino acids is 300 tokens.<br><i>Unlike an LLM:</i> DNA has no spaces or punctuation to mark word boundaries, so model builders must choose among single nucleotides, fixed-length k-mers, or learned multi-nucleotide tokens; the tokenization rule becomes part of the scientific problem.`},
+   {labelHTML:K('grammar','Grammar'), text:`<br><i>Like an LLM:</i> grammar is the set of rules by which units combine, and models trained to predict missing or next tokens extract patterns that reflect some of these rules.<br><i>Unlike an LLM:</i> an LLM implements a grammar that humans devised and any fluent reader can check; biological models implement a grammar whose rules are largely unknown, so good test performance may reflect general principles or a shortcut.`},
+   {labelHTML:K('corpus','Corpus'), text:`<br><i>Like an LLM:</i> models learn from large repositories of training data, such as UniRef for ESM2 and CZ CELLxGENE Discover for scGPT; text corpora are also incomplete.<br><i>Unlike an LLM:</i> biological corpora are smaller (ESM3 saw about 771 billion tokens, roughly 20-fold fewer than Llama 3) and less diverse than they look, and they are indirect measurements shaped by assay technology and what researchers chose to study.`},
+   {labelHTML:K('embedding','Embedding'), text:`<br><i>Like an LLM:</i> the model assigns each token a long list of numbers that captures intrinsic properties and context.<br><i>Where it matters:</i> embeddings are learned without human-interpretable labels, so they cannot be read directly; a sparse autoencoder can re-express them as single-property features. Inputs with similar properties lie close together, as proteins with similar structure or function do in ESM2.`},
  ],
- sectionTerms:['supervised-learning','regulatory-dna','tf-binding-motif','sparse-autoencoder']},
+ sectionTerms:['supervised-learning','regulatory-dna','tf-binding-motif','sparse-autoencoder'],
+ intuition:{"q": "Why is learning biology harder than learning language?", "text": "Learning biology from data is closer to deciphering an extinct language: the vocabulary must be inferred, no living speaker can confirm the grammar, and the only surviving texts are the measurements our assays happened to record.", "src": "§4 (introduction)"}},
 
 {id:'2.1.2-01', scene:'s2', section:'2.1.2', figure:'five',
  covers:['2.1.2-01','2.1.2-02','2.1.2-03','2.1.2-04','2.1.2-05','2.1.2-06'],
  headline:`${K('five-design-elements','Five design elements')} describe nearly every biological foundation model, and each sets part of its knowledge boundary.`,
  rows:[
-   {labelHTML:D('data','Data'), text:`what information goes in, and in what form`},
-   {labelHTML:D('architecture','Architecture'), text:`how it is processed and stored`},
-   {labelHTML:D('training_scheme','Training scheme'), text:`what the model is rewarded to learn`},
-   {labelHTML:D('evaluation','Evaluation scheme'), text:`how the model is judged`},
-   {labelHTML:D('post_analysis','Post-analysis'), text:`how a trained model is used`},
+   {labelHTML:D('data','Data'), text:`what information goes in, and in what form.<br><i>Sets what can be known.</i> A model can learn only patterns that appear often in its training corpus: human proteins and model organisms are well represented, whereas poorly studied lineages and rarely profiled cell states appear seldom or not at all. Tokenization fixes the smallest unit the model can distinguish: a six-nucleotide token blurs a single-nucleotide variant, and a rank-based input discards how strongly each gene is expressed.`},
+   {labelHTML:D('architecture','Architecture'), text:`how it is processed and stored.<br><i>Sets which relationships can be captured efficiently.</i> A convolutional network detects short local patterns such as a transcription factor binding motif, whereas attention lets distant positions interact at a cost that grows roughly quadratically with input length. ChromBPNet, a convolutional model, reads about two kilobases of sequence at single-base resolution and is well suited to motifs and the variants within them. Enformer adds attention to integrate regulatory elements about 100 kilobases away, and HyenaDNA reaches one million nucleotides. An interaction longer than the input window cannot be learned, however much data is available.`},
+   {labelHTML:D('training_scheme','Training scheme'), text:`what the model is rewarded to learn.<br><i>Sets what is rewarded, and therefore what a model is good at.</i> ESM2's likelihoods score how well a mutation is tolerated, but it is not built to write new sequences, whereas ProGen2 and Evo are natural generators of new proteins and genomes. None of these objectives directly rewards learning cause and effect.`},
+   {labelHTML:D('evaluation','Evaluation scheme'), text:`how the model is judged.<br><i>Sets what becomes visible.</i> A model tested only on data resembling its training set can appear strong while failing on new proteins, species, or conditions; if test proteins have close relatives among the training proteins, a high score may reflect recall rather than learned rules. How a benchmark is split, and which simple baselines it includes, decides which weaknesses can be seen.`},
+   {labelHTML:D('post_analysis','Post-analysis'), text:`how a trained model is used.<br><i>Sets what becomes accessible.</i> Probing, fine-tuning, and interpretability analysis each expose different knowledge. Knowledge may be present yet hard to extract, and a correct prediction does not show that the model learned the relevant mechanism.`},
  ],
- sectionTerms:['generalization','transformer','inductive-bias','masked-language-modeling','autoregressive-modeling','contrastive-learning','intrinsic-vs-downstream-evaluation','transfer-learning','in-silico-perturbation','interpretability-analysis']},
+ sectionTerms:['generalization','transformer','inductive-bias','masked-language-modeling','autoregressive-modeling','contrastive-learning','intrinsic-vs-downstream-evaluation','transfer-learning','in-silico-perturbation','interpretability-analysis'],
+ intuition:{"q": "If a model generalizes, why is there still a boundary?", "text": "ESM2, for example, can score a mutation in a protein that was absent from its training data. This ability has limits, however, and they are set by how the model was built: ESM2 cannot score nucleotide substitutions, because its vocabulary contains only amino acids.", "src": "§2.1.2"}},
 
 {id:'2.2-01', scene:'s2', section:'2.2', figure:'grid23',
  covers:['2.2-01','2.2.1-01','2.2.2-01'],
@@ -320,30 +366,20 @@ const BEATS = [
  covers:['3-01','3-02','3-03','3-04'],
  headline:`An agent is not a model: it coordinates an LLM, the user, and tools, and only external components add knowledge.`,
  supporting:`${K('reasoning-model','Reasoning models')} make answers more reliable but add no information. Agents are now assembled quickly, but access to a tool does not teach an agent to use it well.`,
- sectionTerms:['hallucination','rag','function-calling','mcp','skill-files','agent-harness','multi-agent-system']},
+ sectionTerms:['hallucination','rag','function-calling','mcp','skill-files','agent-harness','multi-agent-system'],
+ intuition:[{"q": "Won't a stronger reasoning agent just work out the biology itself?", "text": "Reasoning models are LLMs trained to write out intermediate steps and rewarded when the final answer to a checkable problem is correct; this makes multistep answers more reliable but adds no information absent from training.", "src": "§3"},{"q": "Reasoning models can prove theorems. Why can't they reason their way to biology?", "text": "More reasoning cannot supply missing premises: a reasoning model's written steps are not guaranteed valid or faithful, and biological inference, unlike mathematical proof, starts from incomplete premises that only experiments can test.", "src": "§3"}]},
 
 {id:'3-05', scene:'s3', section:'3', figure:'routes',
  covers:['3-05','3-06','3-07'],
  headline:`A foundation model can enter an agent in four ways, and each decides whose knowledge boundary the agent inherits; more reasoning does not move it.`,
- supporting:`The routes: ${K('tool-route','tool')}, ${K('text-route','text')}, ${K('encoder-route','encoder')}, ${K('verifier-route','verifier')}. Only the encoder route lets the LLM work with raw data. Caution: in a control test, BioReason performed as well with shuffled biological inputs as with intact ones. ${K('reinforcement-learning','Reinforcement learning')} improves how a system uses the knowledge it can reach, not the boundary itself; current agents keep humans in the loop.`},
-
-{id:'4.1-01', scene:'s4', section:'4.1', figure:'rows-mirror',
- covers:['4-01','4-02','4.1-01','4.1-02','4.1-03','4.1-04','4.1-05','4.1-06'],
- headline:`Every model has a knowledge boundary, and a foundation model's is the least characterized; each design element sets a different limit that travels with the model.`,
- supporting:`LLM boundaries are rarely visible, but learning biology from data is closer to ${K('decipherment-questions','deciphering an extinct language')}. Agents add an ${K('orchestration-boundary','orchestration boundary')} that benchmarks cannot yet measure separately.`,
- rows:[
-   {labelHTML:D('data','Data'), text:`sets what can be known`},
-   {labelHTML:D('architecture','Architecture'), text:`sets which relationships can be captured; an interaction longer than the input window cannot be learned`},
-   {labelHTML:D('training_scheme','Training scheme'), text:`sets what is rewarded; none directly rewards ${K('correlation-vs-causation','cause and effect')}`},
-   {labelHTML:D('evaluation','Evaluation'), text:`sets what becomes visible`},
-   {labelHTML:D('post_analysis','Post-analysis'), text:`sets what is accessible; a correct prediction does not show the mechanism was learned`},
- ],
- sectionTerms:['cnn']},
+ supporting:`The routes: ${K('tool-route','tool')}, ${K('text-route','text')}, ${K('encoder-route','encoder')}, ${K('verifier-route','verifier')}. Only the encoder route lets the LLM work with raw data. Caution: in a control test, BioReason performed as well with shuffled biological inputs as with intact ones. ${K('reinforcement-learning','Reinforcement learning')} improves how a system uses the knowledge it can reach, not the boundary itself; current agents keep humans in the loop.`,
+ intuition:{"q": "The LLM has read so much literature. Does a foundation model really help?", "text": "On pathway questions the LLM alone reached 90%, and the encoder made little difference. On variant classification it reached 49%, and adding Evo 2 raised this to 80%, compared with 61% for Nucleotide Transformer. When the answer lies within the LLM's textual knowledge, the encoder adds little; when it lies beyond, the encoder sets the ceiling.", "src": "§3"}},
 
 {id:'4.2-01', scene:'s4', section:'4.2', figure:'quote', evidence:'4.2',
  covers:['4.2-01','4.2-07'],
  headline:`Without labels, foundation models capture real biological patterns, most clearly in proteins, but not the physical mechanisms behind them.`,
- supporting:`From residue chemistry to evolutionary constraint, reusable for variant interpretation and design (Section 4.3 shows where this stops). Proteins lead because the corpus is largest and the rules are written most directly into sequence.`},
+ supporting:`From residue chemistry to evolutionary constraint, reusable for variant interpretation and design (Section 4.3 shows where this stops). Proteins lead because the corpus is largest and the rules are written most directly into sequence.`,
+ intuition:{"q": "With no labels at all, is it coincidence that the model learns biology?", "text": "Protein language models are never told the properties of amino acids, yet their embeddings group residues by hydrophobicity and charge. They also recover which residues make physical interactions in the folded protein structure, because such residues tend to mutate together over evolution.", "src": "§4.2"}},
 
 {id:'4.3-01', scene:'s4', section:'4.3', figure:'rows-mirror', evidence:'4.3',
  covers:['4.3-01','4.3-08'],
@@ -355,48 +391,75 @@ const BEATS = [
    {labelHTML:'Hidden or exaggerated', text:`evaluation hides or inflates what the model can do`},
    {labelHTML:'Inaccessible', text:`the knowledge is in the model, out of reach of current analysis`},
  ],
- closingLine:`Benchmark performance, confidence scores, transferable embeddings, and reliability in application must each be established separately.`},
+ closingLine:`Benchmark performance, confidence scores, transferable embeddings, and reliability in application must each be established separately.`,
+ intuition:{"q": "When a trivial baseline ties a big model, is the model weak?", "text": "Common perturbation metrics are dominated by systematic expression differences unrelated to the specific perturbation, so a model can score well simply by predicting an average response.", "src": "§4.3"}},
 
 {id:'5-01', scene:'s5', section:'5', figure:'quote',
  covers:['5-01','5.1-01','5.1-02','5.1-03','5.2-01','5.2-02','5.2-03'],
- headline:`Evaluation is patchy and the bet on one general-purpose model is shaky, because biology is more heterogeneous than language.`,
- supporting:`Independent tests cluster in a few areas and usually probe one design element. No agent benchmark tests whether an agent picks the right foundation model or reads its output correctly; BioReason and BioReason-Pro were as accurate with shuffled biological inputs as with intact ones. ${K('scaling-laws','Scaling laws')} promise gains from larger models, yet larger protein language models do not consistently predict mutational effects better.`},
+ headline:`Much of the field is betting that one ever-larger general-purpose model will serve biology as it has served language. The analogy only partially holds: language has a comparatively unified structure, whereas biology is heterogeneous across scale, data type, species, and experimental condition.`,
+ supporting:`Agent benchmarks test general bioinformatics analysis, not whether an agent chooses the right foundation model or interprets its output correctly; when controls were applied to six systems, BioReason and BioReason-Pro were as accurate with shuffled biological inputs as with intact ones. LLM performance improves predictably as parameters, training data, and computing budget grow (${K('scaling-laws','scaling laws')}), yet larger protein language models do not consistently predict mutational effects better than their predecessors.`},
 
 {id:'5.3-01', scene:'s5', section:'5.3', figure:'evo',
  covers:['5.3-01','5.3-02','5.3-03'],
- headline:`AI for biology is in its infancy, so today's strengths and limits can be read as features of a transient stage, not a fixed outcome.`,
+ headline:`AI for biology is an emerging discipline in its infancy. Positioning the field on a developmental trajectory lets us read its present strengths and limitations as features of a transient stage rather than as a fixed outcome.`,
  rows:[
-   {labelHTML:`Lens 1, ${K('stages-of-biological-science','scientific maturity')}`, text:`much of the work surveyed is still at the descriptive stage, consistent with simple baselines repeatedly matching foundation models`},
-   {labelHTML:`Lens 2, ${K('adaptive-radiation','evolutionary competition')}`, text:`the field may still be in an open-niche phase; whether it moves toward specialized, boundary-filling models matters for resources and priorities`},
- ]},
+   {labelHTML:`Lens 1, ${K('stages-of-biological-science','scientific maturity')}`, text:`much of the foundation-model work surveyed here sits at the first stage, offering pattern-level prediction from observational data, and the repeated finding that simple baselines match foundation models is consistent with this reading`},
+   {labelHTML:`Lens 2, ${K('adaptive-radiation','evolutionary competition')}`, text:`periods of open ecological opportunity have historically favored large, generalist strategies, whereas the adaptive radiation that follows favors smaller organisms fitted to specific niches; the current expansion of biological foundation models resembles the first, open-niche phase`},
+ ],
+ closingLine:`Whether the field moves toward specialized models that fill the boundary regions where general models perform poorly is a consequential consideration in setting resources and research priorities.`,
+ intuition:{"q": "Are these limitations permanent?", "text": "Biology has historically progressed from observation and classification, as in Darwin's cataloguing of species, to mechanistic understanding of structure, function, and causality, and ultimately to engineering: the design of biological systems from first principles.", "src": "§5.3"}},
 
 {id:'6.1-01', scene:'s6', section:'6.1', figure:'evo2',
  covers:['6.1-01','6.1-02'],
- headline:`No need to wait for one general model: use a portfolio of broad and specialized models, coordinated by agents.`,
- supporting:`Broad models supply transferable embeddings; narrower models are fitted to boundary regions. Agents are well placed to manage the portfolio.`},
+ headline:`Because biological data are so heterogeneous, the field need not wait for a single general-purpose model. The evidence points instead toward a portfolio of broad models that supply transferable embeddings, alongside narrower models fitted to the boundary regions where general models perform poorly.`,
+ supporting:`GPN-MSA, which draws on evolutionary alignments, and ChromBPNet, which targets a single assay at base resolution, already follow this pattern. Agents are well placed to manage such a portfolio: they can route each question to the model whose boundary covers it, combine outputs from complementary models, and fall back to a simple baseline when no model applies.`},
 
 {id:'6.2-01', scene:'s6', section:'6.2', figure:'quote',
  covers:['6.2-01','6.2-02','6.2-03','6.2-04','6.2-05','6.3-01','6.3-02','6.3-03'],
- headline:`Release every foundation model with a machine-readable ${K('boundary-statement','boundary statement')}, and keep a living ${K('model-registry','registry')} of each model's boundary.`,
- supporting:`To route a question to the right model, an agent must know where each boundary lies; today errors from outside a boundary can propagate silently. ${K('self-driving-lab','Closed experimental loops')} could extend a boundary with new measurements. Making boundaries explicit is a community task: ${K('shared-literacy','shared literacy')}, not every biologist a model builder.`},
+ headline:`We propose that each foundation model be released with a structured ${K('boundary-statement','boundary statement')}, in the spirit of model cards and datasheets.`,
+ closingLine:`Boundary statements would also show where new data are most needed. ${K('self-driving-lab','Self-driving laboratories')}, combined with agents that plan experiments and foundation models that propose candidates, could target these regions and extend a model’s knowledge boundary with new measurements rather than more of the same data. The knowledge boundary would then become the interface between foundation models and agentic systems.`},
 
 {id:'7-01', scene:'s7', section:'7', figure:'quote',
  covers:['7-01','7-02','7-03'],
- headline:`Foundation models compress and agents compose; explicit boundaries give biologists a basis for trust, builders a target, and agents the information to select models.`,
- supporting:`Agents are bounded by what is documented, models by the five design elements. As measurement expands, boundaries can become a shared language between AI and biology.`},
+ headline:`Foundation models compress and agents compose; as biological measurement continues to expand, clearly stated knowledge boundaries can serve as a shared language between AI and biology.`},
 ];
 
 /* ======================= RENDER: beats ======================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+const DIVIDERS={
+ s1:{n:'Part 1',t:'Introduction',d:'Two complementary AI tools, and the question of when their outputs can be trusted.'},
+ s2:{n:'Part 2',t:'Landscape of biological foundation models',d:'What a foundation model is, and the five design elements that shape it.'},
+ s3:{n:'Part 3',t:'Agentic systems',d:'How agents are assembled, and the routes by which they reach foundation models.'},
+ s4:{n:'Part 4',t:'Knowledge boundaries revealed by existing studies',d:'What the evidence shows foundation models have and have not captured.'},
+ s5:{turn:true,from:'The review of the evidence ends here',n:'Part 5',t:'Our assessment',d:'Open challenges: a balanced assessment of the field.'},
+ s6:{turn:true,from:'From assessment to proposal',n:'Part 6',t:'Recommendations',d:'Future directions: what we propose researchers, model builders, and agents do next.'},
+ s7:{n:'Part 7',t:'Conclusion',d:''},
+};
+let lastScene=null, divK=0;
 const stepsEl=$('#steps'), stage=$('#stage'), nav=$('#nav');
 
 SCENES.forEach((sc,i)=>{
   const a=document.createElement('a'); a.href='#'; a.dataset.scene=sc.id; a.textContent=sc.label;
   a.onclick=e=>{e.preventDefault(); const t=document.querySelector(`.step[data-scene="${sc.id}"]`); if(t) t.scrollIntoView({behavior:'smooth',block:'center'});};
+  if(['s5','s6','s7'].includes(sc.id)) a.classList.add('act2');
+  if(sc.id==='s5') a.classList.add('gap');
   nav.appendChild(a);
 });
 
 BEATS.forEach((b,i)=>{
+  if(b.scene!==lastScene){
+    lastScene=b.scene; const dv=DIVIDERS[b.scene];
+    if(dv){
+      const k=divK++;
+      const dd=document.createElement('section'); dd.className='divider'+(dv.turn?' turn':''); dd.id='divider-'+b.scene; dd.dataset.k=k; dd.dataset.scene=b.scene;
+      dd.innerHTML=(dv.from?`<p class="df">${dv.from}</p>`:'')+`<p class="dn">${dv.n}</p><h3>${dv.t}</h3>`+(dv.d?`<p class="dd">${dv.d}</p>`:'');
+      stepsEl.appendChild(dd);
+      const tv=document.createElement('div'); tv.className='viz trans'+(dv.turn?' turn':''); tv.id='viz-div-'+k;
+      tv.innerHTML=(dv.from?`<p class="tn">${dv.from}</p>`:'')+`<p class="tn">${dv.n}</p><h3>${dv.t}</h3>`+(dv.d?`<p class="td">${dv.d}</p>`:'');
+      stage.appendChild(tv);
+    }
+  }
   const el=document.createElement('article');
   el.className='step'; el.id='beat-'+b.id; el.dataset.i=i; el.dataset.scene=b.scene; el.dataset.figure=b.figure;
   if(b.rows){ el.dataset.rows='1'; el.style.setProperty('--extra', Math.max(0,b.rows.length-1)); }
@@ -421,6 +484,8 @@ BEATS.forEach((b,i)=>{
     <h2>${b.headline}</h2>
     ${b.supporting? `<p class="supp">${b.supporting}</p>`:''}
     ${rowsHTML}
+    ${[].concat(b.intuition||[]).map(x=>`<aside class="intuit"><p class="il">Intuition · ${esc(x.q)}</p><blockquote>${esc(x.text)}</blockquote><p class="is">Review ${x.src}</p></aside>`).join('')}
+    ${(b.defs||[]).map(x=>`<aside class="intuit"><p class="il">${esc(x.p||'Definition')} · ${esc(x.l)}</p><blockquote>${esc(x.text)}</blockquote><p class="is">Review ${esc(x.src||'§1')}</p></aside>`).join('')}
     ${b.closingLine? `<p class="closing">${b.closingLine}</p>`:''}
     ${extraHTML? `<div class="extra">${extraHTML}</div>`:''}
   </div>`;
@@ -446,16 +511,15 @@ const FIG={
 };
 /* beat id -> echo override. hl:true = highlight the Figure 2A column that matches the row in view */
 const ECHO={
- 'A-01':{fig:['Figure2_A']},
+ 'A-01':{fig:['Figure1_A','Figure1_B']},
  '1-01':{fig:['Figure1_A','Figure1_B']},
  '2.1-01':{fig:['Figure1_C']},
  '2.1.2-01':{fig:['Figure2_A'],hl:true},
  '2.2-01':{fig:['Figure2_B','Figure2_C']},
  '3-01':{fig:['Figure3_A']},
- '4.1-01':{fig:['Figure2_A'],hl:true},
  '5.3-01':{fig:['Figure3_B','Figure3_C']},
  '6.1-01':{fig:['Figure3_C','Figure3_B']},
- '7-01':{landscape:true},
+ '7-01':{fig:['Figure2_C']},
 };
 /* Figure 2A column boxes, in % of image width (header band, and description panel below) */
 const HL_TOP=[[380,646],[658,923],[935,1200],[1213,1478],[1490,1800]];
@@ -542,6 +606,7 @@ BEATS.forEach((b,i)=>{
 const vizEls=[...stage.querySelectorAll('.viz')], stepEls=[...document.querySelectorAll('.step')];
 
 function activateStep(i){
+  dividerEls.forEach(d=>d.classList.remove('on'));
   stepEls.forEach((e,j)=>e.classList.toggle('on', i===j));
   const b=BEATS[i];
   vizEls.forEach(v=>v.classList.toggle('on', i>=0 && +v.dataset.beat===i));
@@ -550,6 +615,16 @@ function activateStep(i){
 }
 const stepIO=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting) activateStep(+e.target.dataset.i); }); },{rootMargin:'-42% 0px -42% 0px'});
 stepEls.forEach(e=>stepIO.observe(e));
+/* dividers: when one is centred, show its part title in the panel and highlight its nav item */
+const dividerEls=[...document.querySelectorAll('.divider')];
+const divIO=new IntersectionObserver(es=>{ es.forEach(e=>{ if(!e.isIntersecting) return;
+  const k=e.target.dataset.k;
+  dividerEls.forEach(d=>d.classList.toggle('on', d===e.target));
+  stepEls.forEach(s=>s.classList.remove('on'));
+  vizEls.forEach(v=>v.classList.toggle('on', v.id==='viz-div-'+k));
+  $$('#nav a').forEach(a=>a.classList.toggle('on', a.dataset.scene===e.target.dataset.scene));
+}); },{rootMargin:'-42% 0px -42% 0px'});
+dividerEls.forEach(d=>divIO.observe(d));
 
 /* row-level reveal, synced with the mirrored visual (five / rows-mirror / evo) */
 $$('.rows').forEach(ul=>{
