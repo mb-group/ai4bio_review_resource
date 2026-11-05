@@ -796,7 +796,7 @@
  },
  "four-layers": {
   "id": "four-layers",
-  "name": "The four layers of the boundary",
+  "name": "The layers of the boundary (grouped into four)",
   "kind": "concept",
   "group": null,
   "evidence_only": false,

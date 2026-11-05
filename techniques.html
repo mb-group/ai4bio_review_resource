@@ -16,8 +16,10 @@
     <span class="ttl">AI for Biologists</span>
     <nav>
       <a class="navlink" href="scrollytelling.html">Story</a>
-      <a class="navlink" href="concepts.html">Concepts</a>
-      <a class="navlink" href="models.html">Models</a>
+        <a class="navlink" href="resource.html#/landscape">Landscape</a>
+      <a class="navlink" href="resource.html#/catalog">Models</a>
+      <a class="navlink" href="resource.html#/evidence">Evidence</a>
+      <a class="navlink" href="resource.html#/glossary">Glossary</a>
       <a class="navlink on" href="techniques.html">Techniques</a>
     </nav>
   </div>
@@ -26,7 +28,7 @@
 <section class="pagehead">
   <p class="eyebrow">Techniques</p>
   <h1>How it's done: implementation-level depth</h1>
-  <p>46 techniques grouped by the five design elements (plus agent components): 29 come from concepts that are both an idea and a technique (shared definition, see "What it means →"); 17 are technique-only entries with no separate concept page. Each is shown with the models the review names as using it. For most "concept + technique" entries, a full how-it-works writeup beyond the shared definition is pending curator extension from the cited references — see <code>content_plan/04_techniques_page.md</code>.</p>
+  <p>46 techniques grouped by the five design elements (plus agent components): 29 come from glossary terms that are both an idea and a technique (shared definition, see "What it means →"); 17 are technique-only entries with no separate concept page. Each is shown with the models the review names as using it. For most "concept + technique" entries, a full how-it-works writeup beyond the shared definition is pending curator extension from the cited references — see <code>content_plan/04_techniques_page.md</code>.</p>
 </section>
 
 <div class="toolbar">
@@ -42,9 +44,10 @@
 
 <main class="main" id="groups"></main>
 
-<footer>Generated from <code>content_plan/rehome.md</code> · <a href="scrollytelling.html">Story</a> · <a href="concepts.html">Concepts</a> · <a href="models.html">Models</a></footer>
+<footer>Generated from <code>content_plan/rehome.md</code> · <a href="scrollytelling.html">Story</a> · <a href="resource.html#/catalog">Models</a></footer>
 
 <script src="site-data.js"></script>
+<script src="glossary-map.js"></script>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -53,7 +56,7 @@ const GROUP_ORDER=['data','architecture','training_scheme','evaluation','post_an
 function usedByHTML(ids){
   const valid = (ids||[]).filter(id=>MODELS[id]);
   if(!valid.length) return '<span style="color:var(--rule)">none named in the review</span>';
-  return valid.map(id=>`<a class="mref" href="models.html#model-${id}">${esc(MODELS[id].name)}</a>`).join(', ');
+  return valid.map(id=>`<a class="mref" href="resource.html#/model/${id}">${esc(MODELS[id].name)}</a>`).join(', ');
 }
 
 function bothTermCard(id){
@@ -63,7 +66,7 @@ function bothTermCard(id){
     <p class="def">${t.def}</p>
     <p style="font-size:13px;color:var(--muted)"><b>How it works:</b> not yet written beyond the definition above — open for curator extension from the cited references.</p>
     <p style="font-size:13.5px"><b>Used by:</b> ${usedByHTML(t.used_by)}</p>
-    <div class="actions"><a class="linkbtn" href="concepts.html#t-${id}">What it means →</a></div>
+    <div class="actions"><a class="linkbtn" href="resource.html#/glossary/${CONCEPT_SLUG[id]||id}">What it means →</a></div>
   </div>`;
 }
 function techOnlyCard(id){

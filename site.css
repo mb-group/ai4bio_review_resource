@@ -28,9 +28,9 @@ code{font-family:var(--f-mono);font-size:.92em;background:var(--rule-soft);paddi
 .bar .ttl{font-weight:700;font-size:13.5px;white-space:nowrap;color:var(--muted)}
 .bar .ttl b{color:var(--ink)}
 .bar nav{display:flex;gap:1px;flex:1}
-.navlink{font:600 12.5px var(--f-display);color:var(--muted);text-decoration:none;padding:6px 10px;border:1px solid var(--rule);border-radius:6px;white-space:nowrap;margin-right:6px}
-.navlink:hover{color:var(--ink);border-color:var(--ink)}
-.navlink.on{color:var(--accent);border-color:var(--accent-soft);background:var(--accent-soft)}
+.navlink{font:600 12.5px var(--f-display);color:#fff;background:var(--accent);text-decoration:none;padding:6px 11px;border:1px solid var(--accent);border-radius:6px;white-space:nowrap;margin-right:6px}
+.navlink:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.navlink.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 @media(max-width:860px){.bar .ttl{display:none}}
 
 /* ---------- page head ---------- */

@@ -164,11 +164,11 @@
   - *Definition:* Using a model with no labeled data at all, for example scoring how plausible a sequence is and using that score as an estimate of variant effect.
   - *Examples (5, folded):*
     - `2.1-02e2` [illustration] Zero-shot example: a protein language model scores how plausible a sequence is; a mutation that makes it much less plausible is more likely to disrupt function, so the score estimates variant effect.
-    - ▸ *Finding: Models capture what is functional*
+    - ▸ *Finding: Models largely capture what is functional*
       - `4.2-03e1` [success · training scheme · from 4.2-03 → shown with 4.2-07] Protein language model likelihoods predict mutational effects without mutational training data and correlate with deep mutational scanning measurements.
       - `4.2-03e2` [success · training scheme · from 4.2-03 → shown with 4.2-07] EVE (unsupervised model of evolutionary variation) matched or exceeded supervised methods at classifying human variants as pathogenic or benign. · models: eve
       - `4.2-03e3` [success · training scheme · from 4.2-03 → shown with 4.2-07] ProteinGym turned this into a shared test of more than 200 deep mutational scanning assays. · models: proteingym
-    - ▸ *Finding: Learned knowledge can be read out*
+    - ▸ *Finding: Early studies suggest learned knowledge can be read out*
       - `4.2-06e3` [success · post-analysis · from 4.2-06 → shown with 4.2-07] General protein language models guided antibody evolution toward improved binding without task-specific training.
 
 
@@ -235,7 +235,7 @@
   - *Definition:* An auxiliary model that re-expresses each embedding as a combination of a much larger set of features, each of which tends to correspond to a single property.
   - *Examples (2, folded):*
     - `2.1.1-05e2` [illustration] The "Jennifer Aniston neuron" in neuroscience (a single neuron firing selectively to one person) motivates the sparse-autoencoder aim.
-    - ▸ *Finding: Learned knowledge can be read out*
+    - ▸ *Finding: Early studies suggest learned knowledge can be read out*
       - `4.2-06e1` [success · post-analysis · from 4.2-06 → shown with 4.2-07] Sparse autoencoders have recovered features for active sites, zinc-finger domains, and disulfide bonds in protein language models.
 
 
@@ -253,7 +253,7 @@
     - `2.1.2-01e1` [illustration] ESM2 can score a mutation absent from its training data, but cannot score nucleotide substitutions because its vocabulary contains only amino acids. · models: esm2
     - `4.1-05e1` [illustration · evaluation] A model tested only on data resembling its training set can look strong while failing on new proteins, species, or conditions.
     - `4.1-05e2` [illustration · evaluation] If test proteins have close relatives in the training set, a high score may reflect recall rather than learned rules.
-    - ▸ *Finding: Generalization improves by enriching what each token encodes, not by adding parameters*
+    - ▸ *Finding: Generalization has improved mainly by enriching what each token encodes, rather than by adding parameters*
       - `4.2-05e1` [success · data · from 4.2-05 → shown with 4.2-07] SaProt pairs each amino acid with a token for its local structure. · models: saprot
       - `4.2-05e2` [success · data · from 4.2-05 → shown with 4.2-07] GPN-MSA adds aligned sequences from 100 vertebrate genomes, making conservation visible, and outperforms sequence-only models at predicting deleterious variants. · models: gpn-msa
       - `4.2-05e3` [success · data · from 4.2-05 → shown with 4.2-07] UCE represents each gene by the ESM2 embedding of its protein, so it can place cells from species absent from training in a shared space. · models: uce, esm2
@@ -313,7 +313,7 @@
   - *Definition:* Simulating a change, such as deleting a gene, and observing how a cell's embedding shifts.
   - *Examples (2, folded):*
     - `2.1.2-06e1` [illustration · post-analysis] Using a model as is: scoring mutations by likelihood; Geneformer's *in silico* deletion. · models: geneformer
-    - ▸ *Finding: Learned knowledge can be read out*
+    - ▸ *Finding: Early studies suggest learned knowledge can be read out*
       - `4.2-06e2` [success · post-analysis · from 4.2-06 → shown with 4.2-07] Geneformer's simulated gene deletion nominated therapeutic targets for cardiomyopathy that were then supported experimentally. · models: geneformer
 - **Interpretability analysis** `interpretability-analysis`  ·  both · technique group: Post-analysis
   - *Definition:* Analysis of how a model arrives at its outputs, for example which input positions drive a prediction or which internal features match known biology. It can reveal whether a model relies on genuine biology or on shortcuts in the data.
@@ -541,7 +541,7 @@
 
 **4.3-08** These studies shift the question from whether FMs learn biology to what they have learned and where it stops; the boundary has four layers, and benchmark performance, confidence scores, transferable embeddings, and reliability in application must be established separately.
 
-- **The four layers of the boundary** `four-layers`  ·  concept
+- **The layers of the boundary (grouped into four)** `four-layers`  ·  concept
   - *Definition:* (1) Knowledge missing because observations were never or rarely collected; (2) knowledge hard to learn because the architecture cannot span it or the objective does not reward it (e.g., cause and effect); (3) capability hidden or exaggerated by evaluation; (4) knowledge present in the model but inaccessible to current analysis.
   - *Examples: none (definition only)*
 
@@ -655,7 +655,7 @@
 - **Self-driving laboratory** `self-driving-lab`  ·  both · technique group: Agent components
   - *Definition:* Robotic platforms that run experiments chosen by a model and return the results for the next round.
   - *Examples (1, folded):*
-    - `6.2-04e1` [illustration] Agents that plan experiments + FMs that propose candidates + self-driving labs = closed loops that target boundary regions directly.
+    - `6.2-04e1` [illustration] Agents that plan experiments + FMs that propose candidates + self-driving labs = closed loops that could target boundary regions directly and extend the boundary with new measurements.
 
 **6.2-05** The knowledge boundary would then become the interface between foundation models and agentic systems.
 

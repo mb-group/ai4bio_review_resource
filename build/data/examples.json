@@ -471,7 +471,7 @@
   "models": [],
   "direction": "success",
   "design_element": "training scheme",
-  "finding": "Models capture what is functional",
+  "finding": "Models largely capture what is functional",
   "source_claim": "4.2-03",
   "landing_claim": "4.2-07"
  },
@@ -484,7 +484,7 @@
   ],
   "direction": "success",
   "design_element": "training scheme",
-  "finding": "Models capture what is functional",
+  "finding": "Models largely capture what is functional",
   "source_claim": "4.2-03",
   "landing_claim": "4.2-07"
  },
@@ -497,7 +497,7 @@
   ],
   "direction": "success",
   "design_element": "training scheme",
-  "finding": "Models capture what is functional",
+  "finding": "Models largely capture what is functional",
   "source_claim": "4.2-03",
   "landing_claim": "4.2-07"
  },
@@ -508,7 +508,7 @@
   "models": [],
   "direction": "success",
   "design_element": "post-analysis",
-  "finding": "Learned knowledge can be read out",
+  "finding": "Early studies suggest learned knowledge can be read out",
   "source_claim": "4.2-06",
   "landing_claim": "4.2-07"
  },
@@ -772,7 +772,7 @@
   "models": [],
   "direction": "success",
   "design_element": "post-analysis",
-  "finding": "Learned knowledge can be read out",
+  "finding": "Early studies suggest learned knowledge can be read out",
   "source_claim": "4.2-06",
   "landing_claim": "4.2-07"
  },
@@ -835,7 +835,7 @@
   ],
   "direction": "success",
   "design_element": "data",
-  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "finding": "Generalization has improved mainly by enriching what each token encodes, rather than by adding parameters",
   "source_claim": "4.2-05",
   "landing_claim": "4.2-07"
  },
@@ -848,7 +848,7 @@
   ],
   "direction": "success",
   "design_element": "data",
-  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "finding": "Generalization has improved mainly by enriching what each token encodes, rather than by adding parameters",
   "source_claim": "4.2-05",
   "landing_claim": "4.2-07"
  },
@@ -862,7 +862,7 @@
   ],
   "direction": "success",
   "design_element": "data",
-  "finding": "Generalization improves by enriching what each token encodes, not by adding parameters",
+  "finding": "Generalization has improved mainly by enriching what each token encodes, rather than by adding parameters",
   "source_claim": "4.2-05",
   "landing_claim": "4.2-07"
  },
@@ -1063,7 +1063,7 @@
   ],
   "direction": "success",
   "design_element": "post-analysis",
-  "finding": "Learned knowledge can be read out",
+  "finding": "Early studies suggest learned knowledge can be read out",
   "source_claim": "4.2-06",
   "landing_claim": "4.2-07"
  },
@@ -1822,7 +1822,7 @@
  "6.2-04e1": {
   "id": "6.2-04e1",
   "term": "self-driving-lab",
-  "text": "Agents that plan experiments + FMs that propose candidates + self-driving labs = closed loops that target boundary regions directly.",
+  "text": "Agents that plan experiments + FMs that propose candidates + self-driving labs = closed loops that could target boundary regions directly and extend the boundary with new measurements.",
   "models": [],
   "direction": "illustration",
   "design_element": null,

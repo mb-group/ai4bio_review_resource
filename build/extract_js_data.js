@@ -1,5 +1,5 @@
 const fs = require('fs');
-const html = fs.readFileSync('mock-up/online_resource.html', 'utf-8');
+const html = fs.readFileSync('resource.html', 'utf-8');
 const m = html.match(/<script>([\s\S]*)<\/script>/);
 const src = m[1];
 const cut = src.indexOf('};', src.indexOf('const ELP = {')) + 2;
