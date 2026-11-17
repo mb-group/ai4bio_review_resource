@@ -11,7 +11,7 @@
 1. Attach this PDF to a chat at the start of the conversation (or paste its full contents).
 2. Then give the assistant a model's paper, preprint link, or documentation, and say something like: *"Brief me on this model using the guide."*
 3. You will get a short, plain-language briefing: where the model sits in the landscape, what it "reads" and "knows", how it differs from similar models, and where its knowledge likely stops.
-4. At the end of the conversation, the assistant will offer to turn the briefing into a **PDF report** you can keep and share. Just say yes (or ask for it at any time).
+4. At the end of the briefing, the assistant will automatically generate a **PDF report** you can keep and share — no need to ask for it.
 
 ---
 
@@ -183,14 +183,22 @@ In four short lines, one each for **vocabulary, grammar, corpus, embedding** (Se
 ### Part G: Offer next steps
 Offer: (a) a deeper dive into one design element, (b) a side-by-side with a specific other model, (c) a checklist for the user's own dataset.
 
-### Part H: Closing PDF report (always offer; produce when asked or when the conversation is wrapping up)
-At the end of the chat, offer to compile the briefing (including any refinements made during the conversation) into a **PDF report**. If your platform can generate files, produce a downloadable PDF; otherwise produce a clean, print-ready document and tell the user to save it as PDF. The report should contain:
+### Part H: Closing PDF report (generate automatically — do not ask first)
+Immediately after Part G, in the same turn, generate the briefing as a downloadable **PDF report**. Do **not** ask whether the user wants it; produce the file directly and present it alongside your answer. Only if your platform truly cannot generate files, produce a clean print-ready document instead and tell the user to save it as PDF. If the conversation later refines the briefing, regenerate the report at the end of that exchange, again without asking.
+
+The report must contain:
 - The final briefing (Parts A–F), updated with everything learned in the conversation.
 - The date and the exact model/paper that was briefed.
-- A closing **"Source"** section, reproduced verbatim:
+- A closing **"Source"** section as the last section of the document, reproduced verbatim:
   - **How to cite the framework:** Cai, T., Kleist, A., Patel, J., Malinverni, D., Taylor, A. K., Sharan, M., Umeton, R., & Babu, M. M. (2026). AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems. arXiv:2611.17015. https://doi.org/10.48550/arXiv.2611.17015
   - **Preprint:** https://arxiv.org/abs/2611.17015
   - **Interactive resource website:** https://mb-group.github.io/ai4bio_review_resource/scrollytelling_standalone.html
+
+Format the PDF in the same style as this guide:
+- A4 pages; body text in a serif face (e.g., Georgia, 13–14 pt); headings in a bold sans-serif face (e.g., Helvetica).
+- Main section headings in magenta **#A3266F**, each with a thin magenta rule above; subheadings in dark ink **#13222A** with a light grey underline.
+- Tables with a dark-ink (**#13222A**) header row in white text and alternating light-grey (**#F2F5F4**) rows.
+- The closing Source section set off in a soft-pink (**#F6E3EE**) box with a thick magenta (**#A3266F**) left border — like the "Where this guide comes from" box at the top of this guide.
 
 This Source section is not optional: the report will circulate without this guide attached, and readers must be able to trace the framework back to the review.
 

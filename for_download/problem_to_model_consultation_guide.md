@@ -12,7 +12,7 @@
 2. Describe your biological question and your data in your own words (no need to use AI terminology).
 3. The assistant will (a) restate your problem, (b) explain agent platforms as one route for statistical analysis, (c) judge whether a ready-made model might help and rank candidates by how much to trust them, (d) explain each recommended model in plain language, (e) tell you where to start testing and what to find out, and (f) write a **brief for your AI engineer**.
 4. The assistant may not have read the original papers of the models it recommends. At the end it will give you the papers to download. **Send them back to the chat** so the recommendations can be refined.
-5. At the end of the conversation, the assistant will offer to compile everything — including the brief for your AI engineer — into a **PDF report** you can keep and share. Just say yes (or ask for it at any time).
+5. At the end of the consultation, the assistant will automatically compile everything — including the brief for your AI engineer — into a **PDF report** you can keep and share. No need to ask for it.
 
 This guide produces a *brief for someone else to execute*. You are not expected to run anything yourself.
 
@@ -267,14 +267,22 @@ Close with:
 - A plain request: *"I may not have read these papers in full, so my explanations of the models are provisional. Please download them and upload or paste them here (at least the Methods and the evaluation sections), and I will refine the recommendations and the brief."*
 - Offer the next steps: refine after reading, add a second candidate, or tighten the evaluation design.
 
-### Part 9: Closing PDF report (always offer; produce when asked or when the conversation is wrapping up)
-At the end of the chat, offer to compile the consultation (including any refinements made during the conversation) into a **PDF report**. If your platform can generate files, produce a downloadable PDF; otherwise produce a clean, print-ready document and tell the user to save it as PDF. The report should contain:
+### Part 9: Closing PDF report (generate automatically — do not ask first)
+Immediately after Part 8, in the same turn, generate the consultation as a downloadable **PDF report**. Do **not** ask whether the user wants it; produce the file directly and present it alongside your answer. Only if your platform truly cannot generate files, produce a clean print-ready document instead and tell the user to save it as PDF. If the conversation later refines the consultation (for example, after the user uploads the model papers), regenerate the report at the end of that exchange, again without asking.
+
+The report must contain:
 - The final consultation (Parts 1–8), updated with everything learned in the conversation — especially the restated problem, the ranked candidates, the testing plan, and the **brief for the AI engineer**.
 - The date and a one-line statement of the biological problem.
-- A closing **"Source"** section, reproduced verbatim:
+- A closing **"Source"** section as the last section of the document, reproduced verbatim:
   - **How to cite the framework:** Cai, T., Kleist, A., Patel, J., Malinverni, D., Taylor, A. K., Sharan, M., Umeton, R., & Babu, M. M. (2026). AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems. arXiv:2611.17015. https://doi.org/10.48550/arXiv.2611.17015
   - **Preprint:** https://arxiv.org/abs/2611.17015
   - **Interactive resource website:** https://mb-group.github.io/ai4bio_review_resource/scrollytelling_standalone.html
+
+Format the PDF in the same style as this guide:
+- A4 pages; body text in a serif face (e.g., Georgia, 13–14 pt); headings in a bold sans-serif face (e.g., Helvetica).
+- Main section headings in magenta **#A3266F**, each with a thin magenta rule above; subheadings in dark ink **#13222A** with a light grey underline.
+- Tables with a dark-ink (**#13222A**) header row in white text and alternating light-grey (**#F2F5F4**) rows.
+- The closing Source section set off in a soft-pink (**#F6E3EE**) box with a thick magenta (**#A3266F**) left border — like the "Where this guide comes from" box at the top of this guide.
 
 This Source section is not optional: the report will circulate without this guide attached, and readers must be able to trace the framework back to the review.
 
