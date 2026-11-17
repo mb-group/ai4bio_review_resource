@@ -47,7 +47,11 @@ GUIDES_JS = """<script>
 })();
 </script>""" % json.dumps(guides)
 
-pages = {"resource": inline_page("resource.html").replace("</body>", GUIDES_JS + "</body>"),
+LENS = "content_plan/stjude_ai4bio_lens.jpg"
+lens_uri = "data:image/jpeg;base64," + base64.b64encode((ROOT / LENS).read_bytes()).decode()
+
+pages = {"resource": inline_page("resource.html").replace('src="%s"' % LENS, 'src="%s"' % lens_uri)
+                                                 .replace("</body>", GUIDES_JS + "</body>"),
          "techniques": inline_page("techniques.html")}
 pages_js = json.dumps(pages).replace("</", "<\\/")
 

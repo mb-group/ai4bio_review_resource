@@ -319,7 +319,11 @@ td .pfig{max-width:300px}
 /* downloadable chat guides (Landscape page) */
 .gdl{margin:0 0 26px;padding:18px 20px;background:var(--boundary-soft);border:1px solid var(--rule);border-left:4px solid var(--boundary);border-radius:6px}
 .gdl h3{font-size:17px;letter-spacing:-.01em;margin:0 0 8px}
+.gdl-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:center}
+.gdl .glens{margin:0}
+.gdl .glens img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px}
 .gdl .gintro{font-family:var(--f-body);font-size:15.5px;line-height:1.5;margin:0;max-width:84ch}
+@media(max-width:900px){.gdl-grid{grid-template-columns:1fr}}
 .gdl-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .gdl-cards>div{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px}
 .gdl-cards b{font-size:14.5px}
@@ -751,18 +755,23 @@ function pageLandscape(){
    <div class="terms">Terms used here: ${["Vocabulary and token","Representation model","Predictive model","Generative model","Virtual cell / perturbation model","Five design elements"].map(gterm).join(" · ")}</div></div>
    <div class="gdl" id="guides">
      <h3>See through the lens of this review — in your own chat window</h3>
-     <p class="gintro">These two guides condense the review's knowledge-boundary framework into instructions an AI assistant can follow. Download the one that fits your need and attach the PDF to your chat window (ChatGPT, Claude, Gemini, …) at the start of a conversation — the assistant will look at your paper or your biology problem through the lens of this review.</p>
-     <div class="gdl-cards">
+     <div class="gdl-grid">
        <div>
-         <b>&#128196; I need help understanding a paper</b>
-         <a class="gbtn" href="for_download/knowledge_boundary_model_briefing_guide.pdf" download data-guide="briefing">&#8595; Download the model briefing guide (PDF)</a>
-         <span class="gfn">knowledge_boundary_model_briefing_guide.pdf</span>
+         <p class="gintro">These two guides condense the review's knowledge-boundary framework into instructions an AI assistant can follow. Download the one that fits your need and attach the PDF to your chat window (ChatGPT, Claude, Gemini, …) at the start of a conversation — the assistant will look at your paper or your biology problem through the lens of this review.</p>
+         <div class="gdl-cards">
+           <div>
+             <b>&#128196; I need help understanding a paper</b>
+             <a class="gbtn" href="for_download/knowledge_boundary_model_briefing_guide.pdf" download data-guide="briefing">&#8595; Download the model briefing guide (PDF)</a>
+             <span class="gfn">knowledge_boundary_model_briefing_guide.pdf</span>
+           </div>
+           <div>
+             <b>&#129517; I need help planning my research</b>
+             <a class="gbtn" href="for_download/problem_to_model_consultation_guide.pdf" download data-guide="consult">&#8595; Download the consultation guide (PDF)</a>
+             <span class="gfn">problem_to_model_consultation_guide.pdf</span>
+           </div>
+         </div>
        </div>
-       <div>
-         <b>&#129517; I need help planning my research</b>
-         <a class="gbtn" href="for_download/problem_to_model_consultation_guide.pdf" download data-guide="consult">&#8595; Download the consultation guide (PDF)</a>
-         <span class="gfn">problem_to_model_consultation_guide.pdf</span>
-       </div>
+       <figure class="glens"><img src="content_plan/stjude_ai4bio_lens.jpg" alt="Navigating AI models for biology — know the boundary before you sail. A navigator looks through a St. Jude ai4bio telescope at islands of model families (sequence and evolution, genome × functional state, cells and tissues, perturbation and causal, molecular structure) rising from seas of data, with a dashed route marking the knowledge boundary." loading="lazy"></figure>
      </div>
    </div>
    <div class="legend" style="margin-bottom:12px"><span><i class="k-chip"></i>Model</span><span><i class="k-bd"></i>Limit documented in the review</span><span><i class="k-sec"></i>Also in another row</span><span><i class="k-gap"></i>No model in the review</span></div>
