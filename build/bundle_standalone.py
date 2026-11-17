@@ -28,7 +28,27 @@ def inline_page(name):
     assert 'src="site-data.js"' not in h and 'href="site.css"' not in h
     return h.replace("</body>", BRIDGE + "</body>")
 
-pages = {"resource": inline_page("resource.html"), "techniques": inline_page("techniques.html")}
+# ---- downloadable guide PDFs -> embedded data (Landscape page downloads work offline) ------
+GUIDE_PDFS = {"briefing": "knowledge_boundary_model_briefing_guide.pdf",
+              "consult": "problem_to_model_consultation_guide.pdf"}
+guides = {k: {"name": f, "b64": base64.b64encode((ROOT / "for_download" / f).read_bytes()).decode()}
+          for k, f in GUIDE_PDFS.items()}
+GUIDES_JS = """<script>
+/* standalone: serve the downloadable guides from embedded data (works offline) */
+(function(){
+ var GUIDES=%s;
+ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-guide]');if(!a)return;
+  var g=GUIDES[a.dataset.guide];if(!g)return;e.preventDefault();e.stopPropagation();
+  var bin=atob(g.b64),bytes=new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  var url=URL.createObjectURL(new Blob([bytes],{type:'application/pdf'}));
+  var d=document.createElement('a');d.href=url;d.download=g.name;document.body.appendChild(d);d.click();d.remove();
+  setTimeout(function(){URL.revokeObjectURL(url)},4000);},true);
+})();
+</script>""" % json.dumps(guides)
+
+pages = {"resource": inline_page("resource.html").replace("</body>", GUIDES_JS + "</body>"),
+         "techniques": inline_page("techniques.html")}
 pages_js = json.dumps(pages).replace("</", "<\\/")
 
 # ---- figures -> data URIs -----------------------------------------------------------------

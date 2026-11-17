@@ -316,6 +316,18 @@ td .about b{font-weight:600;color:var(--ink);margin-right:4px}
 .pfig figcaption{font-size:12px;color:#566870;margin-top:4px}
 td .pfig{max-width:300px}
 
+/* downloadable chat guides (Landscape page) */
+.gdl{margin:0 0 26px;padding:18px 20px;background:var(--boundary-soft);border:1px solid var(--rule);border-left:4px solid var(--boundary);border-radius:6px}
+.gdl h3{font-size:17px;letter-spacing:-.01em;margin:0 0 8px}
+.gdl .gintro{font-family:var(--f-body);font-size:15.5px;line-height:1.5;margin:0;max-width:84ch}
+.gdl-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.gdl-cards>div{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.gdl-cards b{font-size:14.5px}
+.gdl .gbtn{display:inline-block;align-self:flex-start;font:600 13.5px var(--f-display);text-decoration:none;color:#fff;background:var(--boundary);border:1px solid var(--boundary);border-radius:6px;padding:9px 14px}
+.gdl .gbtn:hover{background:var(--ink);border-color:var(--ink)}
+.gdl .gfn{font:400 11px var(--f-mono);color:var(--muted);word-break:break-all}
+@media(max-width:720px){.gdl-cards{grid-template-columns:1fr}}
+
 </style></head>
 <body>
 <div class="wrap">
@@ -737,6 +749,22 @@ function pageLandscape(){
   return `<div class="pagehead" style="max-width:none"><h2>Landscape</h2>
    <p>The ${M.length} models of the review placed as in Figure 2B,C. Columns are the <b>data axis</b>: what biological information enters the model, from a single residue to a cell in its tissue. Rows are the <b>task axis</b>: what the model produces. Select a model to read its five design elements, the studies behind it, and its references.</p>
    <div class="terms">Terms used here: ${["Vocabulary and token","Representation model","Predictive model","Generative model","Virtual cell / perturbation model","Five design elements"].map(gterm).join(" · ")}</div></div>
+   <div class="gdl" id="guides">
+     <h3>See through the lens of this review — in your own chat window</h3>
+     <p class="gintro">These two guides condense the review's knowledge-boundary framework into instructions an AI assistant can follow. Download the one that fits your need and attach the PDF to your chat window (ChatGPT, Claude, Gemini, …) at the start of a conversation — the assistant will look at your paper or your biology problem through the lens of this review.</p>
+     <div class="gdl-cards">
+       <div>
+         <b>&#128196; I need help understanding a paper</b>
+         <a class="gbtn" href="for_download/knowledge_boundary_model_briefing_guide.pdf" download data-guide="briefing">&#8595; Download the model briefing guide (PDF)</a>
+         <span class="gfn">knowledge_boundary_model_briefing_guide.pdf</span>
+       </div>
+       <div>
+         <b>&#129517; I need help planning my research</b>
+         <a class="gbtn" href="for_download/problem_to_model_consultation_guide.pdf" download data-guide="consult">&#8595; Download the consultation guide (PDF)</a>
+         <span class="gfn">problem_to_model_consultation_guide.pdf</span>
+       </div>
+     </div>
+   </div>
    <div class="legend" style="margin-bottom:12px"><span><i class="k-chip"></i>Model</span><span><i class="k-bd"></i>Limit documented in the review</span><span><i class="k-sec"></i>Also in another row</span><span><i class="k-gap"></i>No model in the review</span></div>
    <div class="toolbar"><label class="toggle"><input type="checkbox" id="l-desc" ${ST.land.desc?"checked":""}> Show a one-line description under each model (from the original papers)</label></div>
    <div class="mapscroll"><div class="map ${ST.land.desc?"wide":""}" id="map">${mapCells()}</div></div>
