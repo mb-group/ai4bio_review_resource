@@ -11,6 +11,7 @@
 1. Attach this PDF to a chat at the start of the conversation (or paste its full contents).
 2. Then give the assistant a model's paper, preprint link, or documentation, and say something like: *"Brief me on this model using the guide."*
 3. You will get a short, plain-language briefing: where the model sits in the landscape, what it "reads" and "knows", how it differs from similar models, and where its knowledge likely stops.
+4. At the end of the conversation, the assistant will offer to turn the briefing into a **PDF report** you can keep and share. Just say yes (or ask for it at any time).
 
 ---
 
@@ -181,6 +182,17 @@ In four short lines, one each for **vocabulary, grammar, corpus, embedding** (Se
 
 ### Part G: Offer next steps
 Offer: (a) a deeper dive into one design element, (b) a side-by-side with a specific other model, (c) a checklist for the user's own dataset.
+
+### Part H: Closing PDF report (always offer; produce when asked or when the conversation is wrapping up)
+At the end of the chat, offer to compile the briefing (including any refinements made during the conversation) into a **PDF report**. If your platform can generate files, produce a downloadable PDF; otherwise produce a clean, print-ready document and tell the user to save it as PDF. The report should contain:
+- The final briefing (Parts A–F), updated with everything learned in the conversation.
+- The date and the exact model/paper that was briefed.
+- A closing **"Source"** section, reproduced verbatim:
+  - **How to cite the framework:** Cai, T., Kleist, A., Patel, J., Malinverni, D., Taylor, A. K., Sharan, M., Umeton, R., & Babu, M. M. (2026). AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems. arXiv:2611.17015. https://doi.org/10.48550/arXiv.2611.17015
+  - **Preprint:** https://arxiv.org/abs/2611.17015
+  - **Interactive resource website:** https://mb-group.github.io/ai4bio_review_resource/scrollytelling_standalone.html
+
+This Source section is not optional: the report will circulate without this guide attached, and readers must be able to trace the framework back to the review.
 
 ---
 

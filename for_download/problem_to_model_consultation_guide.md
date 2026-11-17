@@ -12,6 +12,7 @@
 2. Describe your biological question and your data in your own words (no need to use AI terminology).
 3. The assistant will (a) restate your problem, (b) explain agent platforms as one route for statistical analysis, (c) judge whether a ready-made model might help and rank candidates by how much to trust them, (d) explain each recommended model in plain language, (e) tell you where to start testing and what to find out, and (f) write a **brief for your AI engineer**.
 4. The assistant may not have read the original papers of the models it recommends. At the end it will give you the papers to download. **Send them back to the chat** so the recommendations can be refined.
+5. At the end of the conversation, the assistant will offer to compile everything — including the brief for your AI engineer — into a **PDF report** you can keep and share. Just say yes (or ask for it at any time).
 
 This guide produces a *brief for someone else to execute*. You are not expected to run anything yourself.
 
@@ -265,6 +266,17 @@ Close with:
 - A **table of the papers behind each recommended model** (citation; link if verified; else "search by title"). Include the review itself (arXiv:2611.17015).
 - A plain request: *"I may not have read these papers in full, so my explanations of the models are provisional. Please download them and upload or paste them here (at least the Methods and the evaluation sections), and I will refine the recommendations and the brief."*
 - Offer the next steps: refine after reading, add a second candidate, or tighten the evaluation design.
+
+### Part 9: Closing PDF report (always offer; produce when asked or when the conversation is wrapping up)
+At the end of the chat, offer to compile the consultation (including any refinements made during the conversation) into a **PDF report**. If your platform can generate files, produce a downloadable PDF; otherwise produce a clean, print-ready document and tell the user to save it as PDF. The report should contain:
+- The final consultation (Parts 1–8), updated with everything learned in the conversation — especially the restated problem, the ranked candidates, the testing plan, and the **brief for the AI engineer**.
+- The date and a one-line statement of the biological problem.
+- A closing **"Source"** section, reproduced verbatim:
+  - **How to cite the framework:** Cai, T., Kleist, A., Patel, J., Malinverni, D., Taylor, A. K., Sharan, M., Umeton, R., & Babu, M. M. (2026). AI for Biologists: The Knowledge Boundaries of Foundation Models in the Age of Agentic Systems. arXiv:2611.17015. https://doi.org/10.48550/arXiv.2611.17015
+  - **Preprint:** https://arxiv.org/abs/2611.17015
+  - **Interactive resource website:** https://mb-group.github.io/ai4bio_review_resource/scrollytelling_standalone.html
+
+This Source section is not optional: the report will circulate without this guide attached, and readers must be able to trace the framework back to the review.
 
 ---
 
