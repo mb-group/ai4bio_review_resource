@@ -8,7 +8,7 @@
 
 ## 0. How to use this document (for the human reader)
 
-1. Paste this whole document into a chat at the start of the conversation.
+1. Attach this PDF to a chat at the start of the conversation (or paste its full contents).
 2. Then give the assistant a model's paper, preprint link, or documentation, and say something like: *"Brief me on this model using the guide."*
 3. You will get a short, plain-language briefing: where the model sits in the landscape, what it "reads" and "knows", how it differs from similar models, and where its knowledge likely stops.
 

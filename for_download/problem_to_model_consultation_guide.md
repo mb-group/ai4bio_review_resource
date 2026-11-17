@@ -8,7 +8,7 @@
 
 ## 0. How to use this document (for the human reader)
 
-1. Paste this whole document into a chat at the start of the conversation.
+1. Attach this PDF to a chat at the start of the conversation (or paste its full contents).
 2. Describe your biological question and your data in your own words (no need to use AI terminology).
 3. The assistant will (a) restate your problem, (b) explain agent platforms as one route for statistical analysis, (c) judge whether a ready-made model might help and rank candidates by how much to trust them, (d) explain each recommended model in plain language, (e) tell you where to start testing and what to find out, and (f) write a **brief for your AI engineer**.
 4. The assistant may not have read the original papers of the models it recommends. At the end it will give you the papers to download. **Send them back to the chat** so the recommendations can be refined.
